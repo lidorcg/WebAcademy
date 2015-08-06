@@ -1,13 +1,9 @@
 from django.contrib import admin
 
-from .models import Course, Module, Lecture, Assignment, Quiz, Concept
-from .models import LectureConcept, AssignmentConcept, QuizConcept
+from .models import Course, Module, Content, Concept, ContentConcept
 
 
 # Register your models here.
-admin.site.register(Concept)
-
-
 class ModuleInline(admin.TabularInline):
     model = Module
 
@@ -17,45 +13,23 @@ class CourseAdmin(admin.ModelAdmin):
     inlines = [ModuleInline, ]
 
 
-class LectureInline(admin.TabularInline):
-    model = Lecture
-
-
-class AssignmentInline(admin.TabularInline):
-    model = Assignment
-
-
-class QuizInline(admin.TabularInline):
-    model = Quiz
+class ContentInline(admin.TabularInline):
+    model = Content
+    extra = 0
 
 
 @admin.register(Module)
 class ModuleAdmin(admin.ModelAdmin):
-    inlines = [LectureInline, AssignmentInline, QuizInline, ]
+    inlines = [ContentInline, ]
 
 
-class LectureConceptInline(admin.TabularInline):
-    model = LectureConcept
+class ContentConceptInline(admin.TabularInline):
+    model = ContentConcept
 
 
-@admin.register(Lecture)
+@admin.register(Content)
 class LectureAdmin(admin.ModelAdmin):
-    inlines = [LectureConceptInline, ]
+    inlines = [ContentConceptInline, ]
 
 
-class AssignmentConceptInline(admin.TabularInline):
-    model = AssignmentConcept
-
-
-@admin.register(Assignment)
-class AssignmentAdmin(admin.ModelAdmin):
-    inlines = [AssignmentConceptInline, ]
-
-
-class QuizConceptInline(admin.TabularInline):
-    model = QuizConcept
-
-
-@admin.register(Quiz)
-class QuizAdmin(admin.ModelAdmin):
-    inlines = [QuizConceptInline, ]
+admin.site.register(Concept)

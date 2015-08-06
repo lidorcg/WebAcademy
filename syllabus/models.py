@@ -14,42 +14,26 @@ class Module(models.Model):
     course = models.ForeignKey('Course')
     title = models.CharField(max_length=100)
     description = models.TextField()
+    # ToDo create ordering field
 
     def __str__(self):
         return self.title
 
 
-class Lecture(models.Model):
+class Content(models.Model):
     module = models.ForeignKey('Module')
+    type = models.ForeignKey('Type')
     title = models.CharField(max_length=100)
     description = models.TextField()
     time = models.DurationField()
-    concepts = models.ManyToManyField('Concept', through='LectureConcept')
+    concepts = models.ManyToManyField('Concept', through='ContentConcept')
+
+
+class Type(models.Model):
+    name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.title
-
-
-class Assignment(models.Model):
-    module = models.ForeignKey('Module')
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    time = models.DurationField()
-    concepts = models.ManyToManyField('Concept', through='AssignmentConcept')
-
-    def __str__(self):
-        return self.title
-
-
-class Quiz(models.Model):
-    module = models.ForeignKey('Module')
-    title = models.CharField(max_length=100)
-    description = models.TextField()
-    time = models.DurationField()
-    concepts = models.ManyToManyField('Concept', through='QuizConcept')
-
-    def __str__(self):
-        return self.title
+        return self.name
 
 
 class Concept(models.Model):
@@ -59,16 +43,6 @@ class Concept(models.Model):
         return self.name
 
 
-class LectureConcept(models.Model):
-    lecture = models.ForeignKey('Lecture')
-    concept = models.ForeignKey('Concept')
-
-
-class AssignmentConcept(models.Model):
-    assignment = models.ForeignKey('Assignment')
-    concept = models.ForeignKey('Concept')
-
-
-class QuizConcept(models.Model):
-    quiz = models.ForeignKey('Quiz')
+class ContentConcept(models.Model):
+    content = models.ForeignKey('Content')
     concept = models.ForeignKey('Concept')
