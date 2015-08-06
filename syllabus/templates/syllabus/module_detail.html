@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>{{ module.course.title }}</h1>
+<h2>{{ module.title }}</h2>
+<h5>{{ module.description }}</h5>
+<h4>Contents:</h4>
+<ul>
+{% for content in module.get_content %}
+    <li>{{ content.type.name }}: <a href="{% url 'content-detail' content.id %}">{{ content.title }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>

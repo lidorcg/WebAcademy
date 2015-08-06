@@ -9,15 +9,21 @@ class Course(models.Model):
     def __str__(self):
         return self.title
 
+    def get_modules(self):
+        return self.module_set.order_by('order')
+
 
 class Module(models.Model):
     course = models.ForeignKey('Course')
     title = models.CharField(max_length=100)
     description = models.TextField()
-    # ToDo create ordering field
+    order = models.PositiveSmallIntegerField()
 
     def __str__(self):
         return self.title
+
+    def get_content(self):
+        return self.content_set.order_by('order')
 
 
 class Content(models.Model):
@@ -25,18 +31,22 @@ class Content(models.Model):
     type = models.ForeignKey('Type')
     title = models.CharField(max_length=100)
     description = models.TextField()
-    time = models.DurationField()
+    time = models.DurationField()  # ToDo duration in minutes
     concepts = models.ManyToManyField('Concept', through='ContentConcept')
+    order = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return self.title
 
 
-class Type(models.Model):
+class Concept(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
 
-class Concept(models.Model):
+class Type(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):

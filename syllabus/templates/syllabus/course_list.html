@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h2>Courses</h2>
-<ul>
-    {% for course in courses %}
-        <li>{{ course.title }}</li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Courses</h2>
+    <ul>
+        {% for course in courses %}
+            <li><a href="{% url 'course-detail' course.id %}">{{ course.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>{{ course.title }}</h1>
+<h5>{{ course.description }}</h5>
+<h4>Modules:</h4>
+<ul>
+{% for module in course.get_modules %}
+    <li><a href="{% url 'module-detail' module.id %}">{{ module.title }}</a></li>
+{% endfor %}
+</ul>
+</body>
+</html>

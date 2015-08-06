@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>{{ content.module.course.title }}</h1>
+<h2>{{ content.module.title }}</h2>
+<h3><strong>{{ content.type }}: </strong>{{ content.title }}</h3>
+<h5>{{ content.description }}</h5>
+<h5><strong>Time: </strong> {{ content.time }}</h5>
+<ul>
+    {% for concept in content.concepts.all %}
+        <li>{{ concept.name }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
