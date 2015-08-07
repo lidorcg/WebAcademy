@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>{{ module.course.title }}</h1>
-<h2>{{ module.title }}</h2>
-<h5>{{ module.description }}</h5>
-<h4>Contents:</h4>
-<ul>
-{% for content in module.get_content %}
-    <li>{{ content.type.name }}: <a href="{% url 'content-detail' content.id %}">{{ content.title }}</a></li>
-{% endfor %}
-</ul>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h4>{{ module.course.title }}</h4>
+    <h5>{{ module.title }}</h5>
+    <h6>{{ module.description }}</h6>
+    <h4>Contents:</h4>
+
+    <table class="mdl-data-table mdl-js-data-table">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">Type</th>
+            <th class="mdl-data-table__cell--non-numeric">Name</th>
+            <th>Progress</th>
+            <th>Link</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for content in module.get_contents %}
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">
+                    <strong>{{ content.type.name }}</strong>
+                </td>
+                <td class="mdl-data-table__cell--non-numeric">
+                    {{ content.title }}
+                </td>
+                <td>43%</td>
+                <td><a href="{% url 'content-detail' content.id %}">
+                    <i class="material-icons md-dark">play_arrow</i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -2,27 +2,28 @@
 
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Syllabus Design Lite</title>
 
     {% load static %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="{% static "syllabus/css/material.min.css" %}">
-    <link rel="stylesheet" href="{% static "syllabus/css/base.css" %}">
+    {% block CSS %}
+        <link rel="stylesheet" href="{% static "syllabus/css/material.min.css" %}">
+        <link rel="stylesheet" href="{% static "syllabus/css/material-icons.css" %}">
+        <link rel="stylesheet" href="{% static "syllabus/css/base.css" %}">
+    {% endblock %}
 
-    <script src="{% static "syllabus/js/material.min.js" %}"></script>
+    {% block JS %}
+        <script src="{% static "syllabus/js/material.min.js" %}"></script>
+    {% endblock %}
+
 </head>
 
 <body>
-<div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout-icon"></div>
-    </header>
-    {% block content %}{% endblock %}
-</div>
+
+{% block layout %}
+
+{% endblock %}
 
 </body>
 

@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>{{ content.module.course.title }}</h1>
-<h2>{{ content.module.title }}</h2>
-<h3><strong>{{ content.type }}: </strong>{{ content.title }}</h3>
-<h5>{{ content.description }}</h5>
-<h5><strong>Time: </strong> {{ content.time }}</h5>
-<ul>
-    {% for concept in content.concepts.all %}
-        <li>{{ concept.name }}</li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h2>{{ content.module.course.title }}</h2>
+    <h3>{{ content.module.title }}</h3>
+    <h4><strong>{{ content.type }}: </strong>{{ content.title }}</h4>
+    <h5>{{ content.description }}</h5>
+    <h5><strong>Time: </strong> {{ content.time }}</h5>
+
+        {% for concept in content.concepts.all %}
+            <!-- ToDo create a link from concept to all items that points to it -->
+            <!-- ToDo if concept is covered in assignment or quiz mark it appropriately -->
+            <div class="mdl-button mdl-js-button mdl-button--raised">{{ concept.name }}</div>
+        {% endfor %}
+
+{% endblock %}

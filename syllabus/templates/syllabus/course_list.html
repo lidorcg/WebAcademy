@@ -1,10 +1,26 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
-    <h2>Courses</h2>
-    <ul>
+
+    <h4>Courses:</h4>
+
+    <table class="mdl-data-table mdl-js-data-table">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">Name</th>
+            <th>Progress</th>
+            <th>Link</th>
+        </tr>
+        </thead>
+        <tbody>
         {% for course in courses %}
-            <li><a href="{% url 'course-detail' course.id %}">{{ course.title }}</a></li>
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">{{ course.title }}</td>
+                <td>43%</td>
+                <td><a href="{% url 'course-detail' course.id %}"><i class="material-icons md-dark">play_arrow</i></a></td>
+            </tr>
         {% endfor %}
-    </ul>
+        </tbody>
+    </table>
+
 {% endblock %}

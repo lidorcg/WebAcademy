@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block layout %}
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
+        {% block header %}
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                </div>
+            </header>
+        {% endblock %}
+
+        {% block drawer %}
+            <div class="mdl-layout__drawer mdl-color--indigo-800 mdl-color-text--white">
+                <span class="mdl-layout-title">Syllabus Builder</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'home' %}">Home</a>
+                    <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'course-list' %}">Courses</a>
+                </nav>
+            </div>
+        {% endblock %}
+
+        {% block main %}
+
+            <main class="mdl-layout__content">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--1-col"></div>
+                    <div class="mdl-cell mdl-cell--10-col">
+                        {% block content %}
+
+                        {% endblock %}
+                    </div>
+                </div>
+            </main>
+
+        {% endblock %}
+
+
+    </div>
+
+{% endblock %}

@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^courses/(?P<pk>[0-9]+)/$', views.CourseDetailView.as_view(), name='course-detail'),
     url(r'^modules/(?P<pk>[0-9]+)/$', views.ModuleDetailView.as_view(), name='module-detail'),
     url(r'^contents/(?P<pk>[0-9]+)/$', views.ContentDetailView.as_view(), name='content-detail'),
+    url(r'^$', views.CourseListView.as_view(), name='home'),
 ]

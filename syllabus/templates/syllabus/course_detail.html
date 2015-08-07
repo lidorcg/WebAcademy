@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>{{ course.title }}</h1>
-<h5>{{ course.description }}</h5>
-<h4>Modules:</h4>
-<ul>
-{% for module in course.get_modules %}
-    <li><a href="{% url 'module-detail' module.id %}">{{ module.title }}</a></li>
-{% endfor %}
-</ul>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h4>{{ course.title }}</h4>
+    <h6>{{ course.description }}</h6>
+    <h4>Modules:</h4>
+
+    <table class="mdl-data-table mdl-js-data-table">
+        <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric">Name</th>
+            <th>Progress</th>
+            <th>Link</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for module in course.get_modules %}
+            <tr>
+                <td class="mdl-data-table__cell--non-numeric">{{ module.title }}</td>
+                <td>43%</td>
+                <td><a href="{% url 'module-detail' module.id %}">
+                    <i class="material-icons md-dark">play_arrow</i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

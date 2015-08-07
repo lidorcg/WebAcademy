@@ -5,6 +5,8 @@ from django.db import models
 class Course(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    # ToDo add progress tracking
+    # ToDo add creator relationship to User
 
     def __str__(self):
         return self.title
@@ -18,11 +20,12 @@ class Module(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     order = models.PositiveSmallIntegerField()
+    # ToDo add progress tracking
 
     def __str__(self):
         return self.title
 
-    def get_content(self):
+    def get_contents(self):
         return self.content_set.order_by('order')
 
 
@@ -34,6 +37,7 @@ class Content(models.Model):
     time = models.DurationField()  # ToDo duration in minutes
     concepts = models.ManyToManyField('Concept', through='ContentConcept')
     order = models.PositiveSmallIntegerField()
+    # ToDo add progress tracking
 
     def __str__(self):
         return self.title
