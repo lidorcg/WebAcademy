@@ -8,10 +8,10 @@
     <h5>{{ content.description }}</h5>
     <h5><strong>Time: </strong> {{ content.time }}</h5>
 
-        {% for concept in content.concepts.all %}
-            <!-- ToDo create a link from concept to all items that points to it -->
-            <!-- ToDo if concept is covered in assignment or quiz mark it appropriately -->
-            <div class="mdl-button mdl-js-button mdl-button--raised">{{ concept.name }}</div>
-        {% endfor %}
+    {% for concept in content.concepts.all %}
+        <!-- ToDo create a link from concept to all items that points to it -->
+        <!-- ToDo if concept is covered in assignment or quiz mark it appropriately -->
+        <div class="mdl-button mdl-js-button mdl-button--raised">{{ concept.name }}</div>
+    {% endfor %}
 
 {% endblock %}

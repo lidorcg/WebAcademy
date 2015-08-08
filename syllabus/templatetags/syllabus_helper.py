@@ -10,4 +10,4 @@ def multiply(a, b):
 
 @register.filter
 def to_minutes(value):
-    return value.seconds/60
+    return value.seconds / 60

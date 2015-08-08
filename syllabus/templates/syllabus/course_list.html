@@ -17,7 +17,8 @@
             <tr>
                 <td class="mdl-data-table__cell--non-numeric">{{ course.title }}</td>
                 <td>43%</td>
-                <td><a href="{% url 'course-detail' course.id %}"><i class="material-icons md-dark">play_arrow</i></a></td>
+                <td><a href="{% url 'course-detail' course.id %}"><i class="material-icons md-dark">play_arrow</i></a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

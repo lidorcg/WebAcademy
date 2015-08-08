@@ -1,5 +1,6 @@
-from .helper import *
 from django.db import models
+
+from .helper import *
 
 
 # Create your models here.
