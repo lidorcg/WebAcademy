@@ -1,3 +1,4 @@
+from .helper import *
 from django.db import models
 
 
@@ -20,8 +21,20 @@ class Course(models.Model):
             return 1
         return sum(m.get_progress() for m in self.module_set.all()) / self.module_set.count()
 
+    def get_lectures_time(self):
+        return sum_timedelta(m.get_lectures_time() for m in self.module_set.all())
+
+    def get_assignments_time(self):
+        return sum_timedelta(m.get_assignments_time() for m in self.module_set.all())
+
+    def get_quiz_time(self):
+        return sum_timedelta(m.get_quiz_time() for m in self.module_set.all())
+
+    def get_test_time(self):
+        return sum_timedelta(m.get_test_time() for m in self.module_set.all())
+
     def get_time(self):
-        return sum(m.get_time() for m in self.module_set.all())
+        return sum_timedelta(m.get_time() for m in self.module_set.all())
 
 
 class Module(models.Model):
@@ -41,8 +54,20 @@ class Module(models.Model):
             return 1
         return self.content_set.filter(done=True).count() / self.content_set.count()
 
+    def get_lectures_time(self):
+        return sum_timedelta(c.time for c in self.content_set.filter(type__name='Lecture'))
+
+    def get_assignments_time(self):
+        return sum_timedelta(c.time for c in self.content_set.filter(type__name='Assignment'))
+
+    def get_quiz_time(self):
+        return sum_timedelta(c.time for c in self.content_set.filter(type__name='Quiz'))
+
+    def get_test_time(self):
+        return sum_timedelta(c.time for c in self.content_set.filter(type__name='Test'))
+
     def get_time(self):
-        return sum(c.time for c in self.content_set.all())
+        return sum_timedelta(c.time for c in self.content_set.all())
 
 
 class Content(models.Model):

@@ -1,30 +1,92 @@
 {% extends "layout.html" %}
+{% load syllabus_helper %}
 
 {% block content %}
 
-    <h4>{{ course.title }}</h4>
-    <h6>{{ course.description }}</h6>
-    <h4>Modules:</h4>
+    <div class="mdl-grid">
 
-    <table class="mdl-data-table mdl-js-data-table">
-        <thead>
-        <tr>
-            <th class="mdl-data-table__cell--non-numeric">Name</th>
-            <th>Progress</th>
-            <th>Link</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for module in course.get_modules %}
-            <tr>
-                <td class="mdl-data-table__cell--non-numeric">{{ module.title }}</td>
-                <td>43%</td>
-                <td><a href="{% url 'module-detail' module.id %}">
-                    <i class="material-icons md-dark">play_arrow</i></a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="mdl-cell mdl-cell--6-col">
+            {% block left %}
+
+
+                <form action="#">
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input title-input" type="text" id="title"
+                               value="{{ course.title }}"/>
+                        <label class="mdl-textfield__label" for="title">Title</label>
+                    </div>
+
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input textarea-input" type="text" rows="2"
+                                  id="description">{{ course.description }}</textarea>
+                        <label class="mdl-textfield__label" for="description">Description</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input textarea-input" type="text" rows="2"
+                                  id="prerequisites">{{ course.prerequisites }}</textarea>
+                        <label class="mdl-textfield__label" for="prerequisites">Prerequisites</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input textarea-input" type="text" rows="2"
+                                  id="requirements">{{ course.requirements }}</textarea>
+                        <label class="mdl-textfield__label" for="requirements">Requirements</label>
+                    </div>
+
+                </form>
+
+                {% include "pie-chart.html" with obj=course %}
+
+                <div id="donutchart" style="width: 400px; height: 400px;"></div>
+
+
+            {% endblock %}
+        </div>
+
+
+        <div class="mdl-cell mdl-cell--6-col">
+            {% block right %}
+
+                <div class="space-row--1"></div>
+
+                <h4>Modules:</h4>
+
+                <table class="mdl-data-table mdl-js-data-table">
+                    <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Title</th>
+                        <th>Time</th>
+                        <th>Progress</th>
+                        <th>Link</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for module in course.get_modules %}
+                        <tr>
+                            <td class="mdl-data-table__cell--non-numeric">{{ module.title }}</td>
+                            <td>{{ module.get_time }}</td>
+                            <td>
+                                <div id="p{{ module.id }}" class="mdl-progress mdl-js-progress progressbar"></div>
+                                <script>
+                                    document.querySelector('#p{{ module.id }}').addEventListener('mdl-componentupgraded', function () {
+                                        this.MaterialProgress.setProgress({% multiply module.get_progress 100 %});
+                                    });
+                                </script>
+                            </td>
+                            <td><a href="{% url 'module-detail' module.id %}">
+                                <i class="material-icons md-dark">play_arrow</i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            {% endblock %}
+        </div>
+
+    </div>
 
 {% endblock %}

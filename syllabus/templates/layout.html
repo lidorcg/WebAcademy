@@ -2,12 +2,15 @@
 
 {% block layout %}
 
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-tabs">
 
         {% block header %}
-            <header class="mdl-layout__header">
-                <div class="mdl-layout__header-row">
+            <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+                <div class="mdl-layout__header-row"></div>
+                <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+                    <h3>Syllabus Builder</h3>
                 </div>
+                <div class="mdl-layout__header-row"></div>
             </header>
         {% endblock %}
 
@@ -21,8 +24,11 @@
             </div>
         {% endblock %}
 
-        {% block main %}
+        <!-- ToDo add trails -->
 
+        <div class="space-row--1"></div>
+
+        {% block main %}
             <main class="mdl-layout__content">
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--1-col"></div>
@@ -31,19 +37,34 @@
 
                         {% endblock %}
                     </div>
+                    <div class="mdl-cell mdl-cell--1-col"></div>
                 </div>
             </main>
-
         {% endblock %}
+
+        <div class="space-row--2"></div>
 
         {% block footer %}
-
-            <footer class="mdl-mini-footer">
-
+            <footer class="mdl-mega-footer">
+                <div class="mdl-mega-footer__top-section">
+                    <div class="mdl-mega-footer__left-section">
+                    </div>
+                    <div class="mdl-mega-footer__right-section">
+                        <a href="#">Introduction</a>
+                        <a href="#">App Status Dashboard</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="mdl-mega-footer__middle-section">
+                    <div class="mdl-mega-footer__drop-down-section">
+                    </div>
+                    <div class="mdl-mega-footer__drop-down-section">
+                    </div>
+                </div>
+                <div class="mdl-mega-footer__bottom-section">
+                </div>
             </footer>
-
         {% endblock %}
-
 
     </div>
 
