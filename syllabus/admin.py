@@ -13,7 +13,7 @@ class CourseAdmin(admin.ModelAdmin):
     inlines = [ModuleInline, ]
 
 
-class ContentInline(admin.TabularInline):
+class ContentInline(admin.StackedInline):
     model = Content
     extra = 0
 

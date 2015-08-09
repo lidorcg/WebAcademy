@@ -57,3 +57,8 @@
     height: auto;
     text-transform: none;
 }
+
+#donut-chart{
+    height: 400px;
+    width: 400px;
+}

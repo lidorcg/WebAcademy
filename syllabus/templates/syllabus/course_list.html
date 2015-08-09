@@ -16,7 +16,10 @@
         {% for course in courses %}
             <tr>
                 <td class="mdl-data-table__cell--non-numeric">{{ course.title }}</td>
-                <td>43%</td>
+                <td>
+                    <div id="p{{ course.id }}" class="mdl-progress mdl-js-progress progressbar"></div>
+                    {% include 'script-components/progressbar-script.html' with obj=course %}
+                </td>
                 <td><a href="{% url 'course-detail' course.id %}"><i class="material-icons md-dark">play_arrow</i></a>
                 </td>
             </tr>

@@ -101,6 +101,7 @@ class Type(models.Model):
         return self.name
 
 
+# ToDo delete ContentConcept
 class ContentConcept(models.Model):
     content = models.ForeignKey('Content')
     concept = models.ForeignKey('Concept')
