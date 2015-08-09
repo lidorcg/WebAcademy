@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% block left %}
-
     <form action="#">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input title-input" type="text" id="title"
@@ -14,23 +13,19 @@
             <label class="mdl-textfield__label" for="description">Description</label>
         </div>
     </form>
-
-    <!-- ToDo add concepts tag -->
     {% include "script-components/pie-chart-script.html" with obj=module %}
     <div id="donut-chart"></div>
-
 {% endblock %}
 
 {% block right %}
-
     <div class="space-row--1"></div>
     <h4>Contents:</h4>
     <table class="mdl-data-table mdl-js-data-table">
         <thead>
         <tr>
             <!-- ToDo add on the fly order button function -->
-            <th class="mdl-data-table__cell--non-numeric">
-                <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--fab">
+            <th>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--icon">
                     <i class="material-icons">arrow_drop_down</i>
                 </button>
             </th>
@@ -50,13 +45,10 @@
                 <td>{{ content.time }}</td>
                 <td>
                     <!-- ToDo add done button function -->
-                    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-                        {% if content.done %}
-                            <i class="material-icons">check_box</i>
-                        {% else %}
-                            <i class="material-icons">check_box_outline_blank</i>
-                        {% endif %}
-                    </button>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-{{ content.id }}">
+                        <input type="checkbox" id="checkbox-{{ content.id }}" class="mdl-checkbox__input"
+                                {% if content.done %} checked{% endif %}/>
+                    </label>
                 </td>
                 <td><a href="{% url 'content-detail' content.id %}">
                     <i class="material-icons md-dark">arrow_forward</i></a>
@@ -64,5 +56,6 @@
             </tr>
         {% endfor %}
         </tbody>
+        <!-- ToDo add button to add content -->
     </table>
 {% endblock %}

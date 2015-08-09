@@ -1,0 +1,12 @@
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+        <div class="mdl-grid">
+            <!-- ToDo if concept is covered in assignment or quiz mark it appropriately -->
+            {% for concept in concepts %}
+                <div class="mdl-cell mdl-cell--4-col">
+                    <div class="mdl-button mdl-js-button mdl-button--raised">{{ concept.name }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,17 +1,52 @@
 {% extends "layout.html" %}
 
-{% block content %}
+{% block left %}
+    <div class="mdl-grid">
+        <form action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input title-input" type="text" id="title"
+                       value="{{ content.title }}"/>
+                <label class="mdl-textfield__label" for="title">Title</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input textarea-input" rows="2"
+                                  id="description">{{ content.description }}</textarea>
+                <label class="mdl-textfield__label" for="description">Description</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <label class="mdl-textfield__label" for="type">Type</label>
+                <select id="type" class="mdl-textfield__input">
+                    {% for type in types %}
+                        <option value="{{ type.id }}" {% if content.type == type %}selected{% endif %}>
+                            {{ type.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" pattern="[0-9]:[0-9]{2}:[0-9]{2}" id="time"
+                       value="{{ content.time }}"/>
+                <label class="mdl-textfield__label" for="time">Time</label>
+                <span class="mdl-textfield__error">Please insert a valid time: H:MM:SS</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <textarea class="mdl-textfield__input textarea-input" rows="2"
+                          id="requirements">{{ content.requirements }}</textarea>
+                <label class="mdl-textfield__label" for="requirements">Requirements</label>
+            </div>
+            <div class="space-row--1"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <button class="mdl-button mdl-js-button mdl-button--fab
+                {% if content.done %}
+                    mdl-color-text--white mdl-color--green
+                {% endif %}">
+                    <i class="material-icons">done</i>
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
 
-    <h2>{{ content.module.course.title }}</h2>
-    <h3>{{ content.module.title }}</h3>
-    <h4><strong>{{ content.type }}: </strong>{{ content.title }}</h4>
-    <h5>{{ content.description }}</h5>
-    <h5><strong>Time: </strong> {{ content.time }}</h5>
-
-    {% for concept in content.concepts.all %}
-        <!-- ToDo create a link from concept to all items that points to it -->
-        <!-- ToDo if concept is covered in assignment or quiz mark it appropriately -->
-        <div class="mdl-button mdl-js-button mdl-button--raised">{{ concept.name }}</div>
-    {% endfor %}
-
+{% block right %}
+    {% include 'syllabus/blocks/concept-tags.html' with concepts=content.concepts.all %}
 {% endblock %}

@@ -32,6 +32,11 @@
     <table class="mdl-data-table mdl-js-data-table">
         <thead>
         <tr>
+            <th>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--icon">
+                    <i class="material-icons">arrow_drop_down</i>
+                </button>
+            </th>
             <th class="mdl-data-table__cell--non-numeric">Title</th>
             <th>Time</th>
             <th>Progress</th>
@@ -41,6 +46,7 @@
         <tbody>
         {% for module in course.get_modules %}
             <tr>
+                <td>{{ module.order }}</td>
                 <td class="mdl-data-table__cell--non-numeric">{{ module.title }}</td>
                 <td>{{ module.get_time }}</td>
                 <td>
@@ -53,5 +59,6 @@
             </tr>
         {% endfor %}
         </tbody>
+        <!-- ToDo add button to add modules -->
     </table>
 {% endblock %}

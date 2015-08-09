@@ -50,6 +50,13 @@ class Module(models.Model):
     def get_contents(self):
         return self.content_set.order_by('order')
 
+    def get_concepts(self):
+        # ToDo find python/django way to write this function
+        lst = []
+        for c in self.get_contents():
+            lst += c.concepts.all()
+        return lst
+
     def get_progress(self):
         if self.content_set.count() == 0:
             return 1
@@ -73,13 +80,13 @@ class Module(models.Model):
 
 class Content(models.Model):
     module = models.ForeignKey('Module')
-    type = models.ForeignKey('Type')
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
+    type = models.ForeignKey('Type')
     time = models.DurationField()
     concepts = models.ManyToManyField('Concept', through='ContentConcept')
-    order = models.PositiveSmallIntegerField(unique=True)
     requirements = models.TextField(blank=True)
+    order = models.PositiveSmallIntegerField(unique=True)
     done = models.BooleanField(default=False)
 
     def __str__(self):
@@ -105,3 +112,6 @@ class Type(models.Model):
 class ContentConcept(models.Model):
     content = models.ForeignKey('Content')
     concept = models.ForeignKey('Concept')
+
+
+# ToDo add tooltip messages
