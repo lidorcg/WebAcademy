@@ -19,6 +19,7 @@
                                   id="description">{{ module.description }}</textarea>
             <label class="mdl-textfield__label" for="description">Description</label>
         </div>
+        {% include "syllabus/blocks/save-button.html" %}
     </form>
     {% include "script-components/pie-chart-script.html" with obj=module %}
     <div id="donut-chart"></div>
@@ -72,9 +73,5 @@
         </tbody>
     </table>
     <!-- ToDo add functionality to add button -->
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect
-    mdl-button--colored mdl-shadow--4dp mdl-color--accent add-button" id="add">
-        <i class="material-icons" role="presentation">add</i>
-        <span class="visuallyhidden">Add</span>
-    </button>
+    {% include "syllabus/blocks/add-button.html" %}
 {% endblock %}

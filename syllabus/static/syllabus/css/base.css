@@ -10,10 +10,25 @@
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: 32px 16px;
+    padding: 16px 16px;
 }
 
 .space-row--2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 32px 16px;
+}
+
+.space-row--4 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -53,4 +68,12 @@
 
 .breadcrumb {
     padding: 0 0 0 20px;
+}
+
+.tag {
+    text-transform: none;
+}
+
+.done-button {
+    left: 85%;
 }
