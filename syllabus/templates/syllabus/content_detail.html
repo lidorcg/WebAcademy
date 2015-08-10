@@ -1,5 +1,13 @@
 {% extends "layout.html" %}
 
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'course-detail' content.module.course.id %}">{{ content.module.course.title }}</a></li>
+        <li><a href="{% url 'module-detail' content.module.id %}">{{ content.module.title }}</a></li>
+        <li class="active">{{ content.title }}</li>
+    </ol>
+{% endblock %}
+
 {% block left %}
     <div class="mdl-grid">
         <form action="#">
@@ -35,6 +43,7 @@
                 <label class="mdl-textfield__label" for="requirements">Requirements</label>
             </div>
             <div class="space-row--1"></div>
+            <!-- ToDo add done button functionality -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <button class="mdl-button mdl-js-button mdl-button--fab
                 {% if content.done %}
@@ -46,7 +55,7 @@
         </form>
     </div>
 {% endblock %}
-
+<!-- ToDo add form functionality to the page -->
 {% block right %}
     {% include 'syllabus/blocks/concept-tags.html' with concepts=content.concepts.all %}
 {% endblock %}

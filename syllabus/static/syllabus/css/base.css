@@ -41,7 +41,16 @@
     font-size: 14px;
 }
 
-#donut-chart{
-    height: 400px;
-    width: 400px;
+#donut-chart {
+    height: 380px;
+    width: 380px;
+}
+
+.add-button {
+    top: -20px;
+    left: 10px;
+}
+
+.breadcrumb {
+    padding: 0 0 0 20px;
 }

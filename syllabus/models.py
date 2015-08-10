@@ -23,16 +23,16 @@ class Course(models.Model):
         return sum(m.get_progress() for m in self.module_set.all()) / self.module_set.count()
 
     def get_lectures_time(self):
-        return sum_timedelta(m.get_lectures_time() for m in self.module_set.all())
+        return sum_timedelta(m.get_lectures_time() for m in self.get_modules())
 
     def get_assignments_time(self):
-        return sum_timedelta(m.get_assignments_time() for m in self.module_set.all())
+        return sum_timedelta(m.get_assignments_time() for m in self.get_modules())
 
     def get_quiz_time(self):
-        return sum_timedelta(m.get_quiz_time() for m in self.module_set.all())
+        return sum_timedelta(m.get_quiz_time() for m in self.get_modules())
 
     def get_test_time(self):
-        return sum_timedelta(m.get_test_time() for m in self.module_set.all())
+        return sum_timedelta(m.get_test_time() for m in self.get_modules())
 
     def get_time(self):
         return sum_timedelta(m.get_time() for m in self.module_set.all())
@@ -86,8 +86,11 @@ class Content(models.Model):
     time = models.DurationField()
     concepts = models.ManyToManyField('Concept', through='ContentConcept')
     requirements = models.TextField(blank=True)
-    order = models.PositiveSmallIntegerField(unique=True)
+    order = models.PositiveSmallIntegerField()
     done = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = (("module", "order"),)
 
     def __str__(self):
         return self.title
@@ -113,5 +116,5 @@ class ContentConcept(models.Model):
     content = models.ForeignKey('Content')
     concept = models.ForeignKey('Concept')
 
-
 # ToDo add tooltip messages
+# ToDo add files upload and links to content

@@ -1,5 +1,11 @@
 {% extends "layout.html" %}
 
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li class="active">{{ course.title }}</li>
+    </ol>
+{% endblock %}
+
 {% block left %}
     <form action="#">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -26,7 +32,7 @@
     {% include "script-components/pie-chart-script.html" with obj=course %}
     <div id="donut-chart"></div>
 {% endblock %}
-
+<!-- ToDo add form functionality to the page -->
 {% block right %}
     <h4>Modules:</h4>
     <table class="mdl-data-table mdl-js-data-table">
@@ -58,7 +64,20 @@
                 </td>
             </tr>
         {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
         </tbody>
-        <!-- ToDo add button to add modules -->
     </table>
+    <!-- ToDo add functionality to add button -->
+    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect
+    mdl-button--colored mdl-shadow--4dp mdl-color--accent add-button" id="add">
+        <i class="material-icons" role="presentation">add</i>
+        <span class="visuallyhidden">Add</span>
+    </button>
+
 {% endblock %}

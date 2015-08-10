@@ -9,5 +9,5 @@ def multiply(a, b):
 
 
 @register.filter
-def to_minutes(value):
-    return value.seconds / 60
+def to_hours(timedelta):
+    return timedelta.days*24 + timedelta.seconds / 3600

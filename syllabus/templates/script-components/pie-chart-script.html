@@ -5,16 +5,16 @@
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Content Type', 'Time'],
-            ['Lectures', {{ obj.get_lectures_time|to_minutes }}],
-            ['Assignments', {{ obj.get_assignments_time|to_minutes }}],
-            ['Quiz', {{ obj.get_quiz_time|to_minutes }}],
-            ['Test', {{ obj.get_test_time|to_minutes }}]
+            ['Lectures', {{ obj.get_lectures_time|to_hours }}],
+            ['Assignments', {{ obj.get_assignments_time|to_hours }}],
+            ['Quiz', {{ obj.get_quiz_time|to_hours }}],
+            ['Test', {{ obj.get_test_time|to_hours }}]
         ]);
 
         var options = {
-            title: 'Course Time Distribution (minutes)',
+            title: 'Course Time Distribution (hours)',
             pieHole: 0.4,
-            legend: 'none',
+            legend: 'none'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donut-chart'));
