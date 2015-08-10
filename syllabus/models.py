@@ -84,7 +84,7 @@ class Content(models.Model):
     description = models.TextField(blank=True)
     type = models.ForeignKey('Type')
     time = models.DurationField()
-    concepts = models.ManyToManyField('Concept', through='ContentConcept')
+    concepts = models.ManyToManyField('Concept', blank=True)
     requirements = models.TextField(blank=True)
     order = models.PositiveSmallIntegerField()
     done = models.BooleanField(default=False)
@@ -110,11 +110,6 @@ class Type(models.Model):
     def __str__(self):
         return self.name
 
-
-# ToDo delete ContentConcept
-class ContentConcept(models.Model):
-    content = models.ForeignKey('Content')
-    concept = models.ForeignKey('Concept')
 
 # ToDo add tooltip messages
 # ToDo add files upload and links to content
