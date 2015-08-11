@@ -1,5 +1,6 @@
 # Create your views here.
 from django.views.generic import ListView, DetailView
+
 from .models import Course, Module, Content, Concept, Type
 
 
@@ -17,6 +18,11 @@ class ModuleDetailView(DetailView):
     model = Module
     context_object_name = 'module'
 
+    def get_context_data(self, **kwargs):
+        context = super(ModuleDetailView, self).get_context_data(**kwargs)
+        context['types'] = Type.objects.all()
+        return context
+
 
 class ContentDetailView(DetailView):
     model = Content
@@ -29,8 +35,11 @@ class ContentDetailView(DetailView):
 
 
 from rest_framework import viewsets
-from syllabus.serializers import CourseSerializer, ModuleSerializer, ContentSerializer, ConceptSerializer, TypeSerializer
+from syllabus.serializers import CourseSerializer, ModuleSerializer, ContentSerializer, ConceptSerializer, \
+    TypeSerializer
 
+
+# ToDo change redirection after CRUD
 
 class CourseViewSet(viewsets.ModelViewSet):
     """

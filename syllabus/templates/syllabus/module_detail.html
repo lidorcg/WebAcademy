@@ -8,23 +8,11 @@
 {% endblock %}
 
 {% block left %}
-    <form action="#">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input title-input" type="text" id="title"
-                   value="{{ module.title }}"/>
-            <label class="mdl-textfield__label" for="title">Title</label>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <textarea class="mdl-textfield__input textarea-input" rows="2"
-                                  id="description">{{ module.description }}</textarea>
-            <label class="mdl-textfield__label" for="description">Description</label>
-        </div>
-        {% include "syllabus/blocks/save-button.html" %}
-    </form>
+    {% include "syllabus/forms/update-form.html" with form="module" obj=module %}
     {% include "script-components/pie-chart-script.html" with obj=module %}
     <div id="donut-chart"></div>
 {% endblock %}
-<!-- ToDo add form functionality to the page -->
+
 {% block right %}
     <h4>Contents:</h4>
     <table class="mdl-data-table mdl-js-data-table">
@@ -72,6 +60,11 @@
         </tr>
         </tbody>
     </table>
-    <!-- ToDo add functionality to add button -->
     {% include "syllabus/blocks/add-button.html" %}
 {% endblock %}
+
+{% block create-form %}
+    {% include 'syllabus/forms/create-form.html' with url="/rest/contents/" form="content" %}
+{% endblock %}
+
+

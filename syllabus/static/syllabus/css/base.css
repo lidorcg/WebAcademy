@@ -48,7 +48,7 @@
 }
 
 .title-input {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .textarea-input {
@@ -80,4 +80,8 @@
 
 .add-tag-icon {
     margin-top: 12%;
+}
+
+.form-card {
+    max-width: 300px;
 }

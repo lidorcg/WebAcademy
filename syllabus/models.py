@@ -38,6 +38,9 @@ class Course(models.Model):
     def get_time(self):
         return sum_timedelta(m.get_time() for m in self.module_set.all())
 
+    def get_modules_count(self):
+        return self.get_modules().count()
+
 
 class Module(models.Model):
     course = models.ForeignKey('Course')
@@ -78,13 +81,16 @@ class Module(models.Model):
     def get_time(self):
         return sum_timedelta(c.time for c in self.content_set.all())
 
+    def get_contents_count(self):
+        return self.get_contents().count()
+
 
 class Content(models.Model):
     module = models.ForeignKey('Module')
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     type = models.ForeignKey('Type')
-    time = models.DurationField()
+    time = models.DurationField(blank=True, default=datetime.timedelta(0))
     concepts = models.ManyToManyField('Concept', blank=True)
     requirements = models.TextField(blank=True)
     order = models.PositiveSmallIntegerField()

@@ -2,56 +2,17 @@
 
 {% block breadcrumbs %}
     <ol class="breadcrumb">
-        <li><a href="{% url 'syllabus-course-detail' content.module.course.id %}">{{ content.module.course.title }}</a></li>
+        <li><a href="{% url 'syllabus-course-detail' content.module.course.id %}">{{ content.module.course.title }}</a>
+        </li>
         <li><a href="{% url 'syllabus-module-detail' content.module.id %}">{{ content.module.title }}</a></li>
         <li class="active">{{ content.title }}</li>
     </ol>
 {% endblock %}
 
 {% block left %}
-    <div class="mdl-grid">
-        <form action="#">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input title-input" type="text" id="title"
-                       value="{{ content.title }}"/>
-                <label class="mdl-textfield__label" for="title">Title</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <textarea class="mdl-textfield__input textarea-input" rows="2"
-                                  id="description">{{ content.description }}</textarea>
-                <label class="mdl-textfield__label" for="description">Description</label>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <label class="mdl-textfield__label" for="type">Type</label>
-                <select id="type" class="mdl-textfield__input">
-                    {% for type in types %}
-                        <option value="{{ type.id }}" {% if content.type == type %}selected{% endif %}>
-                            {{ type.name }}
-                        </option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" pattern="[0-9]:[0-9]{2}:[0-9]{2}" id="time"
-                       value="{{ content.time }}"/>
-                <label class="mdl-textfield__label" for="time">Time</label>
-                <span class="mdl-textfield__error">Please insert a valid time: H:MM:SS</span>
-            </div>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <textarea class="mdl-textfield__input textarea-input" rows="2"
-                          id="requirements">{{ content.requirements }}</textarea>
-                <label class="mdl-textfield__label" for="requirements">Requirements</label>
-            </div>
-            <div class="space-row--1"></div>
-            <!-- ToDo add done button functionality -->
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-
-            </div>
-            {% include 'syllabus/blocks/save-button.html' %}
-        </form>
-    </div>
+    {% include 'syllabus/forms/update-form.html' with form="content" obj=content %}
 {% endblock %}
-<!-- ToDo add form functionality to the page -->
+
 {% block right %}
     {% include 'syllabus/blocks/done-button.html' %}
     <!-- ToDo add done button functionality -->
