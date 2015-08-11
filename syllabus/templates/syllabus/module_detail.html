@@ -2,7 +2,7 @@
 
 {% block breadcrumbs %}
     <ol class="breadcrumb">
-        <li><a href="{% url 'course-detail' module.course.id %}">{{ module.course.title }}</a></li>
+        <li><a href="{% url 'syllabus-course-detail' module.course.id %}">{{ module.course.title }}</a></li>
         <li class="active">{{ module.title }}</li>
     </ol>
 {% endblock %}
@@ -57,7 +57,7 @@
                                 {% if content.done %} checked{% endif %}/>
                     </label>
                 </td>
-                <td><a href="{% url 'content-detail' content.id %}">
+                <td><a href="{% url 'syllabus-content-detail' content.id %}">
                     <i class="material-icons md-dark">arrow_forward</i></a>
                 </td>
             </tr>

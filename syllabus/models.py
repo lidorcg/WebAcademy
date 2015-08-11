@@ -4,6 +4,7 @@ from .helper import *
 
 
 # Create your models here.
+# ToDo add comments for documentation
 class Course(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)

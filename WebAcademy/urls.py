@@ -15,8 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from rest_framework import routers
+from syllabus import views
+
+router = routers.DefaultRouter()
+router.register(r'courses', views.CourseViewSet)
+router.register(r'modules', views.ModuleViewSet)
+router.register(r'contents', views.ContentViewSet)
+router.register(r'concepts', views.ConceptViewSet)
+router.register(r'types', views.TypeViewSet)
 
 urlpatterns = [
     url(r'^syllabus/', include('syllabus.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^rest/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]
