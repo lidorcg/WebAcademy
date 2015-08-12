@@ -1,4 +1,7 @@
-<form action="{{ url }}">
+{% load syllabus_helper %}
+<form action="{% append url obj.id %}/" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="_method" value="put"/>
     {% include 'syllabus/forms/fields/title-field.html' with value=obj.title class="title-input" %}
     {% include 'syllabus/forms/fields/description-field.html' with value=obj.description %}
     {% if form == "course" %}
@@ -10,8 +13,5 @@
     {% if form != "module" %}
         {% include 'syllabus/forms/fields/requirements-field.html' with value=obj.requirements %}
     {% endif %}
-    <!-- ToDo add save button functionality -->
     {% include "syllabus/blocks/save-button.html" %}
 </form>
-
-<!-- ToDo add form functionality -->

@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block left %}
-    {% include 'syllabus/forms/update-form.html' with form="content" obj=content %}
+    {% include 'syllabus/forms/update-form.html' with url="/rest/contents/" form="content" obj=content %}
 {% endblock %}
 
 {% block right %}
