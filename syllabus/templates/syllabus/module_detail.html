@@ -35,6 +35,7 @@
         {% for content in module.get_contents %}
             <tr>
                 <td>{{ content.order }}</td>
+                <!-- ToDo replace Lecture/Assignment with icons -->
                 <td class="mdl-data-table__cell--non-numeric">{{ content.type }}</td>
                 <td class="mdl-data-table__cell--non-numeric">{{ content.title }}</td>
                 <td>{{ content.time }}</td>
