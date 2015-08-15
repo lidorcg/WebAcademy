@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangobower',
     'rest_framework',
     'syllabus',
 )
@@ -104,9 +105,26 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'djangobower.finders.BowerFinder',
+)
 
 # django-rest-framework settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
     'PAGE_SIZE': 10
 }
+
+
+# django-bower settings
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'syllabus/static/components')
+
+BOWER_INSTALLED_APPS = (
+    'polymer',
+    'jquery',
+    'bootstrap',
+    'material-design-lite',
+    'd3'
+)

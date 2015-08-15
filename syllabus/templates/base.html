@@ -10,17 +10,17 @@
 
     {% load static %}
     {% block CSS %}
-        <link rel="stylesheet" href="{% static "syllabus/css/bootstrap.min.css" %}">
-        <link rel="stylesheet" href="{% static "syllabus/css/material.min.css" %}">
+        <link rel="stylesheet" href="{% static "components/bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" href="{% static "components/bower_components/material-design-lite/material.min.css" %}">
         <link rel="stylesheet" href="{% static "syllabus/css/material-icons.css" %}">
         <link rel="stylesheet" href="{% static "syllabus/css/base.css" %}">
     {% endblock %}
 
     {% block JS %}
         <!-- <script src="https://www.google.com/jsapi"></script> -->
-        <script src="{% static "syllabus/js/jquery-2.1.4.min.js" %}"></script>
-        <script src="{% static "syllabus/js/bootstrap.min.js" %}"></script>
-        <script src="{% static "syllabus/js/material.min.js" %}"></script>
+        <script src="{% static "components/bower_components/jquery/dist/jquery.min.js" %}"></script>
+        <script src="{% static "components/bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "components/bower_components/material-design-lite/material.min.js" %}"></script>
     {% endblock %}
 
 </head>
