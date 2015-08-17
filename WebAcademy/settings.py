@@ -122,9 +122,7 @@ REST_FRAMEWORK = {
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'syllabus/static/components')
 
 BOWER_INSTALLED_APPS = (
-    'polymer',
     'jquery',
     'bootstrap',
     'material-design-lite',
-    'd3'
 )

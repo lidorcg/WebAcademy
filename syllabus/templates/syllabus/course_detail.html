@@ -8,6 +8,7 @@
 
 {% block left %}
     {% include "syllabus/forms/update-form.html" with url="/rest/courses/" form="course" obj=course %}
+    <br>
     {% include "script-components/pie-chart-script.html" with obj=course %}
     <div id="donut-chart"></div>
 {% endblock %}
