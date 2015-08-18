@@ -36,8 +36,14 @@
         {% for content in module.get_contents %}
             <tr>
                 <td>{{ content.order }}</td>
-                <!-- ToDo replace Lecture/Assignment with icons -->
-                <td class="mdl-data-table__cell--non-numeric">{{ content.type }}</td>
+                <td class="mdl-data-table__cell--non-numeric">
+                    {% if content.type.icon %}
+                        <div id="{{ content.id }}" class="material-icons">{{ content.type.icon }}</div>
+                        <div class="mdl-tooltip" for="{{ content.id }}">{{ content.type }}</div>
+                    {% else %}
+                        {{ content.type }}
+                    {% endif %}
+                </td>
                 <td class="mdl-data-table__cell--non-numeric">{{ content.title }}</td>
                 <td>{{ content.time }}</td>
                 <td>
