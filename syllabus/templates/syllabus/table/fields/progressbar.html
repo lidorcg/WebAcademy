@@ -1,0 +1,9 @@
+{% load syllabus_helper %}
+<td>
+    <div id="p{{ obj.id }}" class="mdl-progress mdl-js-progress progressbar"></div>
+    <script>
+        document.querySelector('#p{{ obj.id }}').addEventListener('mdl-componentupgraded', function () {
+            this.MaterialProgress.setProgress({% multiply obj.get_progress 100 %});
+        });
+    </script>
+</td>

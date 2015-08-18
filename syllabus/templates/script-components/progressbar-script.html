@@ -1,7 +1,0 @@
-{% load syllabus_helper %}
-
-<script>
-    document.querySelector('#p{{ obj.id }}').addEventListener('mdl-componentupgraded', function () {
-        this.MaterialProgress.setProgress({% multiply obj.get_progress 100 %});
-    });
-</script>
