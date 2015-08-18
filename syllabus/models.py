@@ -117,6 +117,5 @@ class Type(models.Model):
     def __str__(self):
         return self.name
 
-
 # ToDo add tooltip messages
 # ToDo add files upload and links to content

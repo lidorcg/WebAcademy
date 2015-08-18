@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block left %}
-    {% include "syllabus/forms/update-form.html" with url="/rest/courses/" form="course" obj=course %}
+    {% include "syllabus/forms/update-form.html" with form="courses" obj=course %}
     <br>
     {% include "script-components/pie-chart-script.html" with obj=course %}
     <div id="donut-chart"></div>
@@ -39,7 +39,7 @@
                     <div id="p{{ module.id }}" class="mdl-progress mdl-js-progress progressbar"></div>
                     {% include 'script-components/progressbar-script.html' with obj=module %}
                 </td>
-                <td><a href="{% url 'syllabus-module-detail' module.id %}">
+                <td><a href="{% url 'module-detail' module.id %}">
                     <i class="material-icons md-dark">forward</i></a>
                 </td>
             </tr>
@@ -57,5 +57,5 @@
 {% endblock %}
 
 {% block create-form %}
-    {% include 'syllabus/forms/create-form.html' with url="/rest/modules/" form="module" %}
+    {% include 'syllabus/forms/create-form.html' with form="modules" %}
 {% endblock %}

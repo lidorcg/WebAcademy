@@ -40,3 +40,8 @@
 .form-card {
     max-width: 300px;
 }
+
+.delete-button {
+    left: 45.5%;
+    top: 30px;
+}

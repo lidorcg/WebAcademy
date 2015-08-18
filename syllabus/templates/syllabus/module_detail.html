@@ -2,13 +2,13 @@
 
 {% block breadcrumbs %}
     <ol class="breadcrumb">
-        <li><a href="{% url 'syllabus-course-detail' module.course.id %}">{{ module.course.title }}</a></li>
+        <li><a href="{% url 'course-detail' module.course.id %}">{{ module.course.title }}</a></li>
         <li class="active">{{ module.title }}</li>
     </ol>
 {% endblock %}
 
 {% block left %}
-    {% include "syllabus/forms/update-form.html" with url="/rest/modules/" form="module" obj=module %}
+    {% include "syllabus/forms/update-form.html" with form="modules" obj=module %}
     <br>
     {% include "script-components/pie-chart-script.html" with obj=module %}
     <div id="donut-chart"></div>
@@ -47,7 +47,7 @@
                                 {% if content.done %} checked{% endif %}/>
                     </label>
                 </td>
-                <td><a href="{% url 'syllabus-content-detail' content.id %}">
+                <td><a href="{% url 'content-detail' content.id %}">
                     <i class="material-icons md-dark">arrow_forward</i></a>
                 </td>
             </tr>
@@ -66,7 +66,7 @@
 {% endblock %}
 
 {% block create-form %}
-    {% include 'syllabus/forms/create-form.html' with url="/rest/contents/" form="content" %}
+    {% include 'syllabus/forms/create-form.html' with form="contents" %}
 {% endblock %}
 
 

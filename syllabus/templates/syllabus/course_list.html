@@ -20,11 +20,13 @@
                     <div id="p{{ course.id }}" class="mdl-progress mdl-js-progress progressbar"></div>
                     {% include 'script-components/progressbar-script.html' with obj=course %}
                 </td>
-                <td><a href="{% url 'syllabus-course-detail' course.id %}"><i class="material-icons md-dark">play_arrow</i></a>
+                <td><a href="{% url 'course-detail' course.id %}"><i class="material-icons md-dark">play_arrow</i></a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <div style="height: 200px"></div>
+
 
 {% endblock %}

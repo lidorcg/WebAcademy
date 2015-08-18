@@ -14,7 +14,7 @@
         {% endblock %}
 
         {% block main %}
-
+            <br>
             <br>
             <main class="mdl-layout__content">
                 <div class="mdl-grid">
@@ -35,16 +35,16 @@
                     </div>
                     <div class="mdl-cell mdl-cell--1-col"></div>
                 </div>
+                {% block footer %}
+                    {% include 'blocks/footer.html' %}
+                {% endblock %}
             </main>
-            <br>
         {% endblock %}
 
         {% block create-form %}
 
         {% endblock %}
 
-        {% block footer %}
-            {% include 'blocks/footer.html' %}
-        {% endblock %}
+
     </div>
 {% endblock %}

@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',
-    'rest_framework',
     'syllabus',
 )
 
@@ -111,14 +110,9 @@ STATICFILES_FINDERS = (
     'djangobower.finders.BowerFinder',
 )
 
-# django-rest-framework settings
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'PAGE_SIZE': 10
-}
-
 
 # django-bower settings
+
 BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'syllabus/static/components')
 
 BOWER_INSTALLED_APPS = (

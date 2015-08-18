@@ -7,18 +7,18 @@
                 </button>
                 <h4 class="modal-title">Create</h4>
             </div>
-            <form action="{{ url }}" method="post">
+            <form action="{{ form }}/add/" method="post">
                 {% csrf_token %}
                 <div class="modal-body">
                     {% include 'syllabus/forms/fields/title-field.html' %}
                     {% include 'syllabus/forms/fields/description-field.html' %}
-                    {% if form == "content" %}
+                    {% if form == "contents" %}
                         {% include 'syllabus/forms/fields/type-field.html' %}
                         {% include 'syllabus/forms/fields/hidden.html' with name="order" value=module.get_contents_count %}
                         {% include 'syllabus/forms/fields/hidden.html' with name="module" value=module.id %}
-                    {% elif form == "module" %}
-                        {% include 'syllabus/forms/fields/hidden.html' with name="order" value=course.get_modules_count %}
+                    {% elif form == "modules" %}
                         {% include 'syllabus/forms/fields/hidden.html' with name="course" value=course.id %}
+                        {% include 'syllabus/forms/fields/hidden.html' with name="order" value=course.get_modules_count %}
                     {% endif %}
                 </div>
                 <div class="modal-footer">

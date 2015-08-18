@@ -1,7 +1,9 @@
 # Create your views here.
-from django.views.generic import ListView, DetailView
+from django.core.urlresolvers import reverse_lazy
 
-from .models import Course, Module, Content, Concept, Type
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+
+from .models import Course, Module, Content, Type
 
 
 class CourseListView(ListView):
@@ -9,9 +11,38 @@ class CourseListView(ListView):
     context_object_name = 'courses'
 
 
+class CourseCreate(CreateView):
+    model = Course
+    fields = ['title', 'description']
+
+    def get_success_url(self):
+        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().id})
+
+
 class CourseDetailView(DetailView):
     model = Course
     context_object_name = 'course'
+
+
+class CourseUpdate(UpdateView):
+    model = Course
+    fields = ['title', 'description', 'prerequisites', 'requirements']
+
+    def get_success_url(self):
+        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().id})
+
+
+class CourseDelete(DeleteView):
+    model = Course
+    success_url = reverse_lazy('course-list')
+
+
+class ModuleCreate(CreateView):
+    model = Module
+    fields = ['course', 'order', 'title', 'description']
+
+    def get_success_url(self):
+        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().course.id})
 
 
 class ModuleDetailView(DetailView):
@@ -24,6 +55,29 @@ class ModuleDetailView(DetailView):
         return context
 
 
+class ModuleUpdate(UpdateView):
+    model = Module
+    fields = ['title', 'description']
+
+    def get_success_url(self):
+        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().id})
+
+
+class ModuleDelete(DeleteView):
+    model = Module
+
+    def get_success_url(self):
+        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().course.id})
+
+
+class ContentCreate(CreateView):
+    model = Content
+    fields = ['module', 'title', 'description', 'type', 'order']
+
+    def get_success_url(self):
+        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module.id})
+
+
 class ContentDetailView(DetailView):
     model = Content
     context_object_name = 'content'
@@ -34,48 +88,18 @@ class ContentDetailView(DetailView):
         return context
 
 
-from rest_framework import viewsets
-from syllabus.serializers import CourseSerializer, ModuleSerializer, ContentSerializer, ConceptSerializer, \
-    TypeSerializer
+class ContentUpdate(UpdateView):
+    model = Content
+    fields = ['title', 'description', 'type', 'time', 'requirements']
+
+    def get_success_url(self):
+        return reverse_lazy('content-detail', kwargs={'pk': self.get_object().id})
 
 
-# ToDo change redirection after CRUD
+class ContentDelete(DeleteView):
+    model = Content
 
-class CourseViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows courses to be viewed or edited.
-    """
-    queryset = Course.objects.all()
-    serializer_class = CourseSerializer
+    def get_success_url(self):
+        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module.id})
 
-
-class ModuleViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows modules to be viewed or edited.
-    """
-    queryset = Module.objects.all()
-    serializer_class = ModuleSerializer
-
-
-class ContentViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows contents to be viewed or edited.
-    """
-    queryset = Content.objects.all()
-    serializer_class = ContentSerializer
-
-
-class ConceptViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows concepts to be viewed or edited.
-    """
-    queryset = Concept.objects.all()
-    serializer_class = ConceptSerializer
-
-
-class TypeViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows types to be viewed or edited.
-    """
-    queryset = Type.objects.all()
-    serializer_class = TypeSerializer
+# ToDo create CRUD views for concepts
