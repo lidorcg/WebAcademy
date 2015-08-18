@@ -20,5 +20,3 @@ urlpatterns = [
     url(r'^syllabus/', include('syllabus.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]
-
-# ToDo get rid of DRF
