@@ -42,7 +42,7 @@ class ModuleCreate(CreateView):
     fields = ['course', 'order', 'title', 'description']
 
     def get_success_url(self):
-        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().course.id})
+        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().id})
 
 
 class ModuleDetailView(DetailView):
@@ -75,7 +75,7 @@ class ContentCreate(CreateView):
     fields = ['module', 'title', 'description', 'type', 'order']
 
     def get_success_url(self):
-        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module.id})
+        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().id})
 
 
 class ContentDetailView(DetailView):

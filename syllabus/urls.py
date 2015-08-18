@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'^modules/(?P<pk>[0-9]+)/update/$', views.ModuleUpdate.as_view(), name='module-update'),
     url(r'^modules/(?P<pk>[0-9]+)/delete/$', views.ModuleDelete.as_view(), name='module-delete'),
     # REST API for content
-    url(r'^contents/add/$', views.ContentCreate.as_view(), name='content-add'),
+    url(r'^modules/(?P<pk>[0-9]+)/contents/add/$', views.ContentCreate.as_view(), name='content-add'),
     url(r'^contents/(?P<pk>[0-9]+)/$', views.ContentDetailView.as_view(), name='content-detail'),
     url(r'^contents/(?P<pk>[0-9]+)/update/$', views.ContentUpdate.as_view(), name='content-update'),
     url(r'^contents/(?P<pk>[0-9]+)/delete/$', views.ContentDelete.as_view(), name='content-delete'),
