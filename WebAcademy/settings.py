@@ -57,8 +57,7 @@ ROOT_URLCONF = 'WebAcademy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,4 +118,5 @@ BOWER_INSTALLED_APPS = (
     'jquery',
     'bootstrap',
     'material-design-lite',
+    'c3',
 )

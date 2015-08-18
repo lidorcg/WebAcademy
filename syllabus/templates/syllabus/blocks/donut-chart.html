@@ -1,0 +1,29 @@
+{% load syllabus_helper %}
+<div id="chart"></div>
+<script>
+    var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+            columns: [
+                ['Lectures', {{ obj.get_lectures_time|to_hours }}],
+                ['Assignments', {{ obj.get_assignments_time|to_hours }}],
+                ['Quiz', {{ obj.get_quiz_time|to_hours }}],
+            ],
+            type: 'donut',
+            onclick: function (d, i) {
+                console.log("onclick", d, i);
+            },
+            onmouseover: function (d, i) {
+                console.log("onmouseover", d, i);
+            },
+            onmouseout: function (d, i) {
+                console.log("onmouseout", d, i);
+            }
+        },
+        donut: {
+            title: "Time Diffusion"
+        }
+    });
+</script>
+
+<!-- ToDo add amount and not just percentage -->

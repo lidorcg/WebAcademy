@@ -32,9 +32,6 @@ class Course(models.Model):
     def get_quiz_time(self):
         return sum_timedelta(m.get_quiz_time() for m in self.get_modules())
 
-    def get_test_time(self):
-        return sum_timedelta(m.get_test_time() for m in self.get_modules())
-
     def get_time(self):
         return sum_timedelta(m.get_time() for m in self.module_set.all())
 
@@ -74,9 +71,6 @@ class Module(models.Model):
 
     def get_quiz_time(self):
         return sum_timedelta(c.time for c in self.content_set.filter(type__name='Quiz'))
-
-    def get_test_time(self):
-        return sum_timedelta(c.time for c in self.content_set.filter(type__name='Test'))
 
     def get_time(self):
         return sum_timedelta(c.time for c in self.content_set.all())

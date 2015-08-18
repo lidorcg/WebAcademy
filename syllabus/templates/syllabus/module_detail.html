@@ -10,8 +10,7 @@
 {% block left %}
     {% include "syllabus/forms/update-form.html" with form="modules" obj=module %}
     <br>
-    {% include "script-components/pie-chart-script.html" with obj=module %}
-    <div id="donut-chart"></div>
+    {% include 'syllabus/blocks/donut-chart.html' with obj=module %}
 {% endblock %}
 
 {% block right %}

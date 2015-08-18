@@ -9,8 +9,7 @@
 {% block left %}
     {% include "syllabus/forms/update-form.html" with form="courses" obj=course %}
     <br>
-    {% include "script-components/pie-chart-script.html" with obj=course %}
-    <div id="donut-chart"></div>
+    {% include 'syllabus/blocks/donut-chart.html' with obj=course %}
 {% endblock %}
 
 {% block right %}
