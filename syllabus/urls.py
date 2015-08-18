@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^contents/(?P<pk>[0-9]+)/$', views.ContentDetailView.as_view(), name='content-detail'),
     url(r'^contents/(?P<pk>[0-9]+)/update/$', views.ContentUpdate.as_view(), name='content-update'),
     url(r'^contents/(?P<pk>[0-9]+)/delete/$', views.ContentDelete.as_view(), name='content-delete'),
+    url(r'^contents/(?P<pk>[0-9]+)/done/$', views.content_done, name='content-done'),
 ]
 
 # ToDo create CRUD urls for Concepts

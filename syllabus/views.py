@@ -1,6 +1,6 @@
 # Create your views here.
-from django.core.urlresolvers import reverse_lazy
-
+from django.core.urlresolvers import reverse_lazy, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .models import Course, Module, Content, Type
@@ -102,4 +102,16 @@ class ContentDelete(DeleteView):
     def get_success_url(self):
         return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module.id})
 
+
 # ToDo create CRUD views for concepts
+
+
+def content_done(request, pk):
+    content = Content.objects.get(pk=pk)
+    try:
+        request.POST['checkbox']
+        content.done = True
+    except LookupError:
+        content.done = False
+    content.save()
+    return HttpResponseRedirect(reverse('module-detail', args=(content.module.id,)))

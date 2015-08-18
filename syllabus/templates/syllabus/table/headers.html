@@ -1,0 +1,21 @@
+<thead>
+<tr>
+    {% if courses %}
+        <th class="mdl-data-table__cell--non-numeric">Name</th>
+    {% else %}
+        <!-- ToDo add on the fly order button function check HTML5 Drag & Drop-->
+        <th>
+            <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--icon">
+                <i class="material-icons">arrow_drop_down</i>
+            </button>
+        </th>
+        {% if module %}
+            <th class="mdl-data-table__cell--non-numeric">Type</th>
+        {% endif %}
+        <th class="mdl-data-table__cell--non-numeric">Title</th>
+        <th>Time</th>
+    {% endif %}
+    <th>Progress</th>
+    <th>Link</th>
+</tr>
+</thead>

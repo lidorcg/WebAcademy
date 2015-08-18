@@ -4,28 +4,8 @@
 
     <h4>Courses:</h4>
 
-    <table class="mdl-data-table mdl-js-data-table">
-        <thead>
-        <tr>
-            <th class="mdl-data-table__cell--non-numeric">Name</th>
-            <th>Progress</th>
-            <th>Link</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for course in courses %}
-            <tr>
-                <td class="mdl-data-table__cell--non-numeric">{{ course.title }}</td>
-                <td>
-                    <div id="p{{ course.id }}" class="mdl-progress mdl-js-progress progressbar"></div>
-                    {% include 'script-components/progressbar-script.html' with obj=course %}
-                </td>
-                <td><a href="{% url 'course-detail' course.id %}"><i class="material-icons md-dark">play_arrow</i></a>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% include 'syllabus/table/table.html' with objects=courses %}
+
     <div style="height: 200px"></div>
 
 

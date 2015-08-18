@@ -102,6 +102,9 @@ class Content(models.Model):
     def __str__(self):
         return self.title
 
+    def get_time(self):
+        return self.time
+
 
 class Concept(models.Model):
     name = models.CharField(max_length=100)

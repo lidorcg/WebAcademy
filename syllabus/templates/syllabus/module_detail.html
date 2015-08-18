@@ -16,58 +16,7 @@
 
 {% block right %}
     <h4>Contents:</h4>
-    <table class="mdl-data-table mdl-js-data-table">
-        <thead>
-        <tr>
-            <!-- ToDo add on the fly order button function check HTML5 Drag & Drop-->
-            <th>
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--icon">
-                    <i class="material-icons">arrow_drop_down</i>
-                </button>
-            </th>
-            <th class="mdl-data-table__cell--non-numeric">Type</th>
-            <th class="mdl-data-table__cell--non-numeric">Title</th>
-            <th>Time</th>
-            <th>Done</th>
-            <th>Link</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for content in module.get_contents %}
-            <tr>
-                <td>{{ content.order }}</td>
-                <td class="mdl-data-table__cell--non-numeric">
-                    {% if content.type.icon %}
-                        <div id="{{ content.id }}" class="material-icons">{{ content.type.icon }}</div>
-                        <div class="mdl-tooltip" for="{{ content.id }}">{{ content.type }}</div>
-                    {% else %}
-                        {{ content.type }}
-                    {% endif %}
-                </td>
-                <td class="mdl-data-table__cell--non-numeric">{{ content.title }}</td>
-                <td>{{ content.time }}</td>
-                <td>
-                    <!-- ToDo add done button function -->
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-{{ content.id }}">
-                        <input type="checkbox" id="checkbox-{{ content.id }}" class="mdl-checkbox__input"
-                                {% if content.done %} checked{% endif %}/>
-                    </label>
-                </td>
-                <td><a href="{% url 'content-detail' content.id %}">
-                    <i class="material-icons md-dark">arrow_forward</i></a>
-                </td>
-            </tr>
-        {% endfor %}
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        </tbody>
-    </table>
+    {% include "syllabus/table/table.html" with objects=module.get_contents %}
     {% include "syllabus/blocks/add-button.html" %}
 {% endblock %}
 
