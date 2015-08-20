@@ -14,13 +14,13 @@
 {% endblock %}
 
 {% block right %}
-    <h4>Contents:</h4>
-    {% include "syllabus/table/table.html" with objects=module.get_contents %}
+    <h4>Lessons:</h4>
+    {% include "syllabus/table/table.html" with objects=module.get_lessons %}
     {% include "syllabus/blocks/add-button.html" %}
 {% endblock %}
 
 {% block create-form %}
-    {% include 'syllabus/forms/create-form.html' with form="contents" %}
+    {% include 'syllabus/forms/create-form.html' with form="lessons" %}
 {% endblock %}
 
 

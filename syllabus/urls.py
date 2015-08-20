@@ -30,12 +30,12 @@ urlpatterns = [
     url(r'^modules/(?P<pk>[0-9]+)/$', views.ModuleDetailView.as_view(), name='module-detail'),
     url(r'^modules/(?P<pk>[0-9]+)/update/$', views.ModuleUpdate.as_view(), name='module-update'),
     url(r'^modules/(?P<pk>[0-9]+)/delete/$', views.ModuleDelete.as_view(), name='module-delete'),
-    # REST API for content
-    url(r'^modules/(?P<pk>[0-9]+)/contents/add/$', views.ContentCreate.as_view(), name='content-add'),
-    url(r'^contents/(?P<pk>[0-9]+)/$', views.ContentDetailView.as_view(), name='content-detail'),
-    url(r'^contents/(?P<pk>[0-9]+)/update/$', views.ContentUpdate.as_view(), name='content-update'),
-    url(r'^contents/(?P<pk>[0-9]+)/delete/$', views.ContentDelete.as_view(), name='content-delete'),
-    url(r'^contents/(?P<pk>[0-9]+)/done/$', views.content_done, name='content-done'),
+    # REST API for lesson
+    url(r'^modules/(?P<pk>[0-9]+)/lessons/add/$', views.LessonCreate.as_view(), name='lesson-add'),
+    url(r'^lessons/(?P<pk>[0-9]+)/$', views.LessonDetailView.as_view(), name='lesson-detail'),
+    url(r'^lessons/(?P<pk>[0-9]+)/update/$', views.LessonUpdate.as_view(), name='lesson-update'),
+    url(r'^lessons/(?P<pk>[0-9]+)/delete/$', views.LessonDelete.as_view(), name='lesson-delete'),
+    url(r'^lessons/(?P<pk>[0-9]+)/done/$', views.lesson_done, name='lesson-done'),
 ]
 
-# ToDo create CRUD urls for Concepts
+# ToDo create CRUD urls for Tags

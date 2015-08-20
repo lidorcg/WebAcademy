@@ -2,7 +2,7 @@
     <label class="mdl-textfield__label" for="type">Type</label>
     <select name="type" class="mdl-textfield__input">
         {% for type in types %}
-            <option value="{{ type.id }}" {% if content.type == type %}selected{% endif %}>
+            <option value="{{ type.id }}" {% if lesson.type == type %}selected{% endif %}>
                 {{ type.name }}
             </option>
         {% endfor %}

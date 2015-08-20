@@ -1,5 +1,5 @@
 <td>
-    <form id="form-{{ obj.id }}" action="{% url 'content-done' obj.id %}" method="post">
+    <form id="form-{{ obj.id }}" action="{% url 'lesson-done' obj.id %}" method="post">
         {% csrf_token %}
         <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
                for="checkbox-{{ obj.id }}">

@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Course, Module, Content, Type
+from .models import Course, Module, Lesson, Type
 
 
 class CourseListView(ListView):
@@ -70,48 +70,48 @@ class ModuleDelete(DeleteView):
         return reverse_lazy('course-detail', kwargs={'pk': self.get_object().course.id})
 
 
-class ContentCreate(CreateView):
-    model = Content
+class LessonCreate(CreateView):
+    model = Lesson
     fields = ['module', 'title', 'description', 'type', 'order']
 
     def get_success_url(self):
         return reverse_lazy('module-detail', kwargs={'pk': self.get_object().id})
 
 
-class ContentDetailView(DetailView):
-    model = Content
-    context_object_name = 'content'
+class LessonDetailView(DetailView):
+    model = Lesson
+    context_object_name = 'lesson'
 
     def get_context_data(self, **kwargs):
-        context = super(ContentDetailView, self).get_context_data(**kwargs)
+        context = super(LessonDetailView, self).get_context_data(**kwargs)
         context['types'] = Type.objects.all()
         return context
 
 
-class ContentUpdate(UpdateView):
-    model = Content
+class LessonUpdate(UpdateView):
+    model = Lesson
     fields = ['title', 'description', 'type', 'time', 'requirements']
 
     def get_success_url(self):
-        return reverse_lazy('content-detail', kwargs={'pk': self.get_object().id})
+        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().id})
 
 
-class ContentDelete(DeleteView):
-    model = Content
+class LessonDelete(DeleteView):
+    model = Lesson
 
     def get_success_url(self):
         return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module.id})
 
 
-# ToDo create CRUD views for concepts
+# ToDo create CRUD views for tags
 
 
-def content_done(request, pk):
-    content = Content.objects.get(pk=pk)
+def lesson_done(request, pk):
+    lesson = Lesson.objects.get(pk=pk)
     try:
         request.POST['checkbox']
-        content.done = True
+        lesson.done = True
     except LookupError:
-        content.done = False
-    content.save()
-    return HttpResponseRedirect(reverse('module-detail', args=(content.module.id,)))
+        lesson.done = False
+    lesson.save()
+    return HttpResponseRedirect(reverse('module-detail', args=(lesson.module.id,)))

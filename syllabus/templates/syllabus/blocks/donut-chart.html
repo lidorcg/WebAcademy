@@ -5,9 +5,9 @@
         bindto: '#chart',
         data: {
             columns: [
-                ['Lectures', {{ obj.get_lectures_time|to_hours }}],
-                ['Assignments', {{ obj.get_assignments_time|to_hours }}],
-                ['Quiz', {{ obj.get_quiz_time|to_hours }}],
+                ['Learn', {{ obj.get_learn_time|to_hours }}],
+                ['Practice', {{ obj.get_practice_time|to_hours }}],
+                ['Test', {{ obj.get_test_time|to_hours }}],
             ],
             type: 'donut',
             onclick: function (d, i) {

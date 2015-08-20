@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Module, Content, Concept, Type
+from .models import Course, Module, Lesson, Tag, Type
 
 
 # Register your models here.
@@ -13,16 +13,16 @@ class CourseAdmin(admin.ModelAdmin):
     inlines = [ModuleInline, ]
 
 
-class ContentInline(admin.StackedInline):
-    model = Content
+class LessonInline(admin.StackedInline):
+    model = Lesson
     extra = 0
 
 
 @admin.register(Module)
 class ModuleAdmin(admin.ModelAdmin):
-    inlines = [ContentInline, ]
+    inlines = [LessonInline, ]
 
 
-admin.site.register(Content)
-admin.site.register(Concept)
+admin.site.register(Lesson)
+admin.site.register(Tag)
 admin.site.register(Type)

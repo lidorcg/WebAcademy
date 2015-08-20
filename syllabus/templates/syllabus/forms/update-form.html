@@ -5,7 +5,7 @@
     {% include 'syllabus/forms/fields/description-field.html' with value=obj.description %}
     {% if form == "courses" %}
         {% include 'syllabus/forms/fields/prerequisites-field.html' with value=obj.prerequisites %}
-    {% elif form == "contents" %}
+    {% elif form == "lessons" %}
         {% include 'syllabus/forms/fields/type-field.html' %}
         {% include 'syllabus/forms/fields/time-field.html' with value=obj.time %}
     {% endif %}
@@ -17,3 +17,4 @@
 </form>
 
 <!-- ToDo insert to card -->
+<!-- ToDo add validations checks -->

@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'course-detail' lesson.module.course.id %}">{{ lesson.module.course.title }}</a>
+        </li>
+        <li><a href="{% url 'module-detail' lesson.module.id %}">{{ lesson.module.title }}</a></li>
+        <li class="active">{{ lesson.title }}</li>
+    </ol>
+{% endblock %}
+
+{% block left %}
+    {% include 'syllabus/forms/update-form.html' with form="lessons" obj=lesson %}
+{% endblock %}
+
+{% block right %}
+    <!-- ToDo add done button -->
+    <!-- ToDo add add-tag button -->
+{% endblock %}
