@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Course, Module, Lesson, Unit, LessonType
+from .models import Course, Module, Lesson, Unit, LessonType, UnitType
 
 
 class CourseListView(ListView):
@@ -85,6 +85,7 @@ class LessonDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(LessonDetailView, self).get_context_data(**kwargs)
         context['lesson_types'] = LessonType.objects.all()
+        context['unit_types'] = UnitType.objects.all()
         return context
 
 

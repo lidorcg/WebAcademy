@@ -1,4 +1,28 @@
 <table class="mdl-data-table mdl-js-data-table">
-    {% include 'syllabus/table/headers.html' %}
-    {% include 'syllabus/table/body.html' %}
+    <thead>
+    <tr>
+        <!-- ToDo add on the fly order button function check HTML5 Drag & Drop-->
+        {% if courses %}
+            {% include 'syllabus/table/headers/course_list.html' %}
+        {% elif course %}
+            {% include 'syllabus/table/headers/course_detail.html' %}
+        {% elif module %}
+            {% include 'syllabus/table/headers/module_detail.html' %}
+        {% elif lesson %}
+            {% include 'syllabus/table/headers/lesson_detail.html' %}
+        {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+    {% if courses %}
+        {% include 'syllabus/table/bodies/course_list.html' %}
+    {% elif course %}
+        {% include 'syllabus/table/bodies/course_detail.html' %}
+    {% elif module %}
+        {% include 'syllabus/table/bodies/module_detail.html' %}
+    {% elif lesson %}
+        {% include 'syllabus/table/bodies/lesson_detail.html' %}
+    {% endif %}
+    </tbody>
 </table>
+<!-- ToDo limit table width -->

@@ -1,0 +1,7 @@
+{% for obj in objects %}
+    <tr>
+        <td class="mdl-data-table__cell--non-numeric">{{ obj.title }}</td>
+        {% include 'syllabus/table/fields/progressbar.html' %}
+        {% include 'syllabus/table/fields/link.html' %}
+    </tr>
+{% endfor %}

@@ -1,0 +1,14 @@
+{% for obj in lesson.get_units %}
+    <tr>
+        <td>{{ obj.order }}</td>
+        {% include 'syllabus/table/fields/type.html' %}
+        <td class="mdl-data-table__cell--non-numeric">{{ obj.name }}</td>
+        {% include 'syllabus/table/fields/url.html' %}
+    </tr>
+{% endfor %}
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>

@@ -2,12 +2,17 @@
 <form action="update/" method="post">
     {% csrf_token %}
     {% include 'syllabus/forms/fields/title-field.html' with value=obj.title class="title-input" %}
+    <br>
     {% include 'syllabus/forms/fields/description-field.html' with value=obj.description %}
+    <br>
     {% if form == "courses" %}
         {% include 'syllabus/forms/fields/prerequisites-field.html' with value=obj.prerequisites %}
+        <br>
     {% elif form == "lessons" %}
         {% include 'syllabus/forms/fields/lesson-type-field.html' %}
+        <br>
         {% include 'syllabus/forms/fields/time-field.html' with value=obj.time %}
+        <br>
     {% endif %}
     {% if form != "modules" %}
         {% include 'syllabus/forms/fields/requirements-field.html' with value=obj.requirements %}

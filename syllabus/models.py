@@ -99,6 +99,12 @@ class Lesson(models.Model):
     def __str__(self):
         return self.title
 
+    def get_units(self):
+        return self.unit_set.order_by('order')
+
+    def get_units_count(self):
+        return self.get_units().count()
+
     def get_time(self):
         return self.time
 
@@ -106,9 +112,9 @@ class Lesson(models.Model):
 class Unit(models.Model):
     lesson = models.ForeignKey('Lesson')
     order = models.PositiveSmallIntegerField()
+    type = models.ForeignKey('UnitType')
     name = models.CharField(max_length=100)
     url = models.TextField()
-    type = models.ForeignKey('UnitType')
 
     def __str__(self):
         return self.name

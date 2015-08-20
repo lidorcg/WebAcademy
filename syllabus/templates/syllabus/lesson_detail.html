@@ -14,7 +14,39 @@
 {% endblock %}
 
 {% block right %}
+    <h4>Units:</h4>
+    {% include "syllabus/table/table.html" with objects=lesson.get_units %}
+    {% include "syllabus/blocks/add-button.html" %}
     <!-- ToDo add done button -->
     <!-- ToDo add add-tag button -->
-    <!-- ToDo add links table -->
+{% endblock %}
+
+{% block create-form %}
+    <div class="modal fade" id="create-form">
+        <div class="modal-dialog form-card">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Create</h4>
+                </div>
+                <form action="units/add/" method="post">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        {% include 'syllabus/forms/fields/hidden.html' with name="lesson" value=lesson.id %}
+                        {% include 'syllabus/forms/fields/hidden.html' with name="order" value=lesson.get_units_count %}
+                        {% include 'syllabus/forms/fields/name-field.html' %}
+                        {% include 'syllabus/forms/fields/unit-type-field.html' %}
+                        {% include 'syllabus/forms/fields/url-field.html' %}
+                    </div>
+                    <div class="modal-footer">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
+                            <i class="material-icons">add</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

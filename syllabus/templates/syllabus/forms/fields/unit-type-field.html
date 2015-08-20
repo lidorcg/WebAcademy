@@ -1,0 +1,10 @@
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label" for="type">Type</label>
+    <select name="type" class="mdl-textfield__input">
+        {% for type in unit_types %}
+            <option value="{{ type.id }}" {% if unit.type == type %}selected{% endif %}>
+                {{ type.name }}
+            </option>
+        {% endfor %}
+    </select>
+</div>
