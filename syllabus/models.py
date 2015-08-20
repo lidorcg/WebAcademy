@@ -108,7 +108,7 @@ class Unit(models.Model):
     order = models.PositiveSmallIntegerField()
     name = models.CharField(max_length=100)
     url = models.TextField()
-    linkType = models.ForeignKey('LinkType')
+    type = models.ForeignKey('UnitType')
 
     def __str__(self):
         return self.name
@@ -129,7 +129,7 @@ class Type(models.Model):
         return self.name
 
 
-class LinkType(models.Model):
+class UnitType(models.Model):
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=30, blank=True)
 
@@ -137,5 +137,4 @@ class LinkType(models.Model):
         return self.name
 
 # ToDo add tooltip messages
-# ToDo add files upload and links to Lesson
 # ToDo add comments for documentation

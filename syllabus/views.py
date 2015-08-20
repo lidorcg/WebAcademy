@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
-from .models import Course, Module, Lesson, Type
+from .models import Course, Module, Lesson, Type, Unit
 
 
 class CourseListView(ListView):
@@ -103,8 +103,30 @@ class LessonDelete(DeleteView):
         return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module.id})
 
 
-# ToDo create CRUD views for tags
+class UnitCreate(CreateView):
+    model = Unit
+    fields = ['lesson', 'order', 'name', 'url', 'type']
 
+    def get_success_url(self):
+        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().id})
+
+
+class UnitUpdate(UpdateView):
+    model = Unit
+    fields = ['name', 'url', 'type']
+
+    def get_success_url(self):
+        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().lesson.id})
+
+
+class UnitDelete(DeleteView):
+    model = Unit
+
+    def get_success_url(self):
+        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().lesson.id})
+
+
+# ToDo create CRUD views for tags
 
 def lesson_done(request, pk):
     lesson = Lesson.objects.get(pk=pk)
