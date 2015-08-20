@@ -6,7 +6,7 @@
     {% if form == "courses" %}
         {% include 'syllabus/forms/fields/prerequisites-field.html' with value=obj.prerequisites %}
     {% elif form == "lessons" %}
-        {% include 'syllabus/forms/fields/type-field.html' %}
+        {% include 'syllabus/forms/fields/lesson-type-field.html' %}
         {% include 'syllabus/forms/fields/time-field.html' with value=obj.time %}
     {% endif %}
     {% if form != "modules" %}

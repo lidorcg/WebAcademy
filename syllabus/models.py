@@ -87,7 +87,7 @@ class Lesson(models.Model):
     order = models.PositiveSmallIntegerField()
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    type = models.ForeignKey('Type')
+    type = models.ForeignKey('LessonType')
     time = models.DurationField(blank=True, default=datetime.timedelta(0))
     requirements = models.TextField(blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
@@ -121,7 +121,7 @@ class Tag(models.Model):
         return self.name
 
 
-class Type(models.Model):
+class LessonType(models.Model):
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=30, blank=True)
 

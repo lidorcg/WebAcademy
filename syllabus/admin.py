@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Module, Lesson, Tag, Type, Unit, UnitType
+from .models import Course, Module, Lesson, Unit, Tag, LessonType, UnitType
 
 
 # Register your models here.
@@ -35,6 +35,6 @@ class ModuleAdmin(admin.ModelAdmin):
 
 admin.site.register(Unit)
 admin.site.register(Tag)
-admin.site.register(Type)
+admin.site.register(LessonType)
 admin.site.register(UnitType)
 
