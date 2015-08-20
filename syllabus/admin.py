@@ -23,7 +23,7 @@ class ModuleAdmin(admin.ModelAdmin):
     inlines = [LessonInline, ]
 
 
-class UnitInline(admin.StackedInline):
+class UnitInline(admin.TabularInline):
     model = Unit
     extra = 0
 

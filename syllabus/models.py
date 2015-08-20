@@ -124,6 +124,7 @@ class Tag(models.Model):
 class LessonType(models.Model):
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=30, blank=True)
+    tooltip = models.TextField(blank=True)
 
     def __str__(self):
         return self.name
@@ -132,6 +133,7 @@ class LessonType(models.Model):
 class UnitType(models.Model):
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=30, blank=True)
+    tooltip = models.TextField(blank=True)
 
     def __str__(self):
         return self.name
