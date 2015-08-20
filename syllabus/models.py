@@ -107,7 +107,7 @@ class Unit(models.Model):
     lesson = models.ForeignKey('Lesson')
     order = models.PositiveSmallIntegerField()
     name = models.CharField(max_length=100)
-    link = models.TextField()
+    url = models.TextField()
     linkType = models.ForeignKey('LinkType')
 
     def __str__(self):
