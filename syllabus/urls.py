@@ -35,6 +35,12 @@ urlpatterns = [
     url(r'^lessons/(?P<pk>[0-9]+)/$', views.LessonDetailView.as_view(), name='lesson-detail'),
     url(r'^lessons/(?P<pk>[0-9]+)/update/$', views.LessonUpdate.as_view(), name='lesson-update'),
     url(r'^lessons/(?P<pk>[0-9]+)/delete/$', views.LessonDelete.as_view(), name='lesson-delete'),
+    # REST API for unit
+    url(r'^lessons/(?P<pk>[0-9]+)/unit/add/$', views.LessonCreate.as_view(), name='lesson-add'),
+    url(r'^lessons/(?P<pk>[0-9]+)/$', views.LessonDetailView.as_view(), name='lesson-detail'),
+    url(r'^lessons/(?P<pk>[0-9]+)/update/$', views.LessonUpdate.as_view(), name='lesson-update'),
+    url(r'^lessons/(?P<pk>[0-9]+)/delete/$', views.LessonDelete.as_view(), name='lesson-delete'),
+    # Help views
     url(r'^lessons/(?P<pk>[0-9]+)/done/$', views.lesson_done, name='lesson-done'),
 ]
 

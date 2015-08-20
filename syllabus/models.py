@@ -104,8 +104,11 @@ class Lesson(models.Model):
 
 
 class Unit(models.Model):
+    lesson = models.ForeignKey('Lesson')
+    order = models.PositiveSmallIntegerField()
     name = models.CharField(max_length=100)
     link = models.TextField()
+    linkType = models.ForeignKey('LinkType')
 
     def __str__(self):
         return self.name
@@ -119,6 +122,14 @@ class Tag(models.Model):
 
 
 class Type(models.Model):
+    name = models.CharField(max_length=100)
+    icon = models.CharField(max_length=30, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class LinkType(models.Model):
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=30, blank=True)
 
