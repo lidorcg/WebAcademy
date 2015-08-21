@@ -1,4 +1,4 @@
-<table class="mdl-data-table mdl-js-data-table">
+<table class="mdl-data-table mdl-js-data-table fixed">
     <thead>
     <tr>
         <!-- ToDo add on the fly order button function check HTML5 Drag & Drop-->
@@ -14,6 +14,7 @@
     </tr>
     </thead>
     <tbody>
+    <!-- ToDo add on the fly editing from the table -->
     {% if courses %}
         {% include 'syllabus/table/bodies/course_list.html' %}
     {% elif course %}
@@ -25,4 +26,3 @@
     {% endif %}
     </tbody>
 </table>
-<!-- ToDo limit table width -->

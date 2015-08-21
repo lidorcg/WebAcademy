@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 from .helper import *
@@ -14,6 +15,9 @@ class Course(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('course-detail', args=[str(self.id)])
 
     def get_modules(self):
         return self.module_set.order_by('order')
@@ -47,6 +51,9 @@ class Module(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('course-detail', args=[str(self.course_id)])
 
     def get_lessons(self):
         return self.lesson_set.order_by('order')
@@ -99,6 +106,9 @@ class Lesson(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('module-detail', args=[str(self.module_id)])
+
     def get_units(self):
         return self.unit_set.order_by('order')
 
@@ -118,6 +128,9 @@ class Unit(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('lesson-detail', args=[str(self.lesson_id)])
 
 
 class Tag(models.Model):

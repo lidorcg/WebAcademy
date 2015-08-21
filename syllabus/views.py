@@ -6,6 +6,9 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Course, Module, Lesson, Unit, LessonType, UnitType
 
 
+# ToDo add login view
+
+# REST API for course
 class CourseListView(ListView):
     model = Course
     context_object_name = 'courses'
@@ -14,9 +17,6 @@ class CourseListView(ListView):
 class CourseCreate(CreateView):
     model = Course
     fields = ['title', 'description']
-
-    def get_success_url(self):
-        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().id})
 
 
 class CourseDetailView(DetailView):
@@ -28,21 +28,16 @@ class CourseUpdate(UpdateView):
     model = Course
     fields = ['title', 'description', 'prerequisites', 'requirements']
 
-    def get_success_url(self):
-        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().id})
-
 
 class CourseDelete(DeleteView):
     model = Course
     success_url = reverse_lazy('course-list')
 
 
+# REST API for module
 class ModuleCreate(CreateView):
     model = Module
     fields = ['course', 'order', 'title', 'description']
-
-    def get_success_url(self):
-        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().id})
 
 
 class ModuleDetailView(DetailView):
@@ -67,15 +62,13 @@ class ModuleDelete(DeleteView):
     model = Module
 
     def get_success_url(self):
-        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().course.id})
+        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().course_id})
 
 
+# REST API for lesson
 class LessonCreate(CreateView):
     model = Lesson
     fields = ['module', 'title', 'description', 'type', 'order']
-
-    def get_success_url(self):
-        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().id})
 
 
 class LessonDetailView(DetailView):
@@ -101,34 +94,30 @@ class LessonDelete(DeleteView):
     model = Lesson
 
     def get_success_url(self):
-        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module.id})
+        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module_id})
 
 
+# REST API for unit
 class UnitCreate(CreateView):
     model = Unit
     fields = ['lesson', 'order', 'name', 'url', 'type']
-
-    def get_success_url(self):
-        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().id})
 
 
 class UnitUpdate(UpdateView):
     model = Unit
     fields = ['name', 'url', 'type']
 
-    def get_success_url(self):
-        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().lesson.id})
-
 
 class UnitDelete(DeleteView):
     model = Unit
 
     def get_success_url(self):
-        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().lesson.id})
+        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().lesson_id})
 
 
 # ToDo create CRUD views for tags
 
+# Help views
 def lesson_done(request, pk):
     lesson = Lesson.objects.get(pk=pk)
     try:

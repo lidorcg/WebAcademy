@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'djangobower',
     'syllabus',
+    # ToDo App for downloading units
 )
 
 MIDDLEWARE_CLASSES = (

@@ -36,9 +36,9 @@
                     <div class="modal-body">
                         {% include 'syllabus/forms/fields/hidden.html' with name="lesson" value=lesson.id %}
                         {% include 'syllabus/forms/fields/hidden.html' with name="order" value=lesson.get_units_count %}
-                        {% include 'syllabus/forms/fields/name-field.html' %}
-                        {% include 'syllabus/forms/fields/unit-type-field.html' %}
-                        {% include 'syllabus/forms/fields/url-field.html' %}
+                        {% include 'syllabus/forms/fields/name.html' %}
+                        {% include 'syllabus/forms/fields/unit-type.html' %}
+                        {% include 'syllabus/forms/fields/url.html' %}
                     </div>
                     <div class="modal-footer">
                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">

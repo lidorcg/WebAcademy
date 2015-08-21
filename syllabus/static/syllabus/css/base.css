@@ -1,7 +1,4 @@
-.progressbar {
-    max-width: 100px;
-}
-
+/* Inputs */
 .title-input {
     font-size: 25px;
 }
@@ -11,9 +8,37 @@
     font-size: 14px;
 }
 
+/* Buttons */
 .add-button {
     top: -20px;
     left: 20px;
+}
+
+.delete-button {
+    left: 45.5%;
+    top: 30px;
+}
+
+/* Table */
+.fixed {
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.fixed td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progressbar {
+    max-width: 100px;
+}
+
+/* Layout */
+.mdl-grid {
+    max-width: 90%;
 }
 
 .breadcrumb {
@@ -22,13 +47,4 @@
 
 .form-card {
     max-width: 300px;
-}
-
-.delete-button {
-    left: 45.5%;
-    top: 30px;
-}
-
-.mdl-grid {
-    max-width: 90%;
 }

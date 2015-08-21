@@ -44,3 +44,4 @@ urlpatterns = [
 ]
 
 # ToDo create CRUD urls for Tags
+# ToDo add login url

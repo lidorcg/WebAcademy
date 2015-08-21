@@ -1,5 +1,6 @@
 {% for obj in lesson.get_units %}
     <tr>
+        <!-- ToDo add delete button -->
         <td>{{ obj.order }}</td>
         {% include 'syllabus/table/fields/type.html' %}
         <td class="mdl-data-table__cell--non-numeric">{{ obj.name }}</td>
