@@ -97,6 +97,12 @@ class LessonDelete(DeleteView):
         return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module_id})
 
 
+# Partial Updates
+class LessonUpdateDone(UpdateView):
+    model = Lesson
+    fields = ['done']
+
+
 # REST API for unit
 class UnitCreate(CreateView):
     model = Unit
@@ -117,13 +123,3 @@ class UnitDelete(DeleteView):
 
 # ToDo create CRUD views for tags
 
-# Help views
-def lesson_done(request, pk):
-    lesson = Lesson.objects.get(pk=pk)
-    try:
-        request.POST['checkbox']
-        lesson.done = True
-    except LookupError:
-        lesson.done = False
-    lesson.save()
-    return HttpResponseRedirect(reverse('module-detail', args=(lesson.module.id,)))

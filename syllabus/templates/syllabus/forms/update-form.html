@@ -1,5 +1,5 @@
 {% load syllabus_helper %}
-<form action="update/" method="post">
+<form class="update-form" action="update/" method="post">
     {% csrf_token %}
     {% include 'syllabus/forms/fields/title.html' with value=obj.title class="title-input" %}
     <br>
@@ -20,7 +20,19 @@
     <br>
     {% include "syllabus/blocks/save-button.html" %}
 </form>
+<script language="JavaScript">
+    $(document).ready(function () {
+        $('.update-form').on('submit', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: $(this).attr("method"),
+                url: $(this).attr("action"),
+                data: $(this).serialize()
+            });
+            return false;
+        });
+    });
+</script>
 
 <!-- ToDo insert to card -->
 <!-- ToDo add validations checks -->
-<!-- ToDo overwriting form submission to be AJAX -->

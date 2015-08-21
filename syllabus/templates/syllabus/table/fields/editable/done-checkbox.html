@@ -1,0 +1,11 @@
+<td>
+    <form class="table-form" action="{% url 'lesson-update-done' obj.id %}" method="post">
+        {% csrf_token %}
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+               for="checkbox-{{ obj.id }}">
+            <input type="checkbox" id="checkbox-{{ obj.id }}" name="done" value="True"
+                   class="mdl-checkbox__input"
+                    {% if obj.done %} checked{% endif %}/>
+        </label>
+    </form>
+</td>
