@@ -1,0 +1,8 @@
+<td>
+    <form class="ajax-form" action="{% url 'unit-delete' obj.id %}" method="post">
+        {% csrf_token %}
+        <button class="mdl-button mdl-js-button mdl-button--icon table-button-icon mdl-button--colored mdl-color-text--red delete">
+            <i class="material-icons">remove_circle</i>
+        </button>
+    </form>
+</td>

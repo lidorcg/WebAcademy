@@ -8,19 +8,19 @@
 {% endblock %}
 
 {% block left %}
-    {% include "syllabus/forms/update-form.html" with form="modules" obj=module %}
+    {% include 'syllabus/forms/update-form.html' with form='modules' obj=module %}
     <br>
     {% include 'syllabus/blocks/donut-chart.html' with obj=module %}
 {% endblock %}
 
 {% block right %}
     <h4>Lessons:</h4>
-    {% include "syllabus/table/table.html" with objects=module.get_lessons %}
-    {% include "syllabus/blocks/add-button.html" %}
+    {% include 'syllabus/table/table.html' with objects=module.get_lessons %}
+    {% include 'syllabus/blocks/add-button.html' %}
 {% endblock %}
 
 {% block create-form %}
-    {% include 'syllabus/forms/create-form.html' with form="lessons" %}
+    {% include 'syllabus/forms/create-form.html' with form='lessons' %}
 {% endblock %}
 
 

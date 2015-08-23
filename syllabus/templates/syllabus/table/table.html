@@ -34,5 +34,9 @@
             $("#sortable").sortable({handle: '.handle'});
             $("#sortable").disableSelection();
         });
+        $("#sortable .delete").click(function () {
+            $(this).closest('form').submit();
+            $(this).closest('tr').remove();
+        });
     </script>
 </table>
