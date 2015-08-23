@@ -120,4 +120,5 @@ BOWER_INSTALLED_APPS = (
     'bootstrap',
     'material-design-lite',
     'c3',
+    'jquery-ui'
 )
