@@ -2,10 +2,15 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Course, Module, Lesson, Unit, LessonType, UnitType
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import redirect, render
 
+from .models import Course, Module, Lesson, Unit, LessonType, UnitType
+
+
+# ToDo create CRUD views for tags
+# ToDo add permissions checks
+# ToDo add error views
 
 def login_view(request):
     username = request.POST['username']
@@ -144,6 +149,3 @@ class UnitDelete(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().lesson_id})
-
-# ToDo create CRUD views for tags
-# ToDo add permissions checks

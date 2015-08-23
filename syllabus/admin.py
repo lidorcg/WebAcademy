@@ -37,4 +37,3 @@ admin.site.register(Unit)
 admin.site.register(Tag)
 admin.site.register(LessonType)
 admin.site.register(UnitType)
-
