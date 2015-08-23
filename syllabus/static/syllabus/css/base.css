@@ -38,6 +38,7 @@
 
 .progressbar {
     max-width: 100px;
+    top: 10px;
 }
 
 /* Layout */
