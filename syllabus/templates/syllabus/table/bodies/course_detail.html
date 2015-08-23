@@ -1,6 +1,6 @@
 {% for obj in objects %}
     <tr>
-        <td>{{ obj.order }}</td>
+        {% include 'syllabus/table/fields/editable/handle.html' %}
         <td class="mdl-data-table__cell--non-numeric">{{ obj.title }}</td>
         <td>{{ obj.get_time }}</td>
         {% include 'syllabus/table/fields/progressbar.html' %}

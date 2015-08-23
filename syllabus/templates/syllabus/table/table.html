@@ -1,7 +1,12 @@
+<style>
+    .handle {
+        cursor: pointer;
+    }
+</style>
 <table class="mdl-data-table mdl-js-data-table fixed">
     <thead>
     <tr>
-        <!-- ToDo add on the fly order button function check HTML5 Drag & Drop-->
+        <!-- ToDo add reorder backend function-->
         {% if courses %}
             {% include 'syllabus/table/headers/course_list.html' %}
         {% elif course %}
@@ -13,7 +18,7 @@
         {% endif %}
     </tr>
     </thead>
-    <tbody>
+    <tbody id="sortable">
     {% if courses %}
         {% include 'syllabus/table/bodies/course_list.html' %}
     {% elif course %}
@@ -24,4 +29,10 @@
         {% include 'syllabus/table/bodies/lesson_detail.html' %}
     {% endif %}
     </tbody>
+    <script>
+        $(function () {
+            $("#sortable").sortable({handle: '.handle'});
+            $("#sortable").disableSelection();
+        });
+    </script>
 </table>

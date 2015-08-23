@@ -2,7 +2,7 @@
     <tr>
         <!-- ToDo add edit button -->
         <!-- ToDo add delete button -->
-        <td>{{ obj.order }}</td>
+        {% include 'syllabus/table/fields/editable/handle.html' %}
         {% include 'syllabus/table/fields/type.html' %}
         <td class="mdl-data-table__cell--non-numeric">{{ obj.name }}</td>
         {% include 'syllabus/table/fields/url.html' %}
