@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import url
-
 from syllabus import views
 
 urlpatterns = [
+    url(r'login/', views.login_view, name='login'),
+    url(r'logout/', views.logout_view, name='logout'),
     url(r'^$', views.CourseListView.as_view(), name='home'),
     # REST API for course
     url(r'^courses/$', views.CourseListView.as_view(), name='course-list'),
@@ -44,4 +45,3 @@ urlpatterns = [
 ]
 
 # ToDo create CRUD urls for Tags
-# ToDo add login url

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block left %}
+    <h4>Login:</h4>
+    {% include 'syllabus/forms/login-form.html' %}
+{% endblock %}
+
+{% block right %}
+<div class="mdl-card">
+  <div class="mdl-card__title">
+      Not Active
+  </div>
+  <div class="mdl-card__supporting-text">
+      It seems your user is not active, please contact your admin for help.
+  </div>
+</div>
+{% endblock %}

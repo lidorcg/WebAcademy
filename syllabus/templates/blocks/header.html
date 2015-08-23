@@ -1,8 +1,18 @@
 <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-    <div class="mdl-layout__header-row"></div>
+    <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
+        {% if user.is_authenticated %}
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="{% url 'logout' %}">Logout</a>
+            </nav>
+        {% else %}
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="{% url 'login-form' %}">Login</a>
+            </nav>
+        {% endif %}
+    </div>
     <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         <h3>{{ title }}</h3>
     </div>
     <div class="mdl-layout__header-row"></div>
 </header>
-<!-- ToDo add login -->

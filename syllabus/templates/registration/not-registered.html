@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block left %}
+    <h4>Login:</h4>
+    {% include 'syllabus/forms/login-form.html' %}
+{% endblock %}
+
+{% block right %}
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h4 class="mdl-card__title-text mdl-color-text--red">Not Registered</h4>
+        </div>
+        <div class="mdl-card__supporting-text mdl-color-text--red">
+            It seems you are not a registered user, please contact your admin for help.
+        </div>
+    </div>
+{% endblock %}

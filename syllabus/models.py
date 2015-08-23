@@ -11,7 +11,7 @@ class Course(models.Model):
     description = models.TextField(blank=True)
     prerequisites = models.TextField(blank=True)
     requirements = models.TextField(blank=True)
-    # ToDo add creator relationship to User
+    # ToDo add instructor relationship to User
 
     def __str__(self):
         return self.title
