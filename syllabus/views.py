@@ -6,8 +6,6 @@ from user.views import LoginRequiredMixin
 from .models import Course, Module, Lesson, Unit, LessonType, UnitType
 
 
-# ToDo create CRUD views for tags
-
 # REST API for course
 class CourseListView(LoginRequiredMixin, ListView):
     model = Course

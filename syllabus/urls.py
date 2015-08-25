@@ -42,4 +42,4 @@ urlpatterns = [
     url(r'^units/(?P<pk>[0-9]+)/delete/$', views.UnitDelete.as_view(), name='unit-delete'),
 ]
 
-# ToDo create CRUD urls for Tags
+# ToDo create CRUD views for Tags
