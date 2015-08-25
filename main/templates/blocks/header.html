@@ -3,11 +3,11 @@
         <div class="mdl-layout-spacer"></div>
         {% if user.is_authenticated %}
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="{% url 'logout' %}">Logout</a>
+                <a class="mdl-navigation__link" href="{% url 'user:logout' %}">Logout</a>
             </nav>
         {% else %}
             <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="{% url 'login-form' %}">Login</a>
+                <a class="mdl-navigation__link" href="{% url 'user:login-form' %}">Login</a>
             </nav>
         {% endif %}
     </div>

@@ -2,9 +2,9 @@
 
 {% block breadcrumbs %}
     <ol class="breadcrumb">
-        <li><a href="{% url 'course-detail' lesson.module.course.id %}">{{ lesson.module.course.title }}</a>
+        <li><a href="{% url 'syllabus:course-detail' lesson.module.course.id %}">{{ lesson.module.course.title }}</a>
         </li>
-        <li><a href="{% url 'module-detail' lesson.module.id %}">{{ lesson.module.title }}</a></li>
+        <li><a href="{% url 'syllabus:module-detail' lesson.module.id %}">{{ lesson.module.title }}</a></li>
         <li class="active">{{ lesson.title }}</li>
     </ol>
 {% endblock %}

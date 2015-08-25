@@ -38,7 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djangobower',
+    'main',
     'syllabus',
+    'user',
     # ToDo App for downloading units
 )
 
@@ -113,7 +115,7 @@ STATICFILES_FINDERS = (
 
 # django-bower settings
 
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'syllabus/static/components')
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'main/static/components')
 
 BOWER_INSTALLED_APPS = (
     'jquery',

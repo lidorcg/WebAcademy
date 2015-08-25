@@ -1,42 +1,12 @@
 # Create your views here.
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import redirect, render
 
+from user.views import LoginRequiredMixin
 from .models import Course, Module, Lesson, Unit, LessonType, UnitType
 
 
 # ToDo create CRUD views for tags
-# ToDo add permissions checks
-# ToDo add error views
-
-def login_view(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        if user.is_active:
-            login(request, user)
-            return redirect('course-list')
-        else:
-            return render(request, 'registration/not-active.html')
-    else:
-        return render(request, 'registration/not-registered.html')
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('login-form')
-
-
-class LoginRequiredMixin(object):
-    @classmethod
-    def as_view(cls, **initkwargs):
-        view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
-        return login_required(view)
-
 
 # REST API for course
 class CourseListView(LoginRequiredMixin, ListView):
