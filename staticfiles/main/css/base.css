@@ -1,0 +1,55 @@
+/* Inputs */
+.title-input {
+    font-size: 25px;
+}
+
+.textarea-input {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+}
+
+/* Buttons */
+.table-button-icon {
+    bottom: 5px;
+}
+
+.add-button {
+    top: -20px;
+    left: 20px;
+}
+
+.delete-button {
+    left: 45.5%;
+    top: 30px;
+}
+
+/* Table */
+.fixed {
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.fixed td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progressbar {
+    max-width: 100px;
+    top: 10px;
+}
+
+/* Layout */
+.mdl-grid {
+    max-width: 90%;
+}
+
+.breadcrumb {
+    padding: 0 0 0 20px;
+}
+
+.form-card {
+    max-width: 300px;
+}
