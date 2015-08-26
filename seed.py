@@ -28,7 +28,7 @@ for i in range(1, 6):
                    A lesson may introduce to the module, deliver one main subject or a few small related subjects,
                    practice the learned subjects, present a test or summarize the module.""",
                    type=LessonType.objects.get(pk=random.randint(1, 3)),
-                   time=timedelta(hours=random.randint(0, 3), minutes=random.randint(0, 60)))
+                   time=timedelta(hours=random.randint(0, 2), minutes=random.randint(0, 60)))
         l.save()
 
         for k in range(1, 6):
