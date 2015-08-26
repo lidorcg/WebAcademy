@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 def index(request):
     if request.user is not None:
         if request.user.is_active:
-            return redirect('syllabus:course-list')
+            return redirect('user:dashboard')
         else:
             return redirect('user:not-active')
     else:

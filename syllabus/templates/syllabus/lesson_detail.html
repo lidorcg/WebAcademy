@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block left %}
-    {% include 'syllabus/forms/update-form.html' with form="lessons" obj=lesson %}
+    {% include 'syllabus/forms/update-form.html' with form="lesson" obj=lesson %}
 {% endblock %}
 
 {% block right %}
@@ -22,33 +22,7 @@
 {% endblock %}
 
 {% block create-form %}
-    <div class="modal fade" id="create-form">
-        <div class="modal-dialog form-card">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">Create</h4>
-                </div>
-                <form action="units/add/" method="post">
-                    {% csrf_token %}
-                    <div class="modal-body">
-                        {% include 'syllabus/forms/fields/hidden.html' with name="lesson" value=lesson.id %}
-                        {% include 'syllabus/forms/fields/hidden.html' with name="order" value=lesson.get_units_count %}
-                        {% include 'syllabus/forms/fields/name.html' %}
-                        {% include 'syllabus/forms/fields/unit-type.html' %}
-                        {% include 'syllabus/forms/fields/url.html' %}
-                    </div>
-                    <div class="modal-footer">
-                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                            <i class="material-icons">add</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    {% include 'syllabus/forms/create-form.html' with form='units' %}
 {% endblock %}
 
 <!-- ToDo factor out create form -->

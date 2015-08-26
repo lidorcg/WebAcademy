@@ -10,21 +10,16 @@
             <form action="{{ form }}/add/" method="post">
                 {% csrf_token %}
                 <div class="modal-body">
-                    {% include 'syllabus/forms/fields/title.html' %}
-                    {% include 'syllabus/forms/fields/description.html' %}
-                    {% if form == "lessons" %}
-                        {% include 'syllabus/forms/fields/lesson-type.html' %}
-                        {% include 'syllabus/forms/fields/hidden.html' with name="order" value=module.get_lessons_count %}
-                        {% include 'syllabus/forms/fields/hidden.html' with name="module" value=module.id %}
-                    {% elif form == "modules" %}
-                        {% include 'syllabus/forms/fields/hidden.html' with name="course" value=course.id %}
-                        {% include 'syllabus/forms/fields/hidden.html' with name="order" value=course.get_modules_count %}
+                    {% if form == 'modules' %}
+                        {% include 'syllabus/forms/create-forms/module.html' %}
+                    {% elif form == 'lessons' %}
+                        {% include 'syllabus/forms/create-forms/lesson.html' %}
+                    {% elif form == 'units' %}
+                        {% include 'syllabus/forms/create-forms/unit.html' %}
                     {% endif %}
                 </div>
                 <div class="modal-footer">
-                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored">
-                        <i class="material-icons">add</i>
-                    </button>
+                    {% include 'forms/buttons/add-button.html' %}
                 </div>
             </form>
         </div>

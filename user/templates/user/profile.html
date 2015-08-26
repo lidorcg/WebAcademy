@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block left %}
+    <!-- ToDo add action to the form -->
+    <form class="ajax-form" action="#" method="post">
+        {% csrf_token %}
+        <div class="mdl-card">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Profile:</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                {% include 'forms/fields/text.html' with name='username' value=user.username label='Username' %}
+                <br>
+                {% include 'forms/fields/text.html' with name='first_name' value=user.first_name label='First Name' %}
+                <br>
+                {% include 'forms/fields/text.html' with name='last_name' value=user.last_name label='Last Name' %}
+                <br>
+                {% include 'forms/fields/text.html' with name='email' value=user.email label='Email' %}
+            </div>
+            <div class="mdl-card__actions">
+                {% include 'forms/buttons/save-button.html' %}
+            </div>
+        </div>
+    </form>
+{% endblock %}
