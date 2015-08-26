@@ -1,3 +1,7 @@
+import os
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "WebAcademy.settings")
+
 from datetime import timedelta
 import random
 
