@@ -29,7 +29,7 @@ class CourseUpdate(LoginRequiredMixin, UpdateView):
 
 class CourseDelete(LoginRequiredMixin, DeleteView):
     model = Course
-    success_url = reverse_lazy('course-list')
+    success_url = reverse_lazy('syllabus:course-list')
 
 
 # REST API for module
@@ -53,14 +53,14 @@ class ModuleUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'description']
 
     def get_success_url(self):
-        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().id})
+        return reverse_lazy('syllabus:module-detail', kwargs={'pk': self.get_object().id})
 
 
 class ModuleDelete(LoginRequiredMixin, DeleteView):
     model = Module
 
     def get_success_url(self):
-        return reverse_lazy('course-detail', kwargs={'pk': self.get_object().course_id})
+        return reverse_lazy('syllabus:course-detail', kwargs={'pk': self.get_object().course_id})
 
 
 # REST API for lesson
@@ -85,14 +85,14 @@ class LessonUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'description', 'type', 'time', 'requirements']
 
     def get_success_url(self):
-        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().id})
+        return reverse_lazy('syllabus:lesson-detail', kwargs={'pk': self.get_object().id})
 
 
 class LessonDelete(LoginRequiredMixin, DeleteView):
     model = Lesson
 
     def get_success_url(self):
-        return reverse_lazy('module-detail', kwargs={'pk': self.get_object().module_id})
+        return reverse_lazy('syllabus:module-detail', kwargs={'pk': self.get_object().module_id})
 
 
 # Partial Updates
@@ -116,4 +116,4 @@ class UnitDelete(LoginRequiredMixin, DeleteView):
     model = Unit
 
     def get_success_url(self):
-        return reverse_lazy('lesson-detail', kwargs={'pk': self.get_object().lesson_id})
+        return reverse_lazy('syllabus:lesson-detail', kwargs={'pk': self.get_object().lesson_id})
