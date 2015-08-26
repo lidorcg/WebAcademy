@@ -1,26 +1,17 @@
 {% load syllabus_helper %}
 <form class="ajax-form" action="update/" method="post">
     {% csrf_token %}
-    {% include 'syllabus/forms/fields/title.html' with value=obj.title class="title-input" %}
-    <br>
-    {% include 'syllabus/forms/fields/description.html' with value=obj.description %}
-    <br>
-    {% if form == "courses" %}
-        {% include 'syllabus/forms/fields/prerequisites.html' with value=obj.prerequisites %}
-        <br>
-    {% elif form == "lessons" %}
-        {% include 'syllabus/forms/fields/lesson-type.html' %}
-        <br>
-        {% include 'syllabus/forms/fields/time.html' with value=obj.time %}
-        <br>
-    {% endif %}
-    {% if form != "modules" %}
-        {% include 'syllabus/forms/fields/requirements.html' with value=obj.requirements %}
+    {% if course %}
+        {% include 'syllabus/forms/update-forms/course_detail.html' %}
+    {% elif module %}
+        {% include 'syllabus/forms/update-forms/module_detail.html' %}
+    {% elif lesson %}
+        {% include 'syllabus/forms/update-forms/lesson_detail.html' %}
     {% endif %}
     <br>
-    {% include "syllabus/blocks/save-button.html" %}
+    {% include "forms/buttons/save-button.html" %}
 </form>
-{% include 'syllabus/forms/ajax-form.html' %}
+{% include 'forms/ajax-form.html' %}
 
 <!-- ToDo insert to card -->
 <!-- ToDo add validations checks -->

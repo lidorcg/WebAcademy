@@ -1,4 +1,4 @@
-<div class="mdl-layout__drawer mdl-color--indigo-800 mdl-color-text--white">
+<div class="mdl-layout__drawer">
     <span class="mdl-layout-title">
         {% if user.is_authenticated %}
             Hello, {{ user.username }}
@@ -8,30 +8,29 @@
     </span>
     <nav class="mdl-navigation">
         {% if user.is_authenticated %}
-            <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'main:home' %}">
+            <a class="mdl-navigation__link" href="{% url 'main:home' %}">
                 Home
                 <!-- ToDo Dashboard view -->
             </a>
-            <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'syllabus:course-list' %}">
+            <a class="mdl-navigation__link" href="{% url 'user:profile' %}">
                 Profile
                 <!-- ToDo Profile view -->
             </a>
-            <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'syllabus:course-list' %}">
+            <a class="mdl-navigation__link" href="{% url 'syllabus:course-list' %}">
                 Course List
             </a>
-            <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'syllabus:course-list' %}">
+            <a class="mdl-navigation__link" href="{% url 'user:settings' %}">
                 Settings
                 <!-- ToDo Settings view -->
             </a>
-            <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'user:logout' %}">
+            <a class="mdl-navigation__link" href="{% url 'user:logout' %}">
                 Logout
             </a>
         {% else %}
-            <a class="mdl-navigation__link mdl-color-text--white" href="{% url 'user:login-form' %}">
+            <a class="mdl-navigation__link" href="{% url 'user:login-form' %}">
                 Login
             </a>
         {% endif %}
     </nav>
 </div>
-
 <!-- ToDo add icons to links -->

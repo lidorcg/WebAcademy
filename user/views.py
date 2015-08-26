@@ -24,11 +24,23 @@ def logout_view(request):
 
 
 def not_registered_view(request):
-    return render(request, 'user/not-registered.html')
+    return render(request, 'registration/not-registered.html')
 
 
 def not_active_view(request):
-    return render(request, 'user/not-active.html')
+    return render(request, 'registration/not-active.html')
+
+
+def dashboard_view(request):
+    return render(request, 'user/dashboard.html')
+
+
+def profile_view(request):
+    return render(request, 'user/profile.html')
+
+
+def settings_view(request):
+    return render(request, 'user/settigns.html')
 
 
 class LoginRequiredMixin(object):

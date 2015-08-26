@@ -21,8 +21,11 @@ urlpatterns = [
     url(r'^accounts/login/$', auth_views.login, name='login-form'),
     url(r'^login/$', views.login_view, name='login'),
     url(r'^logout/$', views.logout_view, name='logout'),
-    url(r'^not-registered/$', views.logout_view, name='not-registered'),
-    url(r'^not-active/$', views.logout_view, name='not-active'),
+    url(r'^not-registered/$', views.not_registered_view, name='not-registered'),
+    url(r'^not-active/$', views.not_active_view, name='not-active'),
+    url(r'^dashboard/$', views.dashboard_view, name='dashboard'),
+    url(r'^profile/$', views.profile_view, name='profile'),
+    url(r'^settings/$', views.settings_view, name='settings'),
 ]
 
 # ToDo create profile view

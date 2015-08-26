@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "main.html" %}
 
 {% block breadcrumbs %}
     <ol class="breadcrumb">
@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block left %}
-    {% include "syllabus/forms/update-form.html" with form="courses" obj=course %}
+    {% include 'syllabus/forms/update-form.html' %}
     <br>
     {% include 'syllabus/blocks/donut-chart.html' with obj=course %}
 {% endblock %}
