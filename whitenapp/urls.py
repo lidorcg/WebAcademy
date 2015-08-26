@@ -1,4 +1,4 @@
-"""WebAcademy URL Configuration
+"""user URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -13,13 +13,9 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
-from django.contrib import admin
+from django.conf.urls import url
+from whitenapp import views
 
 urlpatterns = [
-    url(r'^syllabus/', include('syllabus.urls', namespace='syllabus')),
-    url(r'^manage/', include('user.urls', namespace='user')),
-    url(r'^white/', include('whitenapp.urls', namespace='white')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('main.urls', namespace='main')),
+    url(r'^$', views.CourseListView.as_view(), name='course-list'),
 ]
