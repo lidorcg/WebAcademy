@@ -27,7 +27,7 @@ for i in range(1, 5):
                    description="""This is a lesson in the course.
                    A lesson may introduce to the module, deliver one main subject or a few small related subjects,
                    practice the learned subjects, present a test or summarize the module.""",
-                   type=LessonType.objects.get(random.randint(0, 2)),
+                   type=LessonType.objects.get(pk=random.randint(0, 2)),
                    time=timedelta(hours=random.randint(0, 3), minutes=random.randint(0, 60)))
         l.save()
 
@@ -35,5 +35,5 @@ for i in range(1, 5):
             u = Unit(lesson=l,
                      order=k,
                      name='U' + str(k),
-                     type=UnitType.objects.get(random.randint(0, 6)),
+                     type=UnitType.objects.get(pk=random.randint(0, 6)),
                      url='http://www.sample.com/' + 'Unit' + str(k)).save()
