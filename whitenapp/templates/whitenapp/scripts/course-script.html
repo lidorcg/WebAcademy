@@ -1,0 +1,13 @@
+
+import os
+
+os.mkdir("{{ c.title }}")
+os.chdir("{{ c.title }}")
+
+{% for m in c.get_modules %}
+{% include 'whitenapp/scripts/module-script.html' with counter=forloop.counter %}
+{% endfor %}
+
+os.chdir("..")
+
+<!-- ToDo check if folder exists -->

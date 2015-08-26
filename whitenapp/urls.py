@@ -17,5 +17,6 @@ from django.conf.urls import url
 from whitenapp import views
 
 urlpatterns = [
-    url(r'^$', views.CourseListView.as_view(), name='course-list'),
+    url(r'^courses/$', views.CourseListView.as_view(), name='course-list'),
+    url(r'^courses/(?P<pk>[0-9]+)/$', views.CourseDetailView.as_view(), name='course-script'),
 ]

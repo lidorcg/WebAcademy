@@ -1,0 +1,8 @@
+<td class="mdl-data-table__cell--non-numeric">
+    {% if obj.type.icon %}
+        <div id="{{ obj.id }}" class="material-icons">{{ obj.type.icon }}</div>
+        <div class="mdl-tooltip" for="{{ obj.id }}">{{ obj.type }}</div>
+    {% else %}
+        {{ obj.type }}
+    {% endif %}
+</td>

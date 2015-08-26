@@ -1,0 +1,16 @@
+{% for obj in objects %}
+    <tr>
+        {% include 'syllabus/table/fields/editable/handle.html' %}
+        <td class="mdl-data-table__cell--non-numeric">{{ obj.title }}</td>
+        <td>{{ obj.get_time }}</td>
+        {% include 'syllabus/table/fields/progressbar.html' %}
+        {% include 'syllabus/table/fields/link.html' %}
+    </tr>
+{% endfor %}
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>

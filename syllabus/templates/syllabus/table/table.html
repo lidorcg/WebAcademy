@@ -8,25 +8,25 @@
     <tr>
         <!-- ToDo add reorder backend function-->
         {% if courses %}
-            {% include 'syllabus/table/headers/course_list.html' %}
+            {% include 'syllabus/table/headers/course-list.html' %}
         {% elif course %}
-            {% include 'syllabus/table/headers/course_detail.html' %}
+            {% include 'syllabus/table/headers/module-list.html' %}
         {% elif module %}
-            {% include 'syllabus/table/headers/module_detail.html' %}
+            {% include 'syllabus/table/headers/lesson-list.html' %}
         {% elif lesson %}
-            {% include 'syllabus/table/headers/lesson_detail.html' %}
+            {% include 'syllabus/table/headers/unit-list.html' %}
         {% endif %}
     </tr>
     </thead>
     <tbody id="sortable">
     {% if courses %}
-        {% include 'syllabus/table/bodies/course_list.html' %}
+        {% include 'syllabus/table/bodies/course-list.html' %}
     {% elif course %}
-        {% include 'syllabus/table/bodies/course_detail.html' %}
+        {% include 'syllabus/table/bodies/module-list.html' %}
     {% elif module %}
-        {% include 'syllabus/table/bodies/module_detail.html' %}
+        {% include 'syllabus/table/bodies/lesson-list.html' %}
     {% elif lesson %}
-        {% include 'syllabus/table/bodies/lesson_detail.html' %}
+        {% include 'syllabus/table/bodies/unit-list.html' %}
     {% endif %}
     </tbody>
     <script>
