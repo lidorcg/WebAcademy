@@ -42,12 +42,18 @@
 }
 
 /* Layout */
-.mdl-grid {
-    max-width: 90%;
+.page-content {
+    min-height: 100vh;
+    padding: 3% 7% 3% 7%;
+}
+
+.mdl-card {
+    padding: 5%;
 }
 
 .breadcrumb {
     padding: 0 0 0 20px;
+    margin: 0;
 }
 
 .form-card {
