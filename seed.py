@@ -13,14 +13,14 @@ c = Course(title='Demo',
            description='This is a sample course to show all the options this system holds.')
 c.save()
 
-for i in range(1, 5):
+for i in range(1, 6):
     m = Module(course=c,
                order=i,
                title='M' + str(i),
                description='This is a module(kind of a chapter) in the course.')
     m.save()
 
-    for j in range(1, 5):
+    for j in range(1, 6):
         l = Lesson(module=m,
                    order=j,
                    title='L' + str(j),
@@ -31,7 +31,7 @@ for i in range(1, 5):
                    time=timedelta(hours=random.randint(0, 3), minutes=random.randint(0, 60)))
         l.save()
 
-        for k in range(1, 5):
+        for k in range(1, 6):
             u = Unit(lesson=l,
                      order=k,
                      name='U' + str(k),
