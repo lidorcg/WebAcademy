@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block layout %}
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-tabs">
+    <div class="mdl-layout mdl-js-layout">
         {% block header %}
             {% include 'blocks/header.html' with title="Course Planner" %}
         {% endblock %}
@@ -12,38 +12,11 @@
 
         {% block breadcrumbs %}
         {% endblock %}
-        <br>
-        {% block main %}
-            <main class="mdl-layout__content">
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col">
-                        {% block content %}
-                            <div class="mdl-grid">
-                                <div class="mdl-cell mdl-cell--5-col">
-                                    {% block left %}
-                                    {% endblock %}
-                                </div>
-                                <div class="mdl-cell mdl-cell--7-col">
-                                    {% block right %}
-                                    {% endblock %}
-                                </div>
-                            </div>
-                        {% endblock %}
-                    </div>
-                </div>
-            </main>
-        {% endblock %}
-
-        {% block footer %}
-            {% include 'blocks/footer.html' %}
-        {% endblock %}
 
         {% block create-form %}
-
         {% endblock %}
 
-
+        {% block main %}
+        {% endblock %}
     </div>
 {% endblock %}
-
-<!-- ToDo add a help button -->

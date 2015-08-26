@@ -16,8 +16,8 @@
     {% endif %}
     {% if form != "modules" %}
         {% include 'syllabus/forms/fields/requirements.html' with value=obj.requirements %}
+        <br>
     {% endif %}
-    <br>
     {% include "syllabus/blocks/save-button.html" %}
 </form>
 {% include 'syllabus/forms/ajax-form.html' %}
