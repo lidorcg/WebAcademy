@@ -2,5 +2,18 @@
 
 {% block left %}
     <h4>Login:</h4>
-    {% include 'syllabus/forms/login-form.html' %}
+    <form action="{% url 'user:login' %}" method="post">
+        {% csrf_token %}
+        {% include 'forms/fields/text.html' with name='username' label='Username' %}
+        <br>
+
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="password" name="password"/>
+            <label class="mdl-textfield__label" for="password">Password</label>
+        </div>
+        <br>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            Login
+        </button>
+    </form>
 {% endblock %}
