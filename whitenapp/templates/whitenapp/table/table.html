@@ -1,10 +1,26 @@
 <table class="mdl-data-table mdl-js-data-table fixed mdl-shadow--2dp">
     <thead>
     <tr>
-        {% include 'whitenapp/table/headers/course-list.html' %}
+        {% if courses %}
+            {% include 'whitenapp/table/headers/course-list.html' with objects=courses %}
+        {% elif course %}
+            {% include 'whitenapp/table/headers/module-list.html' with objects=course.get_modules %}
+        {% elif module %}
+            {% include 'whitenapp/table/headers/lesson-list.html' with objects=module.get_lessons %}
+        {% elif lesson %}
+            {% include 'whitenapp/table/headers/unit-list.html' with objects=lesson.get_units %}
+        {% endif %}
     </tr>
     </thead>
     <tbody>
-    {% include 'whitenapp/table/bodies/course-list.html' %}
+        {% if courses %}
+            {% include 'whitenapp/table/bodies/course-list.html' with objects=courses %}
+        {% elif course %}
+            {% include 'whitenapp/table/bodies/module-list.html' with objects=course.get_modules %}
+        {% elif module %}
+            {% include 'whitenapp/table/bodies/lesson-list.html' with objects=module.get_lessons %}
+        {% elif lesson %}
+            {% include 'whitenapp/table/bodies/unit-list.html' with objects=lesson.get_units %}
+        {% endif %}
     </tbody>
 </table>

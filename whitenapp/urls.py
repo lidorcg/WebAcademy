@@ -18,5 +18,14 @@ from whitenapp import views
 
 urlpatterns = [
     url(r'^courses/$', views.CourseListView.as_view(), name='course-list'),
-    url(r'^courses/(?P<pk>[0-9]+)/$', views.CourseDetailView.as_view(), name='course-script'),
+    url(r'^courses/(?P<pk>[0-9]+)/script$', views.CourseScriptView.as_view(), name='course-script'),
+
+    url(r'^courses/(?P<pk>[0-9]+)$', views.CourseDetailView.as_view(), name='module-list'),
+    url(r'^modules/(?P<pk>[0-9]+)/script$', views.ModuleScriptView.as_view(), name='module-script'),
+
+    url(r'^modules/(?P<pk>[0-9]+)$', views.ModuleDetailView.as_view(), name='lesson-list'),
+    url(r'^lessons/(?P<pk>[0-9]+)/script$', views.LessonScriptView.as_view(), name='lesson-script'),
+
+    url(r'^lessons/(?P<pk>[0-9]+)$', views.LessonDetailView.as_view(), name='unit-list'),
+    url(r'^units/(?P<pk>[0-9]+)/script$', views.UnitScriptView.as_view(), name='unit-script'),
 ]

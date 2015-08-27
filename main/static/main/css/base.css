@@ -48,14 +48,11 @@
 }
 
 .mdl-card {
+    width: 100%;
     padding: 5%;
 }
 
 .breadcrumb {
     padding: 0 0 0 20px;
     margin: 0;
-}
-
-.form-card {
-    max-width: 300px;
 }

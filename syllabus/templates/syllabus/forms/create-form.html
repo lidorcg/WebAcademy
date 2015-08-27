@@ -1,5 +1,5 @@
 <div class="modal fade" id="create-form">
-    <div class="modal-dialog form-card">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <form action="{{ form }}/add/" method="post">
                 {% csrf_token %}
@@ -30,3 +30,4 @@
 </div>
 
 <!-- ToDo add validations checks -->
+<!-- Title/Name cannot hold " -->

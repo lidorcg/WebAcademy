@@ -1,17 +1,33 @@
 {% load syllabus_helper %}
 <form class="ajax-form" action="update/" method="post">
     {% csrf_token %}
-    {% if course %}
-        {% include 'syllabus/forms/update-forms/course_detail.html' %}
-    {% elif module %}
-        {% include 'syllabus/forms/update-forms/module_detail.html' %}
-    {% elif lesson %}
-        {% include 'syllabus/forms/update-forms/lesson_detail.html' %}
-    {% endif %}
-    <br>
-    {% include "forms/buttons/save-button.html" %}
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">
+                {% if course %}
+                    Course:
+                {% elif module %}
+                    Module:
+                {% elif lesson %}
+                    Lesson:
+                {% endif %}
+            </h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+            {% if course %}
+                {% include 'syllabus/forms/update-forms/course_detail.html' %}
+            {% elif module %}
+                {% include 'syllabus/forms/update-forms/module_detail.html' %}
+            {% elif lesson %}
+                {% include 'syllabus/forms/update-forms/lesson_detail.html' %}
+            {% endif %}
+        </div>
+        <div class="mdl-card__actions">
+            {% include "forms/buttons/save-button.html" %}
+        </div>
+    </div>
 </form>
 {% include 'forms/ajax-form.html' %}
 
-<!-- ToDo insert to card -->
 <!-- ToDo add validations checks -->
+<!-- Title/Name cannot hold " -->

@@ -1,5 +1,15 @@
 <td>
-    <a href="{% url 'syllabus:course-detail' obj.id %}">
-        <i class="material-icons md-dark">play_arrow</i>
-    </a>
+    {% if courses %}
+        <a href="{% url 'white:module-list' obj.id %}">
+            <i class="material-icons md-dark">play_arrow</i>
+        </a>
+    {% elif course %}
+        <a href="{% url 'white:lesson-list' obj.id %}">
+            <i class="material-icons md-dark">forward</i>
+        </a>
+    {% elif module %}
+        <a href="{% url 'white:unit-list' obj.id %}">
+            <i class="material-icons md-dark">arrow_forward</i>
+        </a>
+    {% endif %}
 </td>
