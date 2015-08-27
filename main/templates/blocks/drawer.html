@@ -10,18 +10,18 @@
         {% if user.is_authenticated %}
             <a class="mdl-navigation__link" href="{% url 'main:home' %}">
                 Home
-                <!-- ToDo Dashboard view -->
             </a>
             <a class="mdl-navigation__link" href="{% url 'user:profile' %}">
                 Profile
-                <!-- ToDo Profile view -->
             </a>
             <a class="mdl-navigation__link" href="{% url 'syllabus:course-list' %}">
                 Course List
             </a>
+            <a class="mdl-navigation__link" href="{% url 'white:course-list' %}">
+                Export
+            </a>
             <a class="mdl-navigation__link" href="{% url 'user:settings' %}">
                 Settings
-                <!-- ToDo Settings view -->
             </a>
             <a class="mdl-navigation__link" href="{% url 'user:logout' %}">
                 Logout

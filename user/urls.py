@@ -27,7 +27,3 @@ urlpatterns = [
     url(r'^profile/$', views.profile_view, name='profile'),
     url(r'^settings/$', views.settings_view, name='settings'),
 ]
-
-# ToDo create profile view
-# ToDo create settings view
-# ToDo create dashboard view

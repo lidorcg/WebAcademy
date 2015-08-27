@@ -14,13 +14,23 @@
 {% endblock %}
 
 {% block right %}
-    <h4>Lessons:</h4>
-    {% include 'syllabus/table/table.html' with objects=module.get_lessons %}
-    {% include 'syllabus/blocks/add-button.html' %}
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Lessons:</h2>
+        </div>
+        {% include 'syllabus/table/table.html' with objects=module.get_lessons %}
+        <div class="mdl-card__actions">
+            {% include "syllabus/blocks/add-button.html" %}
+        </div>
+    </div>
 {% endblock %}
 
 {% block create-form %}
     {% include 'syllabus/forms/create-form.html' with form='lessons' %}
+{% endblock %}
+
+{% block delete-form %}
+    {% include 'syllabus/forms/delete-form.html' %}
 {% endblock %}
 
 

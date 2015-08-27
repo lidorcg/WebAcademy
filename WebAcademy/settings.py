@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'main',
     'syllabus',
     'user',
-    # ToDo App for downloading units
+    'whitenapp',
 )
 
 MIDDLEWARE_CLASSES = (

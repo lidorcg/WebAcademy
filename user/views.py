@@ -18,6 +18,7 @@ def login_view(request):
         return redirect('user:not-registered')
 
 
+@login_required()
 def logout_view(request):
     logout(request)
     return redirect('user:login-form')
@@ -31,14 +32,17 @@ def not_active_view(request):
     return render(request, 'registration/not-active.html')
 
 
+@login_required()
 def dashboard_view(request):
     return render(request, 'user/dashboard.html')
 
 
+@login_required()
 def profile_view(request):
     return render(request, 'user/profile.html')
 
 
+@login_required()
 def settings_view(request):
     return render(request, 'user/settigns.html')
 
