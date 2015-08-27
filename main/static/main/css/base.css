@@ -13,7 +13,7 @@
     bottom: 5px;
 }
 
-.delete-button {
+.float-right {
     float: right;
 }
 
@@ -43,6 +43,10 @@
 
 .mdl-card {
     width: 100%;
+}
+
+.mdl-card__actions{
+    display: flex;
 }
 
 .breadcrumb {

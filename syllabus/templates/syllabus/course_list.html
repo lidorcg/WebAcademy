@@ -1,6 +1,8 @@
 {% extends "main.html" %}
 
 {% block left %}
-    <h4>Courses:</h4>
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Courses:</h2>
+    </div>
     {% include 'syllabus/table/table.html' with objects=courses %}
 {% endblock %}

@@ -54,3 +54,4 @@ class UnitScriptView(LoginRequiredMixin, DetailView):
     model = Unit
     context_object_name = 'unit'
     template_name = 'whitenapp/scripts/base-script.py'
+    # ToDo Download the relevant content
