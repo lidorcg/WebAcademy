@@ -1,0 +1,23 @@
+<div class="modal fade" id="delete-form">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="mdl-card">
+                <div class="mdl-card__title">
+                    <h2 class="mdl-card__title-text mdl-color-text--red">Delete?</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    This action is irreversible and will delete everything you see on this page.
+                    Are you absolutely sure that this is what you want?
+                </div>
+                <div class="mdl-card__actions">
+                    <form action="delete/" method="post">
+                        {% csrf_token %}
+                        {% include 'forms/buttons/delete.html' %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ToDo add cancel button -->

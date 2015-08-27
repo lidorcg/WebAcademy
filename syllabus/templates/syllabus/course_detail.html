@@ -13,9 +13,7 @@
 {% endblock %}
 
 {% block right %}
-    <h4>Modules:</h4>
     {% include "syllabus/table/table.html" with objects=course.get_modules %}
-    {% include "syllabus/blocks/add-button.html" %}
 {% endblock %}
 
 {% block create-form %}

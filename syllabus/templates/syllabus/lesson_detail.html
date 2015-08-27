@@ -14,13 +14,15 @@
 {% endblock %}
 
 {% block right %}
-    <h4>Units:</h4>
     {% include "syllabus/table/table.html" with objects=lesson.get_units %}
-    {% include "syllabus/blocks/add-button.html" %}
     <!-- ToDo add done button -->
     <!-- ToDo add tags -->
 {% endblock %}
 
 {% block create-form %}
     {% include 'syllabus/forms/create-form.html' with form='units' %}
+{% endblock %}
+
+{% block delete-form %}
+    {% include 'syllabus/forms/delete-form.html' %}
 {% endblock %}
