@@ -17,9 +17,14 @@
             <a class="mdl-navigation__link" href="{% url 'syllabus:course-list' %}">
                 Course List
             </a>
-            <a class="mdl-navigation__link" href="{% url 'white:course-list' %}">
-                Export
-            </a>
+            {% if user.is_staff %}
+                <a class="mdl-navigation__link" href="{% url 'white:course-list' %}">
+                    Export
+                </a>
+                <a class="mdl-navigation__link" href="{% url 'admin:index' %}">
+                    Admin
+                </a>
+            {% endif %}
             <a class="mdl-navigation__link" href="{% url 'user:settings' %}">
                 Settings
             </a>

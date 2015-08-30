@@ -155,5 +155,5 @@ class UnitType(models.Model):
     def __str__(self):
         return self.name
 
-# ToDo add tooltip messages
-# ToDo add comments for documentation
+# ToDo add knowledge level for lesson
+# ToDo add practice and tests templates for the different knowledge level
