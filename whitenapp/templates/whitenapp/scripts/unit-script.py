@@ -1,5 +1,14 @@
 if not os.path.exists("U{{ u.order }}-{{ u.name }}"):
     os.mkdir("U{{ u.order }}-{{ u.name }}")
 os.chdir("U{{ u.order }}-{{ u.name }}")
-# ToDo Download the relevant content
+print("downloading unit: {{ u.name }}...")
+{% if u.type.name == 'Video' %}
+video = pafy.new("{{ u.url }}")
+best = video.getbest()
+if not os.path.exists("{{ u.name }}." + best.extension):
+    best.download(filepath="{{ u.name }}." + best.extension)
+{% else %}
+urllib.request.urlretrieve("{{ u.url }}")
+{% endif %}
+print("finished unit: {{ u.name }}")
 os.chdir("..")
