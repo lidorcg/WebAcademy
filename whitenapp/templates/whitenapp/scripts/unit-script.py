@@ -5,7 +5,8 @@ print("downloading unit: {{ u.name }}...")
 {% if u.type.name == 'Video' %}
 video = pafy.new("{{ u.url }}")
 best = video.getbest()
-best.download(filepath="{{ u.name }}." + best.extension)
+if not os.path.exists("{{ u.name }}." + best.extension):
+    best.download(filepath="{{ u.name }}." + best.extension)
 {% else %}
 urllib.request.urlretrieve("{{ u.url }}")
 {% endif %}
