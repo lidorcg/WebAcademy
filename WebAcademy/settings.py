@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'main',
     'syllabus',
     'user',
-    'whitenapp',
+    'export',
 )
 
 MIDDLEWARE_CLASSES = (

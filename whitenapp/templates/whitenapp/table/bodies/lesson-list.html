@@ -1,9 +1,0 @@
-{% for obj in objects %}
-    <tr>
-        {% include 'whitenapp/table/fields/download.html' %}
-        {% include 'whitenapp/table/fields/type.html' %}
-        <td class="mdl-data-table__cell--non-numeric">{{ obj.title }}</td>
-        {% include 'whitenapp/table/fields/done-checkbox.html' %}
-        {% include 'whitenapp/table/fields/link.html' %}
-    </tr>
-{% endfor %}

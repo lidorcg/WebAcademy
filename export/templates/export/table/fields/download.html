@@ -1,18 +1,18 @@
 <td class="mdl-data-table__cell--non-numeric">
     {% if courses %}
-        <a href="{% url 'white:course-script' obj.id %}" download="white-course.py">
+        <a href="{% url 'export:course-script' obj.id %}" download="export-course.py">
             <i class="material-icons">file_download</i>
         </a>
     {% elif course %}
-        <a href="{% url 'white:module-script' obj.id %}" download="white-module.py">
+        <a href="{% url 'export:module-script' obj.id %}" download="export-module.py">
             <i class="material-icons">file_download</i>
         </a>
     {% elif module %}
-        <a href="{% url 'white:lesson-script' obj.id %}" download="white-lesson.py">
+        <a href="{% url 'export:lesson-script' obj.id %}" download="export-lesson.py">
             <i class="material-icons">file_download</i>
         </a>
     {% elif lesson %}
-        <a href="{% url 'white:unit-script' obj.id %}" download="white-unit.py">
+        <a href="{% url 'export:unit-script' obj.id %}" download="export-unit.py">
             <i class="material-icons">file_download</i>
         </a>
     {% endif %}

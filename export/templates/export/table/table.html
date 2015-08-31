@@ -1,0 +1,26 @@
+<table class="mdl-data-table mdl-js-data-table fixed mdl-shadow--2dp">
+    <thead>
+    <tr>
+        {% if courses %}
+            {% include 'export/table/headers/course-list.html' with objects=courses %}
+        {% elif course %}
+            {% include 'export/table/headers/module-list.html' with objects=course.get_modules %}
+        {% elif module %}
+            {% include 'export/table/headers/lesson-list.html' with objects=module.get_lessons %}
+        {% elif lesson %}
+            {% include 'export/table/headers/unit-list.html' with objects=lesson.get_units %}
+        {% endif %}
+    </tr>
+    </thead>
+    <tbody>
+        {% if courses %}
+            {% include 'export/table/bodies/course-list.html' with objects=courses %}
+        {% elif course %}
+            {% include 'export/table/bodies/module-list.html' with objects=course.get_modules %}
+        {% elif module %}
+            {% include 'export/table/bodies/lesson-list.html' with objects=module.get_lessons %}
+        {% elif lesson %}
+            {% include 'export/table/bodies/unit-list.html' with objects=lesson.get_units %}
+        {% endif %}
+    </tbody>
+</table>

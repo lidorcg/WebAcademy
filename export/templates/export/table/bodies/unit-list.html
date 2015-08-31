@@ -1,0 +1,8 @@
+{% for obj in lesson.get_units %}
+    <tr>
+        {% include 'export/table/fields/download.html' %}
+        {% include 'export/table/fields/type.html' %}
+        <td class="mdl-data-table__cell--non-numeric">{{ obj.name }}</td>
+        {% include 'export/table/fields/url.html' %}
+    </tr>
+{% endfor %}
