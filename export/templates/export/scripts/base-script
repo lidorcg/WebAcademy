@@ -1,0 +1,32 @@
+import os
+
+##############################
+### creating export folder ###
+##############################
+if not os.path.exists("export"):
+	print("opening export folder...")
+	os.mkdir("export")
+os.chdir("export")
+file = open('__init__.py', 'w+')
+
+##################################
+### getting youtube downloader ###
+##################################
+import urllib.request
+if not os.path.exists("pafy.py"):
+	url = 'https://raw.githubusercontent.com/np1/pafy/master/pafy/pafy.py'
+	print("downloading pafy.py...")
+	urllib.request.urlretrieve(url, "pafy.py")
+
+from export import pafy
+
+{% if course %}
+{% include 'export/scripts/course-script' with c=course %}
+{% elif module %}
+{% include 'export/scripts/module-script' with m=module %}
+{% elif lesson %}
+{% include 'export/scripts/lesson-script' with l=lesson %}
+{% elif unit %}
+{% include 'export/scripts/unit-script' with u=unit %}
+{% endif %}
+
