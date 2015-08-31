@@ -17,6 +17,7 @@ class CourseListView(LoginRequiredMixin, ListView):
 class CourseScriptView(LoginRequiredMixin, DetailView):
     model = Course
     context_object_name = 'course'
+    content_type = 'text/plain'
     template_name = 'whitenapp/scripts/base-script.py'
 
 
@@ -29,6 +30,7 @@ class CourseDetailView(LoginRequiredMixin, DetailView):
 class ModuleScriptView(LoginRequiredMixin, DetailView):
     model = Module
     context_object_name = 'course'
+    content_type = 'text/plain'
     template_name = 'whitenapp/scripts/base-script.py'
 
 
@@ -41,6 +43,7 @@ class ModuleDetailView(LoginRequiredMixin, DetailView):
 class LessonScriptView(LoginRequiredMixin, DetailView):
     model = Lesson
     context_object_name = 'lesson'
+    content_type = 'text/plain'
     template_name = 'whitenapp/scripts/base-script.py'
 
 
@@ -53,5 +56,5 @@ class LessonDetailView(LoginRequiredMixin, DetailView):
 class UnitScriptView(LoginRequiredMixin, DetailView):
     model = Unit
     context_object_name = 'unit'
+    content_type = 'text/plain'
     template_name = 'whitenapp/scripts/base-script.py'
-    # ToDo Download the relevant content
