@@ -1,5 +1,5 @@
 import os
-
+# ToDo create function for download and folders
 ##############################
 ### creating export folder ###
 ##############################
@@ -18,8 +18,8 @@ if not os.path.exists("pafy.py"):
 	print("downloading pafy.py...")
 	try:
 		urllib.request.urlretrieve(url, "pafy.py")
-	except HTTPError:
-	    print("oops... there was a problem downloading pafy.py...")
+	except urllib.error.HTTPError:
+	    print('\033[93m' + "oops... there was a problem downloading pafy.py..." + '\033[0m')
 
 from export import pafy
 

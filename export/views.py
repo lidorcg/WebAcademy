@@ -1,9 +1,6 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
-
-
 # Create your views here.
 from django.views.generic import ListView, DetailView
+
 from syllabus.models import Course, Module, Lesson, Unit
 from user.views import LoginRequiredMixin
 
@@ -11,7 +8,7 @@ from user.views import LoginRequiredMixin
 class CourseListView(LoginRequiredMixin, ListView):
     model = Course
     context_object_name = 'courses'
-    template_name = 'export/list-view.html'
+    template_name = 'export/course-list.html'
 
 
 class CourseScriptView(LoginRequiredMixin, DetailView):
@@ -24,7 +21,7 @@ class CourseScriptView(LoginRequiredMixin, DetailView):
 class CourseDetailView(LoginRequiredMixin, DetailView):
     model = Course
     context_object_name = 'course'
-    template_name = 'export/list-view.html'
+    template_name = 'export/module-list.html'
 
 
 class ModuleScriptView(LoginRequiredMixin, DetailView):
@@ -37,7 +34,7 @@ class ModuleScriptView(LoginRequiredMixin, DetailView):
 class ModuleDetailView(LoginRequiredMixin, DetailView):
     model = Module
     context_object_name = 'module'
-    template_name = 'export/list-view.html'
+    template_name = 'export/lesson-list.html'
 
 
 class LessonScriptView(LoginRequiredMixin, DetailView):
@@ -50,7 +47,7 @@ class LessonScriptView(LoginRequiredMixin, DetailView):
 class LessonDetailView(LoginRequiredMixin, DetailView):
     model = Lesson
     context_object_name = 'lesson'
-    template_name = 'export/list-view.html'
+    template_name = 'export/unit-list.html'
 
 
 class UnitScriptView(LoginRequiredMixin, DetailView):
