@@ -16,7 +16,10 @@ import urllib.request
 if not os.path.exists("pafy.py"):
 	url = 'https://raw.githubusercontent.com/np1/pafy/master/pafy/pafy.py'
 	print("downloading pafy.py...")
-	urllib.request.urlretrieve(url, "pafy.py")
+	try:
+		urllib.request.urlretrieve(url, "pafy.py")
+	except HTTPError:
+	    print("oops... there was a problem downloading pafy.py...")
 
 from export import pafy
 

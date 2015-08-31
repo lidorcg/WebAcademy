@@ -11,7 +11,10 @@ best = video.getbest()
 if not os.path.exists("{{ u.name }}." + best.extension):
     best.download(filepath="{{ u.name }}." + best.extension)
 {% else %}
-urllib.request.urlretrieve("{{ u.url }}")
+try:
+    urllib.request.urlretrieve("{{ u.url }}")
+except HTTPError:
+	    print("oops... there was a problem downloading {{ u.name }}...")
 {% endif %}
 print("finished unit: {{ u.name }}")
 os.chdir("..")
