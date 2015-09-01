@@ -1,5 +1,5 @@
 import os
-# ToDo create function for download and folders
+# ToDo factor out folder creation and downloads to functions
 ##############################
 ### creating export folder ###
 ##############################

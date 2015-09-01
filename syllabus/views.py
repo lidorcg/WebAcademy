@@ -1,4 +1,5 @@
 # Create your views here.
+from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
@@ -32,6 +33,16 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('syllabus:course-list')
 
 
+# Partial Updates
+def modules_reorder(request, pk):
+    new_order = request.POST.getlist('order[]')
+    for idx, item in enumerate(new_order):
+        m = Module.objects.get(pk=item)
+        m.order = idx
+        m.save()
+    return HttpResponse()
+
+
 # REST API for module
 class ModuleCreate(LoginRequiredMixin, CreateView):
     model = Module
@@ -61,6 +72,16 @@ class ModuleDelete(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('syllabus:course-detail', kwargs={'pk': self.get_object().course_id})
+
+
+# Partial Updates
+def lessons_reorder(request, pk):
+    new_order = request.POST['order']
+    for idx, item in enumerate(new_order):
+        l = Lesson.objects.get(pk=item)
+        l.order = idx
+        l.save()
+    return HttpResponse()
 
 
 # REST API for lesson
@@ -99,6 +120,15 @@ class LessonDelete(LoginRequiredMixin, DeleteView):
 class LessonUpdateDone(LoginRequiredMixin, UpdateView):
     model = Lesson
     fields = ['done']
+
+
+def units_reorder(request, pk):
+    new_order = request.POST['order']
+    for idx, item in enumerate(new_order):
+        u = Unit.objects.get(pk=item)
+        u.order = idx
+        u.save()
+    return HttpResponse()
 
 
 # REST API for unit
