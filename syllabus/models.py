@@ -45,7 +45,7 @@ class Course(models.Model):
 
 class Module(models.Model):
     course = models.ForeignKey('Course')
-    order = models.PositiveSmallIntegerField(unique=True)
+    order = models.PositiveSmallIntegerField()
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
 
