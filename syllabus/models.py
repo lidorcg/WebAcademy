@@ -100,9 +100,6 @@ class Lesson(models.Model):
     tags = models.ManyToManyField('Tag', blank=True)
     done = models.BooleanField(default=False)
 
-    class Meta:
-        unique_together = (("module", "order"),)
-
     def __str__(self):
         return self.title
 
