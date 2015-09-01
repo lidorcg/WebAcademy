@@ -1,5 +1,5 @@
 {% for obj in objects %}
-    <tr>
+    <tr id="{{ obj.id }}">
         {% include 'syllabus/table/fields/editable/handle.html' %}
         {% include 'syllabus/table/fields/type.html' %}
         <td class="mdl-data-table__cell--non-numeric">{{ obj.title }}</td>
@@ -8,7 +8,7 @@
         {% include 'syllabus/table/fields/link.html' %}
     </tr>
 {% endfor %}
-<script language="JavaScript">
+<script>
     $(document).ready(function () {
         $('.table-form').on('change', function (event) {
             $.ajax({

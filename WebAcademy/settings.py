@@ -123,5 +123,4 @@ BOWER_INSTALLED_APPS = (
     'material-design-lite',
     'c3',
     'jquery-ui',
-    'google-code-prettify'
 )

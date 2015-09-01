@@ -1,5 +1,5 @@
 {% for obj in objects %}
-    <tr>
+    <tr id="{{ obj.id }}">
         {% include 'syllabus/table/fields/editable/handle.html' %}
         <td class="mdl-data-table__cell--non-numeric">{{ obj.title }}</td>
         <td>{{ obj.get_time }}</td>

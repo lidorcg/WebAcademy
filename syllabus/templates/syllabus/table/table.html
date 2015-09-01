@@ -6,7 +6,6 @@
 <table class="mdl-data-table mdl-js-data-table fixed">
     <thead>
     <tr>
-        <!-- ToDo add reorder backend function-->
         {% if courses %}
             {% include 'syllabus/table/headers/course-list.html' %}
         {% elif course %}
@@ -31,7 +30,12 @@
     </tbody>
     <script>
         $(function () {
-            $("#sortable").sortable({handle: '.handle'});
+            $("#sortable").sortable({
+                handle: '.handle',
+                update: function (event, ui) {
+                    $.post("reorder/", {order: $("#sortable").sortable("toArray")});
+                }
+            });
             $("#sortable").disableSelection();
         });
         $("#sortable .delete").click(function () {
