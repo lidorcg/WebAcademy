@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
 
@@ -11,7 +12,7 @@ class Course(models.Model):
     description = models.TextField(blank=True)
     prerequisites = models.TextField(blank=True)
     requirements = models.TextField(blank=True)
-    # ToDo add instructor relationship to User
+    instructors = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.title

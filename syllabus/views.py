@@ -12,6 +12,12 @@ class CourseListView(LoginRequiredMixin, ListView):
     model = Course
     context_object_name = 'courses'
 
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Course.objects.all()
+        else:
+            return Course.objects.filter(instructors__id=self.request.user.id)
+
 
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
