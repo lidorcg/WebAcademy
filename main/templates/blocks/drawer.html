@@ -1,7 +1,7 @@
 <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">
         {% if user.is_authenticated %}
-            Hello, {{ user.username }}
+            Hello, {{ user.username|title }}
         {% else %}
             Please Login
         {% endif %}

@@ -11,20 +11,14 @@
 
 {% block left %}
     {% include 'syllabus/forms/update-form.html' with form="lesson" obj=lesson %}
+    <!-- ToDo add done button -->
+    <!-- ToDo add tags -->
 {% endblock %}
 
 {% block right %}
-    <div class="mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">Units:</h2>
-        </div>
-        {% include "syllabus/table/table.html" with objects=lesson.get_units %}
-        <div class="mdl-card__actions">
-            {% include "syllabus/blocks/add-button.html" %}
-        </div>
-    </div>
-    <!-- ToDo add done button -->
-    <!-- ToDo add tags -->
+    {% include 'syllabus/table/table-card.html' with title="Units" objects=lesson.get_units %}
+    <br>
+    {% include 'syllabus/messages/messages-card.html' with messages=lesson.get_messages %}
 {% endblock %}
 
 {% block create-form %}
