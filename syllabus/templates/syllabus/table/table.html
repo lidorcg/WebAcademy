@@ -1,8 +1,3 @@
-<style>
-    .handle {
-        cursor: pointer;
-    }
-</style>
 <table class="mdl-data-table mdl-js-data-table fixed">
     <thead>
     <tr>
@@ -32,13 +27,12 @@
         $(function () {
             $("#sortable").sortable({
                 handle: '.handle',
-                update: function (event, ui) {
+                update: function () {
                     $.post("reorder/", {order: $("#sortable").sortable("toArray")});
                 }
             });
-            $("#sortable").disableSelection();
         });
-        $("#sortable .delete").click(function () {
+        $("#sortable").find(".delete").click(function () {
             $(this).closest('form').submit();
             $(this).closest('tr').remove();
         });

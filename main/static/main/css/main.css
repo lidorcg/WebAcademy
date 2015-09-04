@@ -35,6 +35,10 @@
     top: 10px;
 }
 
+.handle {
+    cursor: pointer;
+}
+
 /* Layout */
 .page-content {
     min-height: 100vh;
