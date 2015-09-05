@@ -1,7 +1,7 @@
 <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">
         {% if user.is_authenticated %}
-            Hello, {{ user.username }}
+            Hello, {{ user.username|title }}
         {% else %}
             Please Login
         {% endif %}
@@ -9,33 +9,41 @@
     <nav class="mdl-navigation">
         {% if user.is_authenticated %}
             <a class="mdl-navigation__link" href="{% url 'main:home' %}">
+                <i class="material-icons">home</i>
                 Home
             </a>
             <a class="mdl-navigation__link" href="{% url 'user:profile' %}">
+                <i class="material-icons">face</i>
                 Profile
             </a>
             <a class="mdl-navigation__link" href="{% url 'syllabus:course-list' %}">
+                <i class="material-icons">view_list</i>
                 Course List
             </a>
             {% if user.is_staff %}
                 <a class="mdl-navigation__link" href="{% url 'export:course-list' %}">
+                    <i class="material-icons">launch</i>
                     Export
                 </a>
                 <a class="mdl-navigation__link" href="{% url 'admin:index' %}">
+                    <i class="material-icons">supervisor_account</i>
                     Admin
                 </a>
             {% endif %}
             <a class="mdl-navigation__link" href="{% url 'user:settings' %}">
+                <i class="material-icons">settings</i>
                 Settings
             </a>
             <a class="mdl-navigation__link" href="{% url 'user:logout' %}">
+                <i class="material-icons">mood_bad</i>
                 Logout
             </a>
         {% else %}
             <a class="mdl-navigation__link" href="{% url 'user:login-form' %}">
+                <i class="material-icons">mood</i>
                 Login
             </a>
         {% endif %}
     </nav>
 </div>
-<!-- ToDo add icons to links -->
+<!-- ToDo fix drawer length -->

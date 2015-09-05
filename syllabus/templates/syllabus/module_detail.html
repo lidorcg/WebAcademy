@@ -14,15 +14,9 @@
 {% endblock %}
 
 {% block right %}
-    <div class="mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">Lessons:</h2>
-        </div>
-        {% include 'syllabus/table/table.html' with objects=module.get_lessons %}
-        <div class="mdl-card__actions">
-            {% include "syllabus/blocks/add-button.html" %}
-        </div>
-    </div>
+    {% include 'syllabus/table/table-card.html' with title="Lessons" objects=module.get_lessons %}
+    <br>
+    {% include 'user/messages/messages-card.html' with obj=module object='module' %}
 {% endblock %}
 
 {% block create-form %}

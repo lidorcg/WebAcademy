@@ -18,7 +18,7 @@ from django.conf.urls import url
 from syllabus import views
 
 urlpatterns = [
-    # REST API for course
+    # REST API for Course
     url(r'^courses/$', views.CourseListView.as_view(), name='course-list'),
     url(r'^courses/add/$', views.CourseCreate.as_view(), name='course-add'),
     url(r'^courses/(?P<pk>[0-9]+)/$', views.CourseDetailView.as_view(), name='course-detail'),
@@ -26,14 +26,14 @@ urlpatterns = [
     url(r'^courses/(?P<pk>[0-9]+)/delete/$', views.CourseDelete.as_view(), name='course-delete'),
     # Partial Updates
     url(r'^courses/(?P<pk>[0-9]+)/reorder/$', views.modules_reorder, name='modules-reorder'),
-    # REST API for module
+    # REST API for Module
     url(r'^courses/(?P<pk>[0-9]+)/modules/add/$', views.ModuleCreate.as_view(), name='module-add'),
     url(r'^modules/(?P<pk>[0-9]+)/$', views.ModuleDetailView.as_view(), name='module-detail'),
     url(r'^modules/(?P<pk>[0-9]+)/update/$', views.ModuleUpdate.as_view(), name='module-update'),
     url(r'^modules/(?P<pk>[0-9]+)/delete/$', views.ModuleDelete.as_view(), name='module-delete'),
     # Partial Updates
     url(r'^modules/(?P<pk>[0-9]+)/reorder/$', views.lessons_reorder, name='lessons-reorder'),
-    # REST API for lesson
+    # REST API for Lesson
     url(r'^modules/(?P<pk>[0-9]+)/lessons/add/$', views.LessonCreate.as_view(), name='lesson-add'),
     url(r'^lessons/(?P<pk>[0-9]+)/$', views.LessonDetailView.as_view(), name='lesson-detail'),
     url(r'^lessons/(?P<pk>[0-9]+)/update/$', views.LessonUpdate.as_view(), name='lesson-update'),
@@ -41,7 +41,7 @@ urlpatterns = [
     # Partial Updates
     url(r'^lessons/(?P<pk>[0-9]+)/reorder/$', views.units_reorder, name='units-reorder'),
     url(r'^lessons/(?P<pk>[0-9]+)/update-done/$', views.LessonUpdateDone.as_view(), name='lesson-update-done'),
-    # REST API for unit
+    # REST API for Unit
     url(r'^lessons/(?P<pk>[0-9]+)/units/add/$', views.UnitCreate.as_view(), name='unit-add'),
     url(r'^units/(?P<pk>[0-9]+)/update/$', views.UnitUpdate.as_view(), name='unit-update'),
     url(r'^units/(?P<pk>[0-9]+)/delete/$', views.UnitDelete.as_view(), name='unit-delete'),

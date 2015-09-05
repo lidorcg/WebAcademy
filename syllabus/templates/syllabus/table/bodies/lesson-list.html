@@ -1,10 +1,10 @@
 {% for obj in objects %}
     <tr id="{{ obj.id }}">
-        {% include 'syllabus/table/fields/editable/handle.html' %}
+        {% include 'syllabus/table/buttons/handle.html' %}
         {% include 'syllabus/table/fields/type.html' %}
         <td class="mdl-data-table__cell--non-numeric">{{ obj.title }}</td>
         <td>{{ obj.get_time }}</td>
-        {% include 'syllabus/table/fields/editable/done-checkbox.html' %}
+        {% include 'syllabus/table/buttons/done-checkbox.html' %}
         {% include 'syllabus/table/fields/link.html' %}
     </tr>
 {% endfor %}

@@ -7,7 +7,7 @@ from user.views import LoginRequiredMixin
 from .models import Course, Module, Lesson, Unit, LessonType, UnitType
 
 
-# REST API for course
+# REST API for Course
 class CourseListView(LoginRequiredMixin, ListView):
     model = Course
     context_object_name = 'courses'
@@ -49,7 +49,7 @@ def modules_reorder(request, pk):
     return HttpResponse()
 
 
-# REST API for module
+# REST API for Module
 class ModuleCreate(LoginRequiredMixin, CreateView):
     model = Module
     fields = ['course', 'order', 'title', 'description']
@@ -90,7 +90,7 @@ def lessons_reorder(request, pk):
     return HttpResponse()
 
 
-# REST API for lesson
+# REST API for Lesson
 class LessonCreate(LoginRequiredMixin, CreateView):
     model = Lesson
     fields = ['module', 'title', 'description', 'type', 'order']
@@ -137,7 +137,7 @@ def units_reorder(request, pk):
     return HttpResponse()
 
 
-# REST API for unit
+# REST API for Unit
 class UnitCreate(LoginRequiredMixin, CreateView):
     model = Unit
     fields = ['lesson', 'order', 'name', 'url', 'type']
