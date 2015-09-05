@@ -15,7 +15,7 @@
 {% block right %}
     {% include 'syllabus/table/table-card.html' with title="Modules" objects=course.get_modules %}
     <br>
-    {% include 'user/messages/messages-card.html' with messages=course.get_messages %}
+    {% include 'user/messages/messages-card.html' with obj=course object='course' %}
 {% endblock %}
 
 {% block create-form %}

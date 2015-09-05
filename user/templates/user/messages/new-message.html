@@ -1,1 +1,12 @@
 <!-- ToDo new message form -->
+<form action="{% url 'user:message-add' %}" method="post">
+    {% csrf_token %}
+    {% include 'forms/fields/hidden.html' with name='user' value=user.id %}
+    {% include 'forms/fields/hidden.html' with name=object value=obj.id %}
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__supporting-text comment">
+            {% include 'user/messages/fields/textarea.html' with name='text' label='Add a comment...' %}
+            {% include 'user/messages/buttons/add.html' %}
+        </div>
+    </div>
+</form>

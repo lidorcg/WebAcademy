@@ -16,7 +16,7 @@
 {% block right %}
     {% include 'syllabus/table/table-card.html' with title="Lessons" objects=module.get_lessons %}
     <br>
-    {% include 'user/messages/messages-card.html' with messages=module.get_messages %}
+    {% include 'user/messages/messages-card.html' with obj=module object='module' %}
 {% endblock %}
 
 {% block create-form %}

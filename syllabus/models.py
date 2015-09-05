@@ -27,7 +27,7 @@ class Course(models.Model):
         return self.get_modules().count()
 
     def get_messages(self):
-        return self.message_set.all()
+        return self.message_set.order_by('date')
 
     def get_progress(self):
         if self.module_set.count() == 0:
@@ -66,7 +66,7 @@ class Module(models.Model):
         return self.get_lessons().count()
 
     def get_messages(self):
-        return self.message_set.all()
+        return self.message_set.order_by('date')
 
     def get_tags(self):
         # ToDo find python/django way to write this function
@@ -120,7 +120,7 @@ class Lesson(models.Model):
         return self.get_units().count()
 
     def get_messages(self):
-        return self.message_set.all()
+        return self.message_set.order_by('date')
 
     def get_time(self):
         return self.time

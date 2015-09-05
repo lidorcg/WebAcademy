@@ -18,7 +18,7 @@
 {% block right %}
     {% include 'syllabus/table/table-card.html' with title="Units" objects=lesson.get_units %}
     <br>
-    {% include 'user/messages/messages-card.html' with messages=lesson.get_messages %}
+    {% include 'user/messages/messages-card.html' with obj=lesson object='lesson' %}
 {% endblock %}
 
 {% block create-form %}

@@ -8,6 +8,10 @@
     font-size: 14px;
 }
 
+.textarea-wide {
+    width: 90%;
+}
+
 /* Buttons */
 .table-button-icon {
     bottom: 5px;
@@ -73,7 +77,7 @@
 }
 
 .mdl-card {
-    width: 100%;
+    width: 95%;
     min-height: 0;
 }
 

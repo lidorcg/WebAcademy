@@ -1,9 +1,9 @@
 {% for obj in lesson.get_units %}
     <tr id="{{ obj.id }}">
-        {% include 'syllabus/table/fields/editable/handle.html' %}
+        {% include 'syllabus/table/buttons/handle.html' %}
         {% include 'syllabus/table/fields/type.html' %}
         <td class="mdl-data-table__cell--non-numeric">{{ obj.name }}</td>
         {% include 'syllabus/table/fields/url.html' %}
-        {% include 'syllabus/table/fields/editable/delete.html' %}
+        {% include 'syllabus/table/buttons/delete.html' %}
     </tr>
 {% endfor %}

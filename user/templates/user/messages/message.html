@@ -1,10 +1,9 @@
 <div class="mdl-card mdl-shadow--2dp">
     <div class="mdl-card__supporting-text comment">
-        <strong>{{ msg.user|title }}</strong>
-        <small>{{ msg.date }}</small>
-        <br>
+        <strong>{{ msg.user|title }}:</strong>
 
         <p>{{ msg.text }}</p>
+        <small>{{ msg.date }}</small>
     </div>
     {% if user == msg.user %}
         <!-- ToDo redesign this part? -->
