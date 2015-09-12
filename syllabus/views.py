@@ -143,11 +143,6 @@ class UnitCreate(LoginRequiredMixin, CreateView):
     fields = ['lesson', 'order', 'name', 'url', 'type']
 
 
-class UnitUpdate(LoginRequiredMixin, UpdateView):
-    model = Unit
-    fields = ['name', 'url', 'type']
-
-
 class UnitDelete(LoginRequiredMixin, DeleteView):
     model = Unit
 

@@ -21,6 +21,5 @@ urlpatterns = [
     url(r'^manage/', include('user.urls', namespace='user')),
     url(r'^export/', include('export.urls', namespace='export')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^comments/', include('django_comments.urls')),
     url(r'^', include('main.urls', namespace='main')),
 ]
