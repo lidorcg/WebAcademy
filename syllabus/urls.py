@@ -43,7 +43,6 @@ urlpatterns = [
     url(r'^lessons/(?P<pk>[0-9]+)/update-done/$', views.LessonUpdateDone.as_view(), name='lesson-update-done'),
     # REST API for Unit
     url(r'^lessons/(?P<pk>[0-9]+)/units/add/$', views.UnitCreate.as_view(), name='unit-add'),
-    url(r'^units/(?P<pk>[0-9]+)/update/$', views.UnitUpdate.as_view(), name='unit-update'),
     url(r'^units/(?P<pk>[0-9]+)/delete/$', views.UnitDelete.as_view(), name='unit-delete'),
 ]
 

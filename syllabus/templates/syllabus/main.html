@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--5-col">
+            {% block left %}
+            {% endblock %}
+        </div>
+        <div class="mdl-cell mdl-cell--7-col">
+            {% block right %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
