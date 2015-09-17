@@ -26,7 +26,7 @@ class CourseDetailView(LoginRequiredMixin, DetailView):
 
 class ModuleScriptView(LoginRequiredMixin, DetailView):
     model = Module
-    context_object_name = 'course'
+    context_object_name = 'module'
     content_type = 'text/plain'
     template_name = 'export/scripts/base-script'
 
