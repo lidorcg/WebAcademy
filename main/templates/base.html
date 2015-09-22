@@ -8,20 +8,20 @@
 
     {% load static %}
     {% block CSS %}
-        <link rel="stylesheet" href="{% static 'components/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'components/bower_components/c3/c3.min.css' %}">
-        <link rel="stylesheet" href="{% static 'main/css/material.indigo-blue.min.css' %}">
-        <link rel="stylesheet" href="{% static 'main/css/material-icons.css' %}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-blue.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
         <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
     {% endblock %}
 
     {% block JS %}
-        <script src="{% static 'components/bower_components/jquery/dist/jquery.min.js' %}"></script>
-        <script src="{% static 'components/bower_components/jquery-ui/jquery-ui.min.js' %}"></script>
-        <script src="{% static 'components/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'components/bower_components/material-design-lite/material.min.js' %}"></script>
-        <script src="{% static 'components/bower_components/d3/d3.min.js' %}"></script>
-        <script src="{% static 'components/bower_components/c3/c3.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
         <script src="{% static 'main/js/main.js' %}"></script>
     {% endblock %}
 
