@@ -1,0 +1,6 @@
+<form action="{% url 'user:message-delete' msg.id %}" method="post">
+    {% csrf_token %}
+    <button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--red">
+        <i class="material-icons">close</i>
+    </button>
+</form>

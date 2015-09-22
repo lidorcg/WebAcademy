@@ -1,9 +1,14 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect
+from django.views.generic import CreateView, UpdateView, DeleteView
+
+from user.models import Message
 
 
 # Create your views here.
+
 def login_view(request):
     username = request.POST['username']
     password = request.POST['password']
@@ -53,3 +58,21 @@ class LoginRequiredMixin(object):
     def as_view(cls, **initkwargs):
         view = super(LoginRequiredMixin, cls).as_view(**initkwargs)
         return login_required(view)
+
+
+# REST API for Course
+class MessageCreate(LoginRequiredMixin, CreateView):
+    model = Message
+    fields = ['user', 'course', 'module', 'lesson', 'text']
+
+
+class MessageUpdate(LoginRequiredMixin, UpdateView):
+    model = Message
+    fields = ['text']
+
+
+class MessageDelete(LoginRequiredMixin, DeleteView):
+    model = Message
+
+    def get_success_url(self):
+        return self.get_object().get_absolute_url()

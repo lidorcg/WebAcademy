@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+
 from user import views
 
 urlpatterns = [
@@ -26,4 +27,8 @@ urlpatterns = [
     url(r'^dashboard/$', views.dashboard_view, name='dashboard'),
     url(r'^profile/$', views.profile_view, name='profile'),
     url(r'^settings/$', views.settings_view, name='settings'),
+    # REST API for CourseMessage
+    url(r'^messages/add/$', views.MessageCreate.as_view(), name='message-add'),
+    url(r'^messages/(?P<pk>[0-9]+)/update/$', views.MessageUpdate.as_view(), name='message-update'),
+    url(r'^messages/(?P<pk>[0-9]+)/delete/$', views.MessageDelete.as_view(), name='message-delete'),
 ]

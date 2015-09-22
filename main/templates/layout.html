@@ -3,23 +3,28 @@
 {% block layout %}
     <div class="mdl-layout mdl-js-layout">
         {% block header %}
-            {% include 'blocks/header.html' with title="Course Planner" %}
+            {% include 'sections/header.html' with title="Course Planner" %}
         {% endblock %}
 
         {% block drawer %}
-            {% include 'blocks/drawer.html' %}
+            {% include 'sections/drawer.html' %}
         {% endblock %}
 
-        {% block breadcrumbs %}
+        <main class="mdl-layout__content">
+            {% block main %}
+            {% endblock %}
+        </main>
+
+        {% block footer %}
+            {% include 'sections/footer.html' %}
         {% endblock %}
 
+        {% block csrf %}
+            <input id="csrf" type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        {% endblock %}
         {% block create-form %}
         {% endblock %}
-
         {% block delete-form %}
-        {% endblock %}
-
-        {% block main %}
         {% endblock %}
     </div>
 {% endblock %}

@@ -1,0 +1,87 @@
+/* Inputs */
+.title-input {
+    font-size: 25px;
+}
+
+.textarea-input {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+}
+
+.textarea-wide {
+    width: 90%;
+}
+
+/* Buttons */
+.table-button-icon {
+    bottom: 5px;
+}
+
+.float-right {
+    float: right;
+}
+
+/* Table */
+.fixed {
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.fixed td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progressbar {
+    max-width: 100px;
+    top: 10px;
+}
+
+.handle {
+    cursor: pointer;
+}
+
+/* Layout */
+.mdl-grid {
+    max-width: 90%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.mdl-navigation .mdl-navigation__link {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+.mdl-navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    margin-right: 32px;
+}
+
+.breadcrumb {
+    padding: 0 0 0 20px;
+    margin: 0;
+}
+
+.mdl-card {
+    width: 100%;
+    min-height: 0;
+}
+
+.mdl-card__actions {
+    display: flex;
+}

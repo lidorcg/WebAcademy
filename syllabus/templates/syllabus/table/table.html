@@ -1,12 +1,6 @@
-<style>
-    .handle {
-        cursor: pointer;
-    }
-</style>
 <table class="mdl-data-table mdl-js-data-table fixed">
     <thead>
     <tr>
-        <!-- ToDo add reorder backend function-->
         {% if courses %}
             {% include 'syllabus/table/headers/course-list.html' %}
         {% elif course %}
@@ -31,10 +25,14 @@
     </tbody>
     <script>
         $(function () {
-            $("#sortable").sortable({handle: '.handle'});
-            $("#sortable").disableSelection();
+            $("#sortable").sortable({
+                handle: '.handle',
+                update: function () {
+                    $.post("reorder/", {order: $("#sortable").sortable("toArray")});
+                }
+            });
         });
-        $("#sortable .delete").click(function () {
+        $("#sortable").find(".delete").click(function () {
             $(this).closest('form').submit();
             $(this).closest('tr').remove();
         });

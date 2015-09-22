@@ -1,0 +1,15 @@
+{% extends "export/main.html" %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'export:module-list' module.course.id %}">{{ module.course.title }}</a></li>
+        <li class="active">{{ module.title }}</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Lessons:</h2>
+    </div>
+    {% include 'export/table/table.html' %}
+{% endblock %}

@@ -1,4 +1,5 @@
 # Create your views here.
+from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
@@ -6,10 +7,16 @@ from user.views import LoginRequiredMixin
 from .models import Course, Module, Lesson, Unit, LessonType, UnitType
 
 
-# REST API for course
+# REST API for Course
 class CourseListView(LoginRequiredMixin, ListView):
     model = Course
     context_object_name = 'courses'
+
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Course.objects.all()
+        else:
+            return Course.objects.filter(instructors__id=self.request.user.id)
 
 
 class CourseCreate(LoginRequiredMixin, CreateView):
@@ -32,7 +39,17 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('syllabus:course-list')
 
 
-# REST API for module
+# Partial Updates
+def modules_reorder(request, pk):
+    new_order = request.POST.getlist('order[]')
+    for idx, item in enumerate(new_order):
+        m = Module.objects.get(pk=item)
+        m.order = idx
+        m.save()
+    return HttpResponse()
+
+
+# REST API for Module
 class ModuleCreate(LoginRequiredMixin, CreateView):
     model = Module
     fields = ['course', 'order', 'title', 'description']
@@ -63,7 +80,17 @@ class ModuleDelete(LoginRequiredMixin, DeleteView):
         return reverse_lazy('syllabus:course-detail', kwargs={'pk': self.get_object().course_id})
 
 
-# REST API for lesson
+# Partial Updates
+def lessons_reorder(request, pk):
+    new_order = request.POST['order']
+    for idx, item in enumerate(new_order):
+        l = Lesson.objects.get(pk=item)
+        l.order = idx
+        l.save()
+    return HttpResponse()
+
+
+# REST API for Lesson
 class LessonCreate(LoginRequiredMixin, CreateView):
     model = Lesson
     fields = ['module', 'title', 'description', 'type', 'order']
@@ -101,15 +128,19 @@ class LessonUpdateDone(LoginRequiredMixin, UpdateView):
     fields = ['done']
 
 
-# REST API for unit
+def units_reorder(request, pk):
+    new_order = request.POST['order']
+    for idx, item in enumerate(new_order):
+        u = Unit.objects.get(pk=item)
+        u.order = idx
+        u.save()
+    return HttpResponse()
+
+
+# REST API for Unit
 class UnitCreate(LoginRequiredMixin, CreateView):
     model = Unit
     fields = ['lesson', 'order', 'name', 'url', 'type']
-
-
-class UnitUpdate(LoginRequiredMixin, UpdateView):
-    model = Unit
-    fields = ['name', 'url', 'type']
 
 
 class UnitDelete(LoginRequiredMixin, DeleteView):

@@ -1,8 +1,0 @@
-{% for obj in lesson.get_units %}
-    <tr>
-        {% include 'whitenapp/table/fields/download.html' %}
-        {% include 'whitenapp/table/fields/type.html' %}
-        <td class="mdl-data-table__cell--non-numeric">{{ obj.name }}</td>
-        {% include 'whitenapp/table/fields/url.html' %}
-    </tr>
-{% endfor %}

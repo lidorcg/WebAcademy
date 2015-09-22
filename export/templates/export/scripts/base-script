@@ -1,0 +1,35 @@
+import os
+# ToDo factor out folder creation and downloads to functions
+##############################
+### creating export folder ###
+##############################
+if not os.path.exists("export"):
+	print("opening export folder...")
+	os.mkdir("export")
+os.chdir("export")
+file = open('__init__.py', 'w+')
+
+##################################
+### getting youtube downloader ###
+##################################
+import urllib.request
+if not os.path.exists("pafy.py"):
+	url = 'https://raw.githubusercontent.com/np1/pafy/master/pafy/pafy.py'
+	print("downloading pafy.py...")
+	try:
+		urllib.request.urlretrieve(url, "pafy.py")
+	except urllib.error.HTTPError:
+	    print('\033[93m' + "oops... there was a problem downloading pafy.py..." + '\033[0m')
+
+from export import pafy
+
+{% if course %}
+{% include 'export/scripts/course-script' with c=course %}
+{% elif module %}
+{% include 'export/scripts/module-script' with m=module %}
+{% elif lesson %}
+{% include 'export/scripts/lesson-script' with l=lesson %}
+{% elif unit %}
+{% include 'export/scripts/unit-script' with u=unit %}
+{% endif %}
+

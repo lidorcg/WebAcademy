@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.db import models
 
@@ -11,7 +12,7 @@ class Course(models.Model):
     description = models.TextField(blank=True)
     prerequisites = models.TextField(blank=True)
     requirements = models.TextField(blank=True)
-    # ToDo add instructor relationship to User
+    instructors = models.ManyToManyField(User, blank=True)
 
     def __str__(self):
         return self.title
@@ -21,6 +22,12 @@ class Course(models.Model):
 
     def get_modules(self):
         return self.module_set.order_by('order')
+
+    def get_modules_count(self):
+        return self.get_modules().count()
+
+    def get_messages(self):
+        return self.message_set.order_by('date')
 
     def get_progress(self):
         if self.module_set.count() == 0:
@@ -39,13 +46,10 @@ class Course(models.Model):
     def get_time(self):
         return sum_timedelta(m.get_time() for m in self.module_set.all())
 
-    def get_modules_count(self):
-        return self.get_modules().count()
-
 
 class Module(models.Model):
     course = models.ForeignKey('Course')
-    order = models.PositiveSmallIntegerField(unique=True)
+    order = models.PositiveSmallIntegerField()
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
 
@@ -60,6 +64,9 @@ class Module(models.Model):
 
     def get_lessons_count(self):
         return self.get_lessons().count()
+
+    def get_messages(self):
+        return self.message_set.order_by('date')
 
     def get_tags(self):
         # ToDo find python/django way to write this function
@@ -100,9 +107,6 @@ class Lesson(models.Model):
     tags = models.ManyToManyField('Tag', blank=True)
     done = models.BooleanField(default=False)
 
-    class Meta:
-        unique_together = (("module", "order"),)
-
     def __str__(self):
         return self.title
 
@@ -114,6 +118,9 @@ class Lesson(models.Model):
 
     def get_units_count(self):
         return self.get_units().count()
+
+    def get_messages(self):
+        return self.message_set.order_by('date')
 
     def get_time(self):
         return self.time

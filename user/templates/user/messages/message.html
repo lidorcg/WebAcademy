@@ -1,0 +1,15 @@
+<div class="mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+        <strong>{{ msg.user|title }}:</strong>
+        {% if user == msg.user %}
+            <div class="mdl-layout-spacer"></div>
+            {% include 'user/messages/buttons/delete.html' %}
+        {% endif %}
+    </div>
+    <div class="mdl-card__supporting-text">
+        <p>{{ msg.text }}</p>
+        <small>{{ msg.date }}</small>
+    </div>
+</div>
+
+<!-- ToDo add edit form -->
