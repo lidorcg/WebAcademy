@@ -82,6 +82,7 @@ class ModuleDelete(LoginRequiredMixin, DeleteView):
 
 # Partial Updates
 def lessons_reorder(request, pk):
+    # ToDo fix lesson reordering
     new_order = request.POST['order']
     for idx, item in enumerate(new_order):
         l = Lesson.objects.get(pk=item)
@@ -129,6 +130,7 @@ class LessonUpdateDone(LoginRequiredMixin, UpdateView):
 
 
 def units_reorder(request, pk):
+    # ToDo fix unit reordering
     new_order = request.POST['order']
     for idx, item in enumerate(new_order):
         u = Unit.objects.get(pk=item)
