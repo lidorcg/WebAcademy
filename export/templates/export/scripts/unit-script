@@ -7,16 +7,18 @@ if not os.path.exists("U{{ u.order }}-{{ u.name }}"):
 os.chdir("U{{ u.order }}-{{ u.name }}")
 print("downloading unit: {{ u.name }}...")
 {% if u.type.name == 'Video' %}
-video = pafy.new("{{ u.url }}")
-best = video.getbest()
-if not os.path.exists("{{ u.name }}." + best.extension):
-    best.download(filepath="{{ u.name }}." + best.extension)
+try:
+    video = pafy.new("{{ u.url }}")
+    best = video.getbest()
+    if not os.path.exists("{{ u.name }}." + best.extension):
+        best.download(filepath="{{ u.name }}." + best.extension)
+except (urllib.error.HTTPError, ValueError):
+	    print('\033[93m' + "oops... there was a problem downloading {{ u.name }}..." + '\033[0m')
 {% else %}
 try:
     urllib.request.urlretrieve("{{ u.url }}")
 except (urllib.error.HTTPError, ValueError):
 	    print('\033[93m' + "oops... there was a problem downloading {{ u.name }}..." + '\033[0m')
-	    logging.error('{{ u.name }} was not downloaded')
 {% endif %}
 print("finished unit: {{ u.name }}")
 os.chdir("..")
