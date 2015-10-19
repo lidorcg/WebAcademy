@@ -119,12 +119,11 @@ class LessonUpdateDone(LoginRequiredMixin, UpdateView):
 
 
 def lessons_reorder(request):
-    # ToDo fix lesson reordering
-    new_order = request.POST['order']
+    new_order = request.POST.getlist('order[]')
     for idx, item in enumerate(new_order):
-        l = Lesson.objects.get(pk=item)
-        l.order = idx
-        l.save()
+        m = Lesson.objects.get(pk=item)
+        m.order = idx
+        m.save()
     return HttpResponse()
 
 
@@ -143,8 +142,7 @@ class UnitDelete(LoginRequiredMixin, DeleteView):
 
 # Partial Updates
 def units_reorder(request):
-    # ToDo fix unit reordering
-    new_order = request.POST['order']
+    new_order = request.POST.getlist('order[]')
     for idx, item in enumerate(new_order):
         u = Unit.objects.get(pk=item)
         u.order = idx

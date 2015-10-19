@@ -8,14 +8,3 @@
         {% include 'syllabus/table/fields/link.html' %}
     </tr>
 {% endfor %}
-<script>
-    $(document).ready(function () {
-        $('.table-form').on('change', function (event) {
-            $.ajax({
-                type: $(this).attr("method"),
-                url: $(this).attr("action"),
-                data: $(this).serialize()
-            });
-        });
-    });
-</script>
