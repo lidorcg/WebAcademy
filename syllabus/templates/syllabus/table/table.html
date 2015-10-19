@@ -28,7 +28,15 @@
             $("#sortable").sortable({
                 handle: '.handle',
                 update: function () {
-                    $.post("reorder/", {order: $("#sortable").sortable("toArray")});
+                    var url = "/reorder/";
+                    {% if course %}
+                        url = "/syllabus/modules" + url;
+                    {% elif module %}
+                        url = "/syllabus/lessons" + url;
+                    {% elif lesson %}
+                        url = "/syllabus/units" + url;
+                    {% endif %}
+                    $.post(url, {order: $("#sortable").sortable("toArray")});
                 }
             });
         });

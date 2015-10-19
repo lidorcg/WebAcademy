@@ -39,16 +39,6 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('syllabus:course-list')
 
 
-# Partial Updates
-def modules_reorder(request, pk):
-    new_order = request.POST.getlist('order[]')
-    for idx, item in enumerate(new_order):
-        m = Module.objects.get(pk=item)
-        m.order = idx
-        m.save()
-    return HttpResponse()
-
-
 # REST API for Module
 class ModuleCreate(LoginRequiredMixin, CreateView):
     model = Module
@@ -81,13 +71,12 @@ class ModuleDelete(LoginRequiredMixin, DeleteView):
 
 
 # Partial Updates
-def lessons_reorder(request, pk):
-    # ToDo fix lesson reordering
-    new_order = request.POST['order']
+def modules_reorder(request):
+    new_order = request.POST.getlist('order[]')
     for idx, item in enumerate(new_order):
-        l = Lesson.objects.get(pk=item)
-        l.order = idx
-        l.save()
+        m = Module.objects.get(pk=item)
+        m.order = idx
+        m.save()
     return HttpResponse()
 
 
@@ -129,13 +118,13 @@ class LessonUpdateDone(LoginRequiredMixin, UpdateView):
     fields = ['done']
 
 
-def units_reorder(request, pk):
-    # ToDo fix unit reordering
+def lessons_reorder(request):
+    # ToDo fix lesson reordering
     new_order = request.POST['order']
     for idx, item in enumerate(new_order):
-        u = Unit.objects.get(pk=item)
-        u.order = idx
-        u.save()
+        l = Lesson.objects.get(pk=item)
+        l.order = idx
+        l.save()
     return HttpResponse()
 
 
@@ -150,3 +139,14 @@ class UnitDelete(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('syllabus:lesson-detail', kwargs={'pk': self.get_object().lesson_id})
+
+
+# Partial Updates
+def units_reorder(request):
+    # ToDo fix unit reordering
+    new_order = request.POST['order']
+    for idx, item in enumerate(new_order):
+        u = Unit.objects.get(pk=item)
+        u.order = idx
+        u.save()
+    return HttpResponse()
