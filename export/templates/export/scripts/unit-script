@@ -3,9 +3,11 @@
 ##############################
 # ToDo use try and test so it won't crash
 if not os.path.exists("U{{ u.order }}-{{ u.name }}"):
+    print(" - - - opening unit: {{ u.title }}...")
     os.mkdir("U{{ u.order }}-{{ u.name }}")
 os.chdir("U{{ u.order }}-{{ u.name }}")
-print("downloading unit: {{ u.name }}...")
+
+print(" - - - downloading unit: {{ u.name }}...")
 {% if u.type.name == 'Video' %}
 try:
     video = pafy.new("{{ u.url }}")
@@ -20,5 +22,6 @@ try:
 except (urllib.error.HTTPError, ValueError):
 	    print('\033[93m' + "oops... there was a problem downloading {{ u.name }}..." + '\033[0m')
 {% endif %}
-print("finished unit: {{ u.name }}")
+
+print(" - - - finished unit: {{ u.name }}")
 os.chdir("..")
