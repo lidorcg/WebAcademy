@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.core.urlresolvers import reverse_lazy
 
 from user.views import LoginRequiredMixin
-from .models import Course, Module, Lesson, Unit, LessonType, UnitType
+from .models import Course, Module, Lesson, Unit, ModuleLevel, LessonType, UnitType
 
 
 # REST API for Course
@@ -51,13 +51,14 @@ class ModuleDetailView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ModuleDetailView, self).get_context_data(**kwargs)
+        context['module_levels'] = ModuleLevel.objects.all()
         context['lesson_types'] = LessonType.objects.all()
         return context
 
 
 class ModuleUpdate(LoginRequiredMixin, UpdateView):
     model = Module
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'level']
 
     def get_success_url(self):
         return reverse_lazy('syllabus:module-detail', kwargs={'pk': self.get_object().id})

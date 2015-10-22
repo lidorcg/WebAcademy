@@ -52,6 +52,7 @@ class Module(models.Model):
     order = models.PositiveSmallIntegerField()
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
+    level = models.ForeignKey('ModuleLevel')
 
     def __str__(self):
         return self.title
@@ -141,6 +142,13 @@ class Unit(models.Model):
 
 
 class Tag(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class ModuleLevel(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
