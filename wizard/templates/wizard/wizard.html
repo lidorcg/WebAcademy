@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar">
+            <a href="#step-1-panel" class="mdl-tabs__tab is-active">Step 1</a>
+            <a href="#step-2-panel" class="mdl-tabs__tab">Step 2</a>
+            <a href="#step-3-panel" class="mdl-tabs__tab">Step 3</a>
+        </div>
+
+        <div class="mdl-tabs__panel is-active" id="step-1-panel">
+            {% include 'wizard/step-1.html' %}
+        </div>
+        <div class="mdl-tabs__panel" id="step-2-panel">
+            {% include 'wizard/step-2.html' %}
+        </div>
+        <div class="mdl-tabs__panel" id="step-3-panel">
+            {% include 'wizard/step-3.html' %}
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+

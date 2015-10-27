@@ -85,3 +85,7 @@
 .mdl-card__actions {
     display: flex;
 }
+
+.container {
+    width: auto;
+}

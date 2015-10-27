@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'syllabus',
     'user',
     'export',
+    'wizard',
 )
 
 MIDDLEWARE_CLASSES = (

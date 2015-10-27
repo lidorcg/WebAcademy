@@ -1,0 +1,19 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">New Course</h3>
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            <form action="{% url 'syllabus:course-add' %}" method="post">
+                {% csrf_token %}
+                {% include 'syllabus/forms/fields/title.html' %}
+                <br>
+                {% include 'forms/fields/textarea.html' with name='description' label='Description' %}
+                <br>
+                {% include 'forms/fields/textarea.html' with name='requirements' label='Requirements' %}
+                <br>
+                {% include 'forms/fields/textarea.html' with name='prerequisites' label='Prerequisites' %}
+            </form>
+        </div>
+    </div>
+</div>
