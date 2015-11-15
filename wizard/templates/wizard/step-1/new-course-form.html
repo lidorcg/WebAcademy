@@ -4,7 +4,7 @@
     </div>
     <div class="panel-body">
         <div class="container">
-            <form action="{% url 'syllabus:course-add' %}" method="post">
+            <form action="{% url 'wizard:course-add' %}" method="post">
                 {% csrf_token %}
                 {% include 'syllabus/forms/fields/title.html' %}
                 <br>

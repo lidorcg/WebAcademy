@@ -19,4 +19,5 @@ from wizard import views
 
 urlpatterns = [
     url(r'^$', views.wizard_view, name='wizard'),
+    url(r'^courses/add/$', views.CourseCreate.as_view(), name='course-add'),
 ]
