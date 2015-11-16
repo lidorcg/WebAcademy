@@ -120,7 +120,6 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'main/static/components')
 
 BOWER_INSTALLED_APPS = (
     'jquery',
-    'bootstrap',
     'material-design-lite',
     'c3',
     'jquery-ui',

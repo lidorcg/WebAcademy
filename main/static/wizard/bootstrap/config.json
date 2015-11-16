@@ -51,7 +51,7 @@
     "@border-radius-base": "0px",
     "@border-radius-large": "0px",
     "@border-radius-small": "0px",
-    "@component-active-color": "#3f51b5",
+    "@component-active-color": "#fff",
     "@component-active-bg": "@brand-primary",
     "@caret-width-base": "4px",
     "@caret-width-large": "5px",
@@ -382,13 +382,23 @@
   },
   "css": [
     "print.less",
+    "type.less",
     "code.less",
+    "grid.less",
+    "tables.less",
+    "forms.less",
     "buttons.less",
     "responsive-utilities.less",
     "glyphicons.less",
+    "button-groups.less",
+    "input-groups.less",
+    "navs.less",
+    "navbar.less",
     "breadcrumbs.less",
     "pagination.less",
     "pager.less",
+    "labels.less",
+    "badges.less",
     "jumbotron.less",
     "thumbnails.less",
     "alerts.less",
@@ -401,6 +411,7 @@
     "close.less",
     "component-animations.less",
     "dropdowns.less",
+    "tooltip.less",
     "popovers.less",
     "modals.less",
     "carousel.less"
@@ -419,5 +430,5 @@
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=87eaadc9fda2d293470d"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=5188d3990d024884e77f"
 }
