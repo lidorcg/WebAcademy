@@ -1,0 +1,18 @@
+<!-- ToDo step 2 -->
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+        <h4>Here you can collect all the concept and subjects you planned on teaching:</h4>
+
+        <form action="#">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="add-tag">
+                <label class="mdl-textfield__label" for="add-tag">Add New Tag...</label>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $("#add-tag-fab").click(function () {
+        $("#add-tag-div").before('{% include "wizard/step-2/tag-form.html" %}');
+    });
+</script>

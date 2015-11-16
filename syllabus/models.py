@@ -5,6 +5,10 @@ from django.db import models
 from .helper import *
 
 
+# ToDo add knowledge level for lesson
+# ToDo add practice and tests templates for the different knowledge level
+# ToDo add textfield for summary in unit
+
 # Create your models here.
 
 class Course(models.Model):
@@ -106,6 +110,7 @@ class Lesson(models.Model):
     requirements = models.TextField(blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
     done = models.BooleanField(default=False)
+    # ToDo add a field for solution for assignment and quiz
 
     def __str__(self):
         return self.title
@@ -132,6 +137,7 @@ class Unit(models.Model):
     type = models.ForeignKey('UnitType')
     name = models.CharField(max_length=100)
     url = models.TextField()
+    # ToDo add a summery TextField
 
     def __str__(self):
         return self.name
@@ -141,6 +147,13 @@ class Unit(models.Model):
 
 
 class Tag(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class ModuleLevel(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -161,6 +174,3 @@ class UnitType(models.Model):
 
     def __str__(self):
         return self.name
-
-# ToDo add knowledge level for lesson
-# ToDo add practice and tests templates for the different knowledge level

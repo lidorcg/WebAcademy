@@ -1,4 +1,3 @@
-<!-- ToDo new message form -->
 <form action="{% url 'user:message-add' %}" method="post">
     {% csrf_token %}
     {% include 'forms/fields/hidden.html' with name='user' value=user.id %}

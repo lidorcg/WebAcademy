@@ -10,29 +10,21 @@
             {% include 'sections/drawer.html' %}
         {% endblock %}
 
-        {% block breadcrumbs %}
-        {% endblock %}
-
-        {% block csrf %}
-            <div style="display:none">
-                <input id="csrf" type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-            </div>
-        {% endblock %}
-
-        {% block create-form %}
-        {% endblock %}
-
-        {% block delete-form %}
-        {% endblock %}
-
-
         <main class="mdl-layout__content">
             {% block main %}
             {% endblock %}
-
         </main>
+
         {% block footer %}
             {% include 'sections/footer.html' %}
+        {% endblock %}
+
+        {% block csrf %}
+            <input id="csrf" type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        {% endblock %}
+        {% block create-form %}
+        {% endblock %}
+        {% block delete-form %}
         {% endblock %}
     </div>
 {% endblock %}

@@ -18,6 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^syllabus/', include('syllabus.urls', namespace='syllabus')),
+    url(r'^wizard/', include('wizard.urls', namespace='wizard')),
     url(r'^manage/', include('user.urls', namespace='user')),
     url(r'^export/', include('export.urls', namespace='export')),
     url(r'^admin/', include(admin.site.urls)),
