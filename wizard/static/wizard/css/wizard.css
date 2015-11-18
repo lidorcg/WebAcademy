@@ -1,0 +1,15 @@
+.container {
+    padding: 5%;
+}
+
+.all-tags {
+    min-height: 250px;
+}
+
+.tag-group {
+    min-height: 200px;
+}
+
+.tag {
+    margin: 2%;
+}

@@ -1,9 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
 # Create your models here.
 
-class Course(models.Model):
+class ShallowCourse(models.Model):
+    user = models.OneToOneField(User)
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     prerequisites = models.TextField(blank=True)

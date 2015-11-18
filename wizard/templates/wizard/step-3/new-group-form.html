@@ -1,0 +1,20 @@
+<h6>Last Step :) Whoa!</h6>
+<h4>The last thing we need is to group the concepts together:</h4>
+<h5>(try not put more than five concepts in the same group)</h5>
+
+<form class="form-inline ajax-form" action="#">
+    <input id="name" class="form-control" name="name" type="text" placeholder="Name" autocomplete="off">
+    <button id="add-group" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+        <i class="material-icons">add</i>
+    </button>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('#add-group').click(function () {
+            var name = this.form.elements["name"].value;
+            $('#tag-groups').append('{% include 'wizard/step-3/tag-group.html' %}');
+            this.form.elements["name"].value = '';
+        });
+    });
+</script>

@@ -1,20 +1,22 @@
 <div class="panel panel-primary">
     <div class="panel-body">
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
+        <form class="ajax-form" action="#" method="post" id="create-course-form">
+            {% csrf_token %}
+            <div class="form-group form-group-lg">
+                <label for="title"></label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title">
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" rows="2" id="description"></textarea>
+                <label for="description"></label>
+                <textarea class="form-control" id="description" placeholder="Description"></textarea>
             </div>
             <div class="form-group">
-                <label for="prerequisites">Prerequisites</label>
-                <textarea class="form-control" rows="2" id="prerequisites"></textarea>
+                <label for="prerequisites"></label>
+                <textarea class="form-control" id="prerequisites" placeholder="Prerequisites"></textarea>
             </div>
         </form>
     </div>
 </div>
-
+{% load static %}
+<script src="{% static 'main/js/ajax-form.js' %}"></script>
 <!-- ToDo add validations -->
