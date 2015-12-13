@@ -1,4 +1,4 @@
-<h6>Last Step :) Whoa!</h6>
+<h3> Good Job! Last Step :)</h3>
 <h4>The last thing we need is to group the concepts together:</h4>
 <h5>(try not put more than five concepts in the same group)</h5>
 
@@ -7,14 +7,24 @@
     <button id="add-group" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
         <i class="material-icons">add</i>
     </button>
+    <div class="mdl-tooltip" for="add-group">
+        Open new group
+    </div>
 </form>
 
 <script>
     $(document).ready(function () {
         $('#add-group').click(function () {
             var name = this.form.elements["name"].value;
-            $('#tag-groups').append('{% include 'wizard/step-3/tag-group.html' %}');
+            var group = $('{% include 'wizard/step-3/tag-group.html' %}');
+            group.find('.panel-heading').text(name);
+            $('#tag-groups').append(group);
             this.form.elements["name"].value = '';
+            $('.tag-bucket').each(function () {
+                $(this).sortable({
+                    connectWith: ['.tag-bucket']
+                });
+            });
         });
     });
 </script>

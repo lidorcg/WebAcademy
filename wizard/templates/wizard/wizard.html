@@ -16,7 +16,6 @@
     <script src="{% static 'components/bower_components/material-design-lite/material.min.js' %}"></script>
     <script src="{% static 'wizard/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'main/js/ajax-csrf.js' %}"></script>
-    <script src="{% static 'wizard/js/drag-n-drop.js' %}"></script>
 {% endblock %}
 
 
@@ -43,13 +42,12 @@
         <div id="step-1" class="tab-pane fade in active" role="tabpanel">
             {% include 'wizard/step-1.html' %}
         </div>
-        <div id="step-3" class="tab-pane fade" role="tabpanel">
-            {% include 'wizard/step-3.html' %}
-        </div>
         <div id="step-2" class="tab-pane fade" role="tabpanel">
             {% include 'wizard/step-2.html' %}
         </div>
-        <!-- ToDo find a better fix than this ^ -->
+        <div id="step-3" class="tab-pane fade" role="tabpanel">
+            {% include 'wizard/step-3.html' %}
+        </div>
     </div>
 {% endblock %}
 

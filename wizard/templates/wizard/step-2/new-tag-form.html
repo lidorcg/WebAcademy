@@ -4,12 +4,16 @@
     <button id="add-tag" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
         <i class="material-icons">add</i>
     </button>
+    <div class="mdl-tooltip" for="add-tag">
+        Add new tag
+    </div>
 </form>
 <script>
     $(document).ready(function () {
         $('#add-tag').click(function () {
             var name = this.form.elements["name"].value;
-            $('.all-tags').append('{% include 'wizard/step-2/tag.html' %}');
+            var tag = $('{% include 'wizard/step-2/tag.html'%}').text(name);
+            $('.all-tags').append(tag);
             this.form.elements["name"].value = '';
         });
     });
