@@ -11,9 +11,20 @@ class ShallowCourse(models.Model):
     prerequisites = models.TextField(blank=True)
     requirements = models.TextField(blank=True)
 
+    def __str__(self):
+        return self.title
 
-class Tag(models.Model):
+
+class Group(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Concept(models.Model):
+    name = models.CharField(max_length=100)
+    group = models.ForeignKey('Group', null=True, blank=True, default=None)
 
     def __str__(self):
         return self.name

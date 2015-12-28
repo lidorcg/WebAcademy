@@ -1,7 +1,5 @@
 {% include 'forms/fields/hidden.html' with name="module" value=module.id %}
 {% include 'forms/fields/hidden.html' with name="order" value=module.get_lessons_count %}
 {% include 'forms/fields/text.html' with name='title' label='Title' %}
-<br>
 {% include 'forms/fields/textarea.html' with name='description' label='Description' %}
-<br>
 {% include 'syllabus/forms/fields/lesson-type.html' %}

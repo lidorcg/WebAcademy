@@ -1,7 +1,5 @@
 {% include 'forms/fields/hidden.html' with name="lesson" value=lesson.id %}
 {% include 'forms/fields/hidden.html' with name="order" value=lesson.get_units_count %}
 {% include 'forms/fields/text.html' with name='name' label='Name' %}
-<br>
 {% include 'syllabus/forms/fields/unit-type.html' %}
-<br>
 {% include 'forms/fields/text.html' with name='url' label='URL' %}

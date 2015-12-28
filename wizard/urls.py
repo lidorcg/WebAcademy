@@ -19,5 +19,5 @@ from wizard import views
 
 urlpatterns = [
     url(r'^$', views.wizard_view, name='wizard'),
-    url(r'^tags/add/$', views.TagCreate.as_view(), name='tag-add'),
+    url(r'^concepts/add/$', views.ConceptCreate.as_view(), name='concept-add'),
 ]

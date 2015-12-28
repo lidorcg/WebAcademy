@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView
 
 from user.views import LoginRequiredMixin
-from wizard.models import Tag
+from wizard.models import Concept
 
 
 # Create your views here.
@@ -12,6 +12,6 @@ def wizard_view(request):
     return render(request, 'wizard/wizard.html')
 
 
-class TagCreate(LoginRequiredMixin, CreateView):
-    model = Tag
+class ConceptCreate(LoginRequiredMixin, CreateView):
+    model = Concept
     fields = ['name']
