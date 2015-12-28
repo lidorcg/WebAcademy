@@ -1,18 +1,14 @@
 <div class="panel panel-primary">
     <div class="panel-body">
-        <form class="ajax-form" action="#" method="post" id="create-course-form">
-            {% csrf_token %}
+        <form class="ajax-form" action="{% url 'wizard:idea-add' %}" method="post" id="create-course-form">
+            {% include 'forms/fields/hidden.html' with name='user' value=user.id %}
             <div class="form-group form-group-lg">
                 <label for="title"></label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Title">
             </div>
             <div class="form-group">
                 <label for="description"></label>
-                <textarea class="form-control" id="description" placeholder="Description"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="prerequisites"></label>
-                <textarea class="form-control" id="prerequisites" placeholder="Prerequisites"></textarea>
+                <textarea class="form-control" id="description" name="description" placeholder="Description" rows="6"></textarea>
             </div>
         </form>
     </div>

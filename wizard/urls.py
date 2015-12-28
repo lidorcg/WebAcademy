@@ -19,5 +19,7 @@ from wizard import views
 
 urlpatterns = [
     url(r'^$', views.wizard_view, name='wizard'),
+    url(r'^ideas/add/$', views.IdeaCreate.as_view(), name='idea-add'),
     url(r'^concepts/add/$', views.ConceptCreate.as_view(), name='concept-add'),
+    url(r'^groups/add/$', views.GroupCreate.as_view(), name='group-add'),
 ]
