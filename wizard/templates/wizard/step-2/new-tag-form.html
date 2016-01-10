@@ -1,6 +1,6 @@
 <h4>Here you should "spill" all the concepts (tags) you want to teach on your course:</h4>
 <form class="form-inline ajax-form" action="{% url 'wizard:concept-add' %}" method="post">
-    <input id="name" class="form-control" name="name" type="text" placeholder="Name" autocomplete=off>
+    <input id="name" class="form-control" name="name" type="text" placeholder="Name" autocomplete="off"/>
     <button id="add-tag" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
         <i class="material-icons">add</i>
     </button>
@@ -8,14 +8,3 @@
         Add new tag
     </div>
 </form>
-<script>
-    $(document).ready(function () {
-        $('#add-tag').click(function () {
-            var name = this.form.elements["name"].value;
-            var tag = $('{% include 'wizard/step-2/tag.html'%}').text(name);
-            $('.all-tags').append(tag);
-        });
-    });
-</script>
-<!-- ToDo reset form after submit -->
-<!-- ToDo add form validations -->

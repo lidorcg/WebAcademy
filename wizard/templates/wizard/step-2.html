@@ -10,4 +10,13 @@
             {% include 'wizard/step-2/all-tags.html' %}
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-10">
+            <button id="go-to-3" class="btn btn-primary btn-lg">
+                Next Step
+            </button>
+        </div>
+    </div>
 </div>
+{% load static %}
+<script src="{% static 'wizard/js/step-2.js' %}"></script>
