@@ -30,8 +30,10 @@
 
         <div id="tag-groups" class="row">
         </div>
-        <script>
-            $('#tag-groups').sortable({handle: '.handle'});
-        </script>
     </div>
+{% endblock %}
+
+{% block script %}
+    {% load static %}
+    <script src="{% static 'wizard/js/step-3.js' %}"></script>
 {% endblock %}
