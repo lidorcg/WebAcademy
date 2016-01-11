@@ -28,5 +28,7 @@
     </div>
 {% endblock %}
 
-{% load static %}
-<script src="{% static 'wizard/js/step-2.js' %}"></script>
+{% block script %}
+    {% load static %}
+    <script src="{% static 'wizard/js/step-2.js' %}"></script>
+{% endblock %}
