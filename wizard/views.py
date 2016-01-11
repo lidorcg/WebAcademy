@@ -1,16 +1,32 @@
-from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView, DetailView
 
 from user.views import LoginRequiredMixin
 from wizard.models import Idea, Concept, Group
 
 
 # Create your views here.
-@login_required()
-def wizard_view(request):
-    return render(request, 'wizard/wizard.html')
+
+class IdeaListView(LoginRequiredMixin, ListView):
+    # ToDo make sure there is only one idea per user
+    model = Idea
+    context_object_name = 'idea'
+    template_name = 'wizard/step-1.html'
+
+    def get_queryset(self):
+        return Idea.objects.filter(user__id=self.request.user.id).first()
+
+
+class IdeaTagsView(LoginRequiredMixin, DetailView):
+    model = Idea
+    context_object_name = 'idea'
+    template_name = 'wizard/step-2.html'
+
+
+class IdeaGroupsView(LoginRequiredMixin, DetailView):
+    model = Idea
+    context_object_name = 'idea'
+    template_name = 'wizard/step-3.html'
 
 
 class IdeaCreate(LoginRequiredMixin, CreateView):

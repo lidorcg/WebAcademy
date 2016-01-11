@@ -21,33 +21,11 @@
 
 {% block main %}
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation" class="active">
-            <a href="#step-1" role="tab" data-toggle="tab">
-                STEP 1
-            </a>
-        </li>
-        <li role="presentation">
-            <a href="#step-2" role="tab" data-toggle="tab">
-                STEP 2
-            </a>
-        </li>
-        <li role="presentation">
-            <a href="#step-3" role="tab" data-toggle="tab">
-                STEP 3
-            </a>
-        </li>
+        {% block nav %}{% endblock %}
     </ul>
 
-    <div class="tab-content">
-        <div id="step-1" class="tab-pane fade in active" role="tabpanel">
-            {% include 'wizard/step-1.html' %}
-        </div>
-        <div id="step-2" class="tab-pane fade" role="tabpanel">
-            {% include 'wizard/step-2.html' %}
-        </div>
-        <div id="step-3" class="tab-pane fade" role="tabpanel">
-            {% include 'wizard/step-3.html' %}
-        </div>
+    <div class="content">
+        {% block content %}{% endblock %}
     </div>
 {% endblock %}
 
