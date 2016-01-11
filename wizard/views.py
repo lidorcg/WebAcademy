@@ -7,7 +7,7 @@ from wizard.models import Idea, Concept, Group
 
 # Create your views here.
 
-class IdeaListView(LoginRequiredMixin, ListView):
+class Step1View(LoginRequiredMixin, ListView):
     # ToDo make sure there is only one idea per user
     model = Idea
     context_object_name = 'idea'
@@ -17,13 +17,13 @@ class IdeaListView(LoginRequiredMixin, ListView):
         return Idea.objects.filter(user__id=self.request.user.id).first()
 
 
-class IdeaTagsView(LoginRequiredMixin, DetailView):
+class Step2View(LoginRequiredMixin, DetailView):
     model = Idea
     context_object_name = 'idea'
     template_name = 'wizard/step-2.html'
 
 
-class IdeaGroupsView(LoginRequiredMixin, DetailView):
+class Step3View(LoginRequiredMixin, DetailView):
     model = Idea
     context_object_name = 'idea'
     template_name = 'wizard/step-3.html'
@@ -32,7 +32,6 @@ class IdeaGroupsView(LoginRequiredMixin, DetailView):
 class IdeaCreate(LoginRequiredMixin, CreateView):
     model = Idea
     fields = ['user', 'title', 'description']
-    success_url = reverse_lazy('wizard:wizard')
 
 
 class ConceptCreate(LoginRequiredMixin, CreateView):

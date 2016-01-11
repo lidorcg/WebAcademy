@@ -18,9 +18,9 @@ from django.conf.urls import url
 from wizard import views
 
 urlpatterns = [
-    url(r'^ideas/$', views.IdeaListView.as_view(), name='step-1'),
-    url(r'^ideas/(?P<pk>[0-9]+)/$', views.IdeaTagsView.as_view(), name='step-2'),
-    url(r'^ideas/(?P<pk>[0-9]+)/$', views.IdeaGroupsView.as_view(), name='step-3'),
+    url(r'^step1/$', views.Step1View.as_view(), name='step-1'),
+    url(r'^step2/(?P<pk>[0-9]+)/$', views.Step2View.as_view(), name='step-2'),
+    url(r'^step3/(?P<pk>[0-9]+)/$', views.Step3View.as_view(), name='step-3'),
     url(r'^ideas/add/$', views.IdeaCreate.as_view(), name='idea-add'),
     url(r'^concepts/add/$', views.ConceptCreate.as_view(), name='concept-add'),
     url(r'^groups/add/$', views.GroupCreate.as_view(), name='group-add'),
