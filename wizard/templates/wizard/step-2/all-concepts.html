@@ -1,0 +1,7 @@
+<div class="panel panel-primary">
+    <div class="panel-body">
+        {% for concept in idea.get_concepts %}
+            <span class="concept btn btn-default">{{ concept.name }}</span>
+        {% endfor %}
+    </div>
+</div>

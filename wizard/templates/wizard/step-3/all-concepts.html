@@ -1,0 +1,9 @@
+<div class="panel panel-primary">
+    <ul class="panel-body group">
+        {% for concept in idea.get_concepts %}
+            {% if not concept.group %}
+                {% include 'wizard/step-3/concept.html' %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

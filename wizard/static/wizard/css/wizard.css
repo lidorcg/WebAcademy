@@ -2,14 +2,14 @@
     padding: 5%;
 }
 
-.all-tags {
+.all-concepts {
     min-height: 200px;
 }
 
-.tag-group {
+.group {
     min-height: 200px;
 }
 
-.tag {
-    margin: 2%;
+.concept {
+    margin: 1%;
 }

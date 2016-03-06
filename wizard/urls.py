@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^step3/(?P<pk>[0-9]+)/$', views.Step3View.as_view(), name='step-3'),
     url(r'^ideas/add/$', views.IdeaCreate.as_view(), name='idea-add'),
     url(r'^concepts/add/$', views.ConceptCreate.as_view(), name='concept-add'),
+    url(r'^concepts/(?P<pk>[0-9]+)/update/$', views.ConceptUpdate.as_view(), name='concept-update'),
     url(r'^groups/add/$', views.GroupCreate.as_view(), name='group-add'),
 ]

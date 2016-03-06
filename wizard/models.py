@@ -16,6 +16,12 @@ class Idea(models.Model):
     def get_absolute_url(self):
         return reverse('wizard:step-2', args=[str(self.id)])
 
+    def get_concepts(self):
+        return self.concept_set.all()
+
+    def get_groups(self):
+        return self.group_set.all()
+
 
 class Group(models.Model):
     idea = models.ForeignKey('Idea')
@@ -23,6 +29,12 @@ class Group(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('wizard:step-3', args=[str(self.idea_id)])
+
+    def get_concepts(self):
+        return self.concept_set.all()
 
 
 class Concept(models.Model):
@@ -32,3 +44,6 @@ class Concept(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('wizard:step-2', args=[str(self.idea_id)])

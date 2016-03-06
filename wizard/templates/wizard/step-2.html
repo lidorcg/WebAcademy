@@ -16,19 +16,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                {% include 'wizard/step-2/new-tag-form.html' %}
+                {% include 'wizard/step-2/new-concept-form.html' %}
             </div>
         </div>
         <br>
         <div class="row">
             <div class="col-md-12">
-                {% include 'wizard/step-2/all-tags.html' %}
+                {% include 'wizard/step-2/all-concepts.html' %}
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block script %}
-    {% load static %}
-    <script src="{% static 'wizard/js/step-2.js' %}"></script>
 {% endblock %}

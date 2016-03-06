@@ -1,5 +1,4 @@
-from django.core.urlresolvers import reverse_lazy
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView
 
 from user.views import LoginRequiredMixin
 from wizard.models import Idea, Concept, Group
@@ -36,11 +35,14 @@ class IdeaCreate(LoginRequiredMixin, CreateView):
 
 class ConceptCreate(LoginRequiredMixin, CreateView):
     model = Concept
-    fields = ['name']
-    success_url = reverse_lazy('wizard:wizard')
+    fields = ['idea', 'name']
+
+
+class ConceptUpdate(LoginRequiredMixin, UpdateView):
+    model = Concept
+    fields = ['group']
 
 
 class GroupCreate(LoginRequiredMixin, CreateView):
     model = Group
-    fields = ['name']
-    success_url = reverse_lazy('wizard:wizard')
+    fields = ['idea', 'name']

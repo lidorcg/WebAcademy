@@ -1,0 +1,14 @@
+<h4>Here you should "spill" all the concepts (tags) you want to teach on your course:</h4>
+<form class="form-inline" action="{% url 'wizard:concept-add' %}" method="post">
+    {% csrf_token %}
+    {% include 'forms/fields/hidden.html' with name='idea' value=idea.id %}
+    <input id="name" class="form-control" name="name" type="text" placeholder="Name" autocomplete="off"
+           {% if not idea %}disabled{% endif %}/>
+    <button id="add-tag" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"
+            {% if not idea %}disabled{% endif %}>
+        <i class="material-icons">add</i>
+    </button>
+    <div class="mdl-tooltip" for="add-tag">
+        Add new tag
+    </div>
+</form>

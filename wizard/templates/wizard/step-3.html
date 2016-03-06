@@ -23,12 +23,15 @@
 
         <div class="row">
             <div class="col-md-12">
-                {% include 'wizard/step-3/all-tags.html' %}
+                {% include 'wizard/step-3/all-concepts.html' %}
             </div>
         </div>
         <br>
 
-        <div id="tag-groups" class="row">
+        <div class="row all-groups">
+            {% for group in idea.get_groups %}
+                {% include 'wizard/step-3/group.html' %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
