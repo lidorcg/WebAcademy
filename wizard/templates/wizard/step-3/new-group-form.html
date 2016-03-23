@@ -5,7 +5,7 @@
 <form class="form-inline" action="{% url 'wizard:group-add' %}" method="post">
     {% csrf_token %}
     {% include 'forms/fields/hidden.html' with name='idea' value=idea.id %}
-    <input id="name" class="form-control" name="name" type="text" placeholder="Name" autocomplete="off">
+    <input id="name" class="form-control" name="name" type="text" placeholder="Name" autocomplete="off" />
     <button id="add-group" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
         <i class="material-icons">add</i>
     </button>

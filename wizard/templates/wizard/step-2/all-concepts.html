@@ -1,7 +1,8 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary all-concepts">
     <div class="panel-body">
         {% for concept in idea.get_concepts %}
-            <span class="concept btn btn-default">{{ concept.name }}</span>
+            {% include 'wizard/step-2/concept.html' %}
+            <!-- TODO delete on click -->
         {% endfor %}
     </div>
 </div>

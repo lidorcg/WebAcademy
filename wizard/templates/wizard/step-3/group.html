@@ -1,9 +1,9 @@
 <div class="col-md-4">
     <div class="panel panel-primary">
-        <div class="panel-heading handle">{{ group.name }}</div>
+        <div class="panel-heading">{{ group.name }}</div>
         <ul class="panel-body group" data-group-id="{{ group.id }}">
             {% for concept in group.get_concepts %}
-                {% include 'wizard/step-3/concept.html' %}
+                {% include 'wizard/step-2/concept.html' %}
             {% endfor %}
         </ul>
     </div>

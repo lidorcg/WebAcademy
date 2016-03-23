@@ -15,8 +15,11 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 {% include 'wizard/step-3/new-group-form.html' %}
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'wizard:done' %}" class="btn btn-primary btn-lg">Finished!</a>
             </div>
         </div>
         <br>

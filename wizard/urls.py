@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^concepts/add/$', views.ConceptCreate.as_view(), name='concept-add'),
     url(r'^concepts/(?P<pk>[0-9]+)/update/$', views.ConceptUpdate.as_view(), name='concept-update'),
     url(r'^groups/add/$', views.GroupCreate.as_view(), name='group-add'),
+    url(r'^done/$', views.done_view, name='done'),
 ]
