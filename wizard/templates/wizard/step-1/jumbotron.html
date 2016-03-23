@@ -1,14 +1,14 @@
-<div class="container">
-    <div class="jumbotron">
-        <h1>1st Step:</h1>
+<div class="jumbotron">
+    <h1>1st Step:</h1>
+    <h4>Name your course and tell us a little bit about it</h4>
+    <h6>(don't worry you can change this later...)</h6>
 
-        <p>Name your course and tell us a little bit about it<br>
-            (you can do this later if you want...)</p>
-        <button class="btn btn-primary btn-lg">
-            Next Step
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <!-- ToDo assign action to the button -->
-        </button>
-        <small>Only 2 more steps...</small>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-8">
+            <button id="go-to-2" class="btn btn-primary btn-lg" form="create-course-form"
+                    {% if idea %}disabled{% endif %}>
+                Next Step
+            </button>
+        </div>
     </div>
 </div>

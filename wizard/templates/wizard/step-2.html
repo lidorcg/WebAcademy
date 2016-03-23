@@ -1,18 +1,29 @@
-<!-- ToDo step 2 -->
-<div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--12-col">
-        <h4>Here you can collect all the concept and subjects you planned on teaching:</h4>
+{% extends "wizard/wizard.html" %}
 
-        <form action="#">
-            <div class="mdl-textfield mdl-js-textfield">
-                <input class="mdl-textfield__input" type="text" id="add-tag">
-                <label class="mdl-textfield__label" for="add-tag">Add New Tag...</label>
+{% block nav %}
+    <li>
+        <a href="{% url 'wizard:step-1' %}">STEP 1</a>
+    </li>
+    <li class="active">
+        <a href="{% url 'wizard:step-2' idea.id %}">STEP 2</a>
+    </li>
+    <li>
+        <a href="{% url 'wizard:step-3' idea.id %}">STEP 3</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'wizard/step-2/new-concept-form.html' %}
             </div>
-        </form>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'wizard/step-2/all-concepts.html' %}
+            </div>
+        </div>
     </div>
-</div>
-<script>
-    $("#add-tag-fab").click(function () {
-        $("#add-tag-div").before('{% include "wizard/step-2/tag-form.html" %}');
-    });
-</script>
+{% endblock %}

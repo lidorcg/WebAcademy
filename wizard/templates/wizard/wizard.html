@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'wizard/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'wizard/bootstrap/css/bootstrap-theme.min.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'wizard/css/wizard.css' %}">
 {% endblock %}
 
 {% block JS %}
@@ -14,39 +15,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
     <script src="{% static 'wizard/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'main/js/main.js' %}"></script>
+    <script src="{% static 'main/js/ajax-csrf.js' %}"></script>
+    <script src="{% static 'main/js/ajax-form.js' %}"></script>
 {% endblock %}
 
 
 {% block main %}
     <ul class="nav nav-pills nav-justified">
-        <li role="presentation" class="active">
-            <a href="#step-1" aria-controls="home" role="tab" data-toggle="tab">
-                STEP 1
-            </a>
-        </li>
-        <li role="presentation">
-            <a href="#step-2" aria-controls="profile" role="tab" data-toggle="tab">
-                STEP 2
-            </a>
-        </li>
-        <li role="presentation">
-            <a href="#step-3" aria-controls="messages" role="tab" data-toggle="tab">
-                STEP 3
-            </a>
-        </li>
+        {% block nav %}{% endblock %}
     </ul>
 
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane fade in active" id="step-1">
-            {% include 'wizard/step-1.html' %}
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="step-2">
-            {% include 'wizard/step-2.html' %}
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="step-3">
-            {% include 'wizard/step-3.html' %}
-        </div>
+    <div class="content">
+        {% block content %}{% endblock %}
     </div>
+
+    {% block script %}{% endblock %}
 {% endblock %}
+
+
 

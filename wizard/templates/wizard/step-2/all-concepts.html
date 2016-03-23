@@ -1,0 +1,8 @@
+<div class="panel panel-primary all-concepts">
+    <div class="panel-body">
+        {% for concept in idea.get_concepts %}
+            {% include 'wizard/step-2/concept.html' %}
+            <!-- TODO delete on click -->
+        {% endfor %}
+    </div>
+</div>

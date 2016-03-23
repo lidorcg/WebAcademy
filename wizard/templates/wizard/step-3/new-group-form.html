@@ -1,0 +1,17 @@
+<h3> Good Job! Last Step :)</h3>
+<h4>The last thing we need is to group the concepts together:</h4>
+<h5>(try not put more than five concepts in the same group)</h5>
+
+<form class="form-inline" action="{% url 'wizard:group-add' %}" method="post">
+    {% csrf_token %}
+    {% include 'forms/fields/hidden.html' with name='idea' value=idea.id %}
+    <input id="name" class="form-control" name="name" type="text" placeholder="Name" autocomplete="off" />
+    <button id="add-group" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">
+        <i class="material-icons">add</i>
+    </button>
+    <div class="mdl-tooltip" for="add-group">
+        Open new group
+    </div>
+</form>
+<!-- ToDo reset form after submit -->
+<!-- ToDo add form validations -->
