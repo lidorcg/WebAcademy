@@ -51,9 +51,6 @@
 }
 
 .mdl-navigation .mdl-navigation__link {
-    display: -webkit-box !important;
-    display: -webkit-flex !important;
-    display: -ms-flexbox !important;
     display: flex !important;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

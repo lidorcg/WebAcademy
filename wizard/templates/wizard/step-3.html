@@ -1,0 +1,45 @@
+{% extends "wizard/wizard.html" %}
+
+{% block nav %}
+    <li>
+        <a href="{% url 'wizard:step-1' %}">STEP 1</a>
+    </li>
+    <li>
+        <a href="{% url 'wizard:step-2' idea.id %}">STEP 2</a>
+    </li>
+    <li class="active">
+        <a href="{% url 'wizard:step-3' idea.id %}">STEP 3</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% include 'wizard/step-3/new-group-form.html' %}
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'wizard:done' %}" class="btn btn-primary btn-lg">Finished!</a>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'wizard/step-3/all-concepts.html' %}
+            </div>
+        </div>
+        <br>
+
+        <div class="row all-groups">
+            {% for group in idea.get_groups %}
+                {% include 'wizard/step-3/group.html' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    {% load static %}
+    <script src="{% static 'wizard/js/step-3.js' %}"></script>
+{% endblock %}

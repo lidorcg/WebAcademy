@@ -1,5 +1,7 @@
 import os
+import logging
 # ToDo factor out folder creation and downloads to functions
+# ToDo use logging
 ##############################
 ### creating export folder ###
 ##############################
@@ -8,13 +10,15 @@ if not os.path.exists("export"):
 	os.mkdir("export")
 os.chdir("export")
 file = open('__init__.py', 'w+')
+# creating log file
+logging.basicConfig(filename='example.log',level=logging.ERROR)
 
 ##################################
 ### getting youtube downloader ###
 ##################################
 import urllib.request
 if not os.path.exists("pafy.py"):
-	url = 'https://raw.githubusercontent.com/np1/pafy/master/pafy/pafy.py'
+	url = 'https://raw.githubusercontent.com/mps-youtube/pafy/cacc605f95245cdb14665be80e1e8dfa61043547/pafy/pafy.py'
 	print("downloading pafy.py...")
 	try:
 		urllib.request.urlretrieve(url, "pafy.py")

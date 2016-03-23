@@ -10,13 +10,14 @@
 {% block left %}
     {% include 'syllabus/forms/update-form.html' %}
     <br>
-    {% include 'syllabus/blocks/donut-chart.html' with obj=module %}
+    {% include 'user/messages/messages-card.html' with obj=module object='module' %}
+
 {% endblock %}
 
 {% block right %}
     {% include 'syllabus/table/table-card.html' with title="Lessons" objects=module.get_lessons %}
     <br>
-    {% include 'user/messages/messages-card.html' with obj=module object='module' %}
+    {% include 'syllabus/blocks/donut-chart.html' with obj=module %}
 {% endblock %}
 
 {% block create-form %}

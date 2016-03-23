@@ -1,0 +1,10 @@
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label" for="level">Level</label>
+    <select name="level" class="mdl-textfield__input">
+        {% for level in module_levels %}
+            <option value="{{ level.id }}" {% if module.level == level %}selected{% endif %}>
+                {{ level.name }}
+            </option>
+        {% endfor %}
+    </select>
+</div>

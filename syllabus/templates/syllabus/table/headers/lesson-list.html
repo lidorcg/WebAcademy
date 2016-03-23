@@ -25,3 +25,14 @@
 <th class="row-time">Time</th>
 <th class="mdl-data-table__cell--non-numeric row-done">Done</th>
 <th class="row-link">Link</th>
+<script>
+    $(document).ready(function () {
+        $('.table-form').on('change', function (event) {
+            $.ajax({
+                type: $(this).attr("method"),
+                url: $(this).attr("action"),
+                data: $(this).serialize()
+            });
+        });
+    });
+</script>
