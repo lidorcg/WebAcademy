@@ -85,3 +85,11 @@
 .mdl-card__actions {
     display: flex;
 }
+
+.container {
+    width: auto;
+}
+
+li .active {
+    background-color: #3f51b5;
+}

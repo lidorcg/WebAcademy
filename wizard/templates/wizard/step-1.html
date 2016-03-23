@@ -1,0 +1,27 @@
+{% extends "wizard/wizard.html" %}
+
+{% block nav %}
+    <li class="active">
+        <a href="{% url 'wizard:step-1' %}">STEP 1</a>
+    </li>
+    <!-- ToDo handle disabled links -->
+    <li>
+        <a href="{% if idea %}{% url 'wizard:step-2' idea.id %}{% endif %}">STEP 2</a>
+    </li>
+    <li>
+        <a href="{% if idea %}{% url 'wizard:step-3' idea.id %}{% endif %}">STEP 3</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                {% include 'wizard/step-1/new-idea-form.html' %}
+            </div>
+            <div class="col-md-7">
+                {% include 'wizard/step-1/jumbotron.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

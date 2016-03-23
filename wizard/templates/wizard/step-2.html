@@ -1,0 +1,29 @@
+{% extends "wizard/wizard.html" %}
+
+{% block nav %}
+    <li>
+        <a href="{% url 'wizard:step-1' %}">STEP 1</a>
+    </li>
+    <li class="active">
+        <a href="{% url 'wizard:step-2' idea.id %}">STEP 2</a>
+    </li>
+    <li>
+        <a href="{% url 'wizard:step-3' idea.id %}">STEP 3</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'wizard/step-2/new-concept-form.html' %}
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                {% include 'wizard/step-2/all-concepts.html' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

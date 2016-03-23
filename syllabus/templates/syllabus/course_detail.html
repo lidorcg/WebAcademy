@@ -9,13 +9,13 @@
 {% block left %}
     {% include 'syllabus/forms/update-form.html' %}
     <br>
-    {% include 'syllabus/blocks/donut-chart.html' with obj=course %}
+    {% include 'user/messages/messages-card.html' with obj=course object='course' %}
 {% endblock %}
 
 {% block right %}
     {% include 'syllabus/table/table-card.html' with title="Modules" objects=course.get_modules %}
     <br>
-    {% include 'user/messages/messages-card.html' with obj=course object='course' %}
+    {% include 'syllabus/blocks/donut-chart.html' with obj=course %}
 {% endblock %}
 
 {% block create-form %}

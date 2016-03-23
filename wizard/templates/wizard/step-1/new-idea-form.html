@@ -1,0 +1,20 @@
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <form id="create-course-form" action="{% url 'wizard:idea-add' %}" method="post">
+            {% csrf_token %}
+            {% include 'forms/fields/hidden.html' with name='user' value=user.id %}
+            <div class="form-group form-group-lg">
+                <label for="title"></label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+                       value="{{ idea.title }}" {% if idea %}disabled{% endif %}>
+            </div>
+            <div class="form-group">
+                <label for="description"></label>
+                <textarea class="form-control" id="description" name="description" placeholder="Description"
+                          rows="6" {% if idea %}disabled{% endif %}>{{ idea.description }}</textarea>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- ToDo add form validations -->
+<!-- ToDo fill and disable form if idea -->
