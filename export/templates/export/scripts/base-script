@@ -1,4 +1,5 @@
 import os
+import shutil
 import logging
 # ToDo factor out folder creation and downloads to functions
 # ToDo use logging
@@ -37,3 +38,5 @@ from export import pafy
 {% include 'export/scripts/unit-script' with u=unit %}
 {% endif %}
 
+shutil.rmtree('__pycache__')
+os.remove('__init__.py')
